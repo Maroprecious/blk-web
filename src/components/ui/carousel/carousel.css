@@ -1,0 +1,33 @@
+/* .swiper-button-next:after,
+.swiper-button-prev:after {
+  display: none;
+} */
+
+/* .swiper-navigation-size {
+  font-size: 44px;
+  color: red;
+} */
+/* :root {
+  --swiper-navigation-size: 1px;
+  --swiper-navigation-top-offset: 50%;
+  --swiper-navigation-sides-offset: 10px;
+  --swiper-navigation-color: var(--swiper-theme-color);
+} */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #946c3c;
+  font-size: 34px;
+}
+.swiper-button-disabled {
+  color: #98a2b3;
+}
+.active {
+  color: #946c3c;
+  font-family: "Maison Neue", sans-serif;
+  font-size: 24px;
+}
+.hiddenClass {
+  color: #98a2b3;
+  font-family: "Maison Neue", sans-serif;
+  font-size: 24px;
+}

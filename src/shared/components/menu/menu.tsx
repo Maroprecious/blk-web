@@ -7,8 +7,6 @@ import IMGMenuBg4 from "@assets/images/menu-bg-4.png";
 import IMGMenuBg5 from "@assets/images/menu-bg-5.png";
 import IMGClose from "@assets/icons/close.svg";
 import { useEffect, useState } from "react";
-// import { landingRoutes } from "@/modules/landing/landing.routes";
-
 import "./menu.css";
 
 function useController() {
@@ -22,11 +20,11 @@ function useController() {
   const links = [
     {
       title: "Retreats calendar",
-      url: "/retreats-calendar",
+      url: "/retreatCalendar",
     },
     {
       title: "Herbalpaedia",
-      url: "/herbalpaedia",
+      url: "/herbalpeadia",
     },
     {
       title: "Store",
@@ -38,7 +36,7 @@ function useController() {
     },
     {
       title: "About us",
-      url: "/about-us",
+      url: "/about",
     },
   ];
 
@@ -82,8 +80,9 @@ function useController() {
               menuItemIndexHovered === index ? "opacity-100" : "opacity-0"
             }`}
           ></div>
+
           <a
-            href=""
+            href="/"
             className="text-[56px] font-medium text-white whitespace-nowrap font-maison"
           >
             {title}

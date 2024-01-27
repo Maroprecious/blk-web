@@ -1,7 +1,7 @@
 import React from "react";
 import BRTHeader from "@/shared/components/header/transparentHeader";
 import mainVideo from "@assets/video/brw-video.mp4";
-import { Calendar } from "@/components/ui/calendar";
+import CalendarComponent from "@/components/landing/Calendar";
 const retreatCalendar = () => {
   return (
     <div>
@@ -17,7 +17,7 @@ const retreatCalendar = () => {
         <h2 className="text-[64px] font-recoleta font-medium">
           Retreat calendar
         </h2>
-        <Calendar className="w-full" />
+        <CalendarComponent />
       </section>
     </div>
   );

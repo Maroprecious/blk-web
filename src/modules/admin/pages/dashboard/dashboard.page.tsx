@@ -38,8 +38,8 @@ const dashboard = () => {
           </PopoverContent>
         </Popover>
       </section>
-      <div className="flex gap-6  justify-between">
-        <div>
+      <div className="flex gap-6 mt-6 ">
+        <div className="flex-1">
           <section className="font-maison">
             <h2 className="font-medium text-2xl mb-2">Summary</h2>
             <div className="w-full max-w-[733px] flex gap-6">
@@ -70,7 +70,7 @@ const dashboard = () => {
                 </p>
               </div>
             </div>
-            <div>
+            <div className="w-full max-w-[733px]">
               <h2 className="font-medium text-2xl mt-6 mb-2">Overview</h2>
               <div className="w-full max-w-[733px] h-96 flex gap-6 ">
                 <div className="p-6 bg-transparent border border-[#EAECF0] flex-1"></div>

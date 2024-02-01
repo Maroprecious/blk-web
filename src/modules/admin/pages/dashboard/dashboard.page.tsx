@@ -3,9 +3,9 @@ import { FaChevronDown } from "react-icons/fa6";
 import addProduct from "../../../../assets/icons/addProduct.svg";
 import addRetreat from "../../../../assets/icons/addRetreat.svg";
 import add from "../../../../assets/icons/add.svg";
-import retreatParticipant from "../../../../assets/icons/retreatPartcp.svg";
 import ongoingRepeat from "../../../../assets/images/retreat.svg";
-
+import days from "../../../../assets/icons/days.svg";
+import Cards from "@/components/dashboard/Cards";
 import {
   Popover,
   PopoverContent,
@@ -43,32 +43,8 @@ const dashboard = () => {
           <section className="font-maison">
             <h2 className="font-medium text-2xl mb-2">Summary</h2>
             <div className="w-full max-w-[733px] flex gap-6">
-              <div className="p-6 bg-transparent border border-[#EAECF0] flex-1">
-                <img
-                  src={retreatParticipant}
-                  alt="retreatParticipant Icon"
-                  className="mb-2"
-                />
-                <h3 className="font-recoleta text-[#101828] text-6xl py-3">
-                  60
-                </h3>
-                <p className="text-[#667085] text-[20px]">
-                  No of retreat participants
-                </p>
-              </div>
-              <div className="p-6 bg-transparent border border-[#EAECF0] flex-1">
-                <img
-                  src={retreatParticipant}
-                  alt="retreatParticipant Icon"
-                  className="mb-2"
-                />
-                <h3 className="font-recoleta text-[#101828] text-6xl py-3">
-                  60
-                </h3>
-                <p className="text-[#667085] text-[20px]">
-                  No of retreat participants
-                </p>
-              </div>
+              <Cards />
+              <Cards />
             </div>
             <div className="w-full max-w-[733px]">
               <h2 className="font-medium text-2xl mt-6 mb-2">Overview</h2>
@@ -81,11 +57,19 @@ const dashboard = () => {
         <div className="flex-1 w-full max-w-[339px]">
           <section>
             <h2 className="font-medium text-2xl mb-2">Ongoing retreat</h2>
-            <div className="w-full">
+            <div className="w-full border border-[#EAECF0] p-2">
               <img src={ongoingRepeat} alt="ongoingRepeat" />
-              <p className="font-medium text-2xl mb-2">
-                Tranquil Forest Retreat, Pacific Northwest
-              </p>
+              <div className="w-full p-4">
+                <p className="font-medium text-2xl mb-2">
+                  Tranquil Forest Retreat, Pacific Northwest
+                </p>
+                <div className="text-[#CF956F] flex bg-[#FAF6F3] py-2 my-2  justify-start items-start w-[95px] gap-2">
+                  <img src={days} alt="" />5 days
+                </div>
+                <button className="w-full uppercase bg-[#946C3C] h-10 text-[#FFFFFF]">
+                  see itinerary
+                </button>
+              </div>
             </div>
           </section>
         </div>

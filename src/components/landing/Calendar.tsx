@@ -1,99 +1,106 @@
-// import React, { useState, ChangeEvent } from "react";
-// import Calendar, { TileContentArg, DateCallback } from "react-calendar";
-// import "react-calendar/dist/Calendar.css";
-// interface Event {
-//   date: Date;
-//   name: string;
-// }
+import React, { useState } from "react";
+import { IoChevronBackOutline } from "react-icons/io5";
+import { IoChevronForward } from "react-icons/io5";
+import { Calendar, momentLocalizer, Event } from "react-big-calendar";
+import moment from "moment";
+import "react-big-calendar/lib/css/react-big-calendar.css";
 
-// const CalendarComponent: React.FC = () => {
-//   const [selectedDates, setSelectedDates] = useState<Date[]>([]);
-//   const [eventName, setEventName] = useState<string>("");
-//   const [events, setEvents] = useState<Event[]>([]);
+const localizer = momentLocalizer(moment);
 
-//   const handleDateChange: DateCallback = (date:Date) => {
-//     const newSelectedDates = [...selectedDates, date as Date];
-//     setSelectedDates(newSelectedDates);
+interface EventWithSlots extends Event {
+  slots?: string[]; // Array of time slots for the event
+}
 
-//     // You can set event names for the selected dates here
-//     const newEvents = [...events, { date: date as Date, name: eventName }];
-//     setEvents(newEvents);
-//   };
-
-//   const handleEventNameChange = (event: ChangeEvent<HTMLInputElement>) => {
-//     setEventName(event.target.value);
-//   };
-
-//   return (
-//     <div>
-//       <h1>Event Calendar</h1>
-//       <label htmlFor="eventName">Event Name:</label>
-//       <input
-//         type="text"
-//         id="eventName"
-//         value={eventName}
-//         onChange={handleEventNameChange}
-//       />
-
-//       <Calendar
-//         onChange={handleDateChange}
-//         value={selectedDates}
-//         selectRange
-//         tileContent={({ date, view }: TileContentArg) =>
-//           view === "month" &&
-//           events.map((event) =>
-//             event.date.toLocaleDateString() ===
-//             (date as Date).toLocaleDateString() ? (
-//               <div key={event.date.toString()} className="event-marker">
-//                 {event.name}
-//               </div>
-//             ) : null
-//           )
-//         }
-//       />
-//     </div>
-//   );
-// };
-
-// export default CalendarComponent;
-
-// import React, { useState, ChangeEvent } from "react";
-// import Calendar, { TileContentArg, DateCallback } from "react-calendar";
-// import "react-calendar/dist/Calendar.css";
-
-// interface Event {
-//   date: Date;
-//   name: string;
-// }
-import { useState } from "react";
-import Calendar from "react-calendar";
-
-type ValuePiece = Date | null;
-
-type Value = ValuePiece | [ValuePiece, ValuePiece];
-import "react-calendar/dist/Calendar.css";
+const events: EventWithSlots[] = [
+  {
+    title: "Tranquil Forest Retreat, Pacific Northwest",
+    start: moment("2024-01-30T10:00:00").toDate(),
+    end: moment("2024-02-08T11:00:00").toDate(),
+  },
+  // Add more events with date range and time slots
+];
 
 const CalendarComponent: React.FC = () => {
-  const [value, onChange] = useState<Value>(new Date());
+  const [currentView, setCurrentView] = useState<string>("month");
+  const handleViewChange = (view: string) => {
+    setCurrentView(view);
+  };
+  // style fo custom toolbar
+  const CustomToolbar: React.FC<any> = ({ label, onView }) => {
+    const formattedLabel = moment(label).format("MMMM YYYY");
+
+    return (
+      <div>
+        <div className="flex justify-between bg-white pb-3">
+          <span className="flex gap-2 items-center bg-[#E6E5DE] px-2 text-[#667085]">
+            <IoChevronBackOutline />
+            {formattedLabel}
+            <IoChevronForward />
+          </span>
+          <div className="flex gap-3">
+            <button
+              className={` ${
+                currentView === "week"
+                  ? "bg-[#E6E5DE] px-2 py-1 text-[#667085]"
+                  : "text-[#C5C4BD]"
+              }`}
+              onClick={() => onView("week")}
+            >
+              Weekly
+            </button>
+            <button
+              className={
+                currentView === "month"
+                  ? "bg-[#E6E5DE] px-2 py-1 text-[#667085]"
+                  : "text-[#C5C4BD]"
+              }
+              onClick={() => onView("month")}
+            >
+              Monthly
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  };
+  const dayPropGetter = (date: Date) => {
+    // Customize the appearance of the days here
+    // const isWeekend = date.getDay() === 0 || date.getDay() === 6;
+    const isToday = moment(date).isSame(moment(), "day");
+    return {
+      className: isToday ? "today-cell" : "other-cell",
+      style: {
+        backgroundColor: `day-cell ${isToday ? "today-cell" : ""}`,
+        // border: "1px solid #959C7E",
+        height: "156px",
+        borderBottom: "1px solid #959C7E",
+        borderLeft: "1px solid #959C7E",
+        borderRight: "1px solid #959C7E",
+      },
+    };
+  };
 
   return (
     <div>
-      <Calendar onChange={onChange} value={value} selectRange={true} />
+      <Calendar
+        localizer={localizer}
+        events={events}
+        views={["week", "month"]}
+        components={{
+          toolbar: CustomToolbar,
+        }}
+        max={moment("2024-02-08T11:00:00").toDate()}
+        min={moment("2024-01-30T10:00:00").toDate()}
+        className="custom-calendar"
+        onView={(view) => handleViewChange(view)}
+        style={{
+          height: 782,
+          backgroundColor: "#E6E5DE",
+        }}
+        dayPropGetter={dayPropGetter}
+      />
     </div>
   );
 };
 
 export default CalendarComponent;
-
-// type ValuePiece = Date | null;
-
-// type Value = ValuePiece | [ValuePiece, ValuePiece];
-// function CalendarComponent() {
-//     const [value, onChange] = useState<Value>(new Date());
-
-//     return (
-//       <div>
-//         <Calendar onChange={onChange} value={value} />
-//       </div>
-//     );
-//   }

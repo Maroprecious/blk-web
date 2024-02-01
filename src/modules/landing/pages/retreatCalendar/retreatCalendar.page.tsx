@@ -1,10 +1,9 @@
-import React from "react";
 import BRTHeader from "@/shared/components/header/transparentHeader";
 import mainVideo from "@assets/video/brw-video.mp4";
 import CalendarComponent from "@/components/landing/Calendar";
 const retreatCalendar = () => {
   return (
-    <div>
+    <div className="bg-white">
       <BRTHeader />
       {/* section */}
       <section className="">
@@ -13,7 +12,7 @@ const retreatCalendar = () => {
         </video>
       </section>
       {/* section */}
-      <section className="px-4 lg:pl-[120px] mt-[80px] md:mt-[130px] lg:mt-[175px}">
+      <section className="px-4 lg:px-[120px] mt-[80px] md:mt-[130px] bg-white lg:mt-[175px}">
         <h2 className="text-[64px] font-recoleta font-medium">
           Retreat calendar
         </h2>

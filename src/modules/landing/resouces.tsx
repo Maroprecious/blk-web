@@ -269,3 +269,16 @@ export const sidebarLinks = [
     ),
   },
 ];
+
+export const storeItems = [
+  {
+    prdName: { image: itemImg, name: "Grains of paradise" },
+    id: 1,
+
+    category: "Spirit healing",
+    sales: 48,
+    visibility: true,
+    Price: "$68,460",
+    stock: 23,
+  },
+];

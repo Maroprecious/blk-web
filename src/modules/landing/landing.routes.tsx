@@ -28,6 +28,8 @@ const ForgotPassword = lazy(
 );
 const Dashbaord = lazy(() => import("../admin/pages/dashboard/dashboard.page"));
 const Analytics = lazy(() => import("../admin/pages/analytics/analytics.page"));
+const AdminStore = lazy(() => import("../admin/pages/store/Store.page"));
+const AdminOrder = lazy(() => import("../admin/pages/orders/orders.page"));
 export const landingPaths = [
   "",
   "/",
@@ -44,6 +46,8 @@ export const landingPaths = [
   "forgotpassword",
   "admin/dashboard",
   "admin/analytics",
+  "admin/store",
+  "admin/orders",
 ] as const;
 
 export const landingRoutes: RouteType[] = [
@@ -156,6 +160,22 @@ export const landingRoutes: RouteType[] = [
     element: (
       <Suspense fallback={<BRProgress />}>
         <Analytics />
+      </Suspense>
+    ),
+  },
+  {
+    path: "admin/store",
+    element: (
+      <Suspense fallback={<BRProgress />}>
+        <AdminStore />
+      </Suspense>
+    ),
+  },
+  {
+    path: "admin/orders",
+    element: (
+      <Suspense fallback={<BRProgress />}>
+        <AdminOrder />
       </Suspense>
     ),
   },

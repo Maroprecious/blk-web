@@ -1,6 +1,7 @@
 import itemImg from "@assets/images/herbImg1.svg";
 import itemImg2 from "@assets/images/herbImg2.svg";
 import itemImg3 from "@assets/images/herbImg3.svg";
+import options from "@assets/icons/3Dots.svg";
 export const products = [
   {
     id: 1,
@@ -272,13 +273,64 @@ export const sidebarLinks = [
 
 export const storeItems = [
   {
-    prdName: { image: itemImg, name: "Grains of paradise" },
+    name: "Grains of paradise",
     id: 1,
-
+    image: itemImg,
     category: "Spirit healing",
     sales: 48,
     visibility: true,
     Price: "$68,460",
     stock: 23,
+  },
+  {
+    name: "Grains of paradise",
+    id: 1,
+    image: itemImg2,
+    category: "Spirit healing",
+    sales: 48,
+    visibility: true,
+    Price: "$68,460",
+    stock: 23,
+  },
+];
+export const OrderItems = [
+  {
+    orderName: "BRR-42940",
+    id: 1,
+    customerName: "Hailey Hemsworth",
+    email: "hhems58@gmail.com",
+    date: "21/12/2023",
+    prdName: "Ashwangandha",
+    Price: "$68,460",
+    status: "Received",
+    color: " #CF956F",
+    bg: "#FDF7F3",
+    img: options,
+  },
+  {
+    orderName: "BRR-42940",
+    id: 2,
+    customerName: "Hailey Hemsworth",
+    email: "hhems58@gmail.com",
+    date: "21/12/2023",
+    prdName: "Ashwangandha",
+    Price: "$68,460",
+    status: "Processing",
+    color: " #F79009",
+    bg: "#FFFCF5",
+    img: options,
+  },
+  {
+    orderName: "BRR-42940",
+    id: 3,
+    customerName: "Hailey Hemsworth",
+    email: "hhems58@gmail.com",
+    date: "21/12/2023",
+    prdName: "Ashwangandha",
+    Price: "$68,460",
+    status: "Delivering",
+    color: " #959C7E",
+    bg: "#F8FBF0",
+    img: options,
   },
 ];

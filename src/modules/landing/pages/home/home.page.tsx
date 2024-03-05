@@ -1,5 +1,4 @@
 import BRHeader from "@/shared/components/header/header";
-import mainVideo from "@assets/video/brw-video.mp4";
 import demo1 from "@assets/images/demo1.svg";
 import demo2 from "@assets/images/demo2.svg";
 import demo3 from "@assets/images/demo3.svg";
@@ -8,7 +7,9 @@ import perksImg2 from "@assets/images/perksImg2.svg";
 import perksImg1 from "@assets/images/perksImg1.svg";
 import articles from "@assets/images/article.svg";
 import Footer from "@/components/landing/Footer";
+import FirstVideoComponent from "@/components/landing/firstVideoComponent";
 import Carousel from "@/components/ui/carousel/Carousel";
+import "../../../../main.css";
 export default function HomePage() {
   return (
     <div>
@@ -27,9 +28,7 @@ export default function HomePage() {
             your path to a healthier, happier life.
           </p>
         </main>
-        <video height="558px" autoPlay loop>
-          <source src={mainVideo} type="video/mp4" />
-        </video>
+        <FirstVideoComponent />
       </section>
       {/* section */}
       <section className="mt-[50px] md:mt-[80px] px-4 lg:pl-[120px] gap-[26px] lg:mt-[130px] flex  ">

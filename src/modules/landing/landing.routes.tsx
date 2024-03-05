@@ -26,10 +26,14 @@ const Signup = lazy(() => import("./pages/signup/signup.page"));
 const ForgotPassword = lazy(
   () => import("./pages/forgotPassword/forgotPassword.page")
 );
+const RequestPassword = lazy(
+  () => import("./pages/requestPassword/requestPassword.page")
+);
 const Dashbaord = lazy(() => import("../admin/pages/dashboard/dashboard.page"));
 const Analytics = lazy(() => import("../admin/pages/analytics/analytics.page"));
 const AdminStore = lazy(() => import("../admin/pages/store/Store.page"));
 const AdminOrder = lazy(() => import("../admin/pages/orders/orders.page"));
+const AllOrders = lazy(() => import("../admin/pages/orders/AllOrders.page"));
 export const landingPaths = [
   "",
   "/",
@@ -44,10 +48,12 @@ export const landingPaths = [
   "login",
   "signup",
   "forgotpassword",
+  "requestPassword",
   "admin/dashboard",
   "admin/analytics",
   "admin/store",
   "admin/orders",
+  "admin/orders/all",
 ] as const;
 
 export const landingRoutes: RouteType[] = [
@@ -148,6 +154,14 @@ export const landingRoutes: RouteType[] = [
     ),
   },
   {
+    path: "requestPassword",
+    element: (
+      <Suspense fallback={<BRProgress />}>
+        <RequestPassword />
+      </Suspense>
+    ),
+  },
+  {
     path: "admin/dashboard",
     element: (
       <Suspense fallback={<BRProgress />}>
@@ -176,6 +190,14 @@ export const landingRoutes: RouteType[] = [
     element: (
       <Suspense fallback={<BRProgress />}>
         <AdminOrder />
+      </Suspense>
+    ),
+  },
+  {
+    path: "admin/orders/all",
+    element: (
+      <Suspense fallback={<BRProgress />}>
+        <AllOrders />
       </Suspense>
     ),
   },

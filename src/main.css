@@ -193,3 +193,60 @@
   color: inherit;
   font-weight: 400;
 }
+.custom-list {
+  list-style-type: disc; /* You can use 'circle' or 'square' as well */
+}
+.video-wrapper {
+  position: relative;
+}
+
+.video {
+  width: 100%;
+  height: auto;
+}
+
+.video:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 1, 1, 0.4),
+    rgba(0, 0, 0, 0.5)
+  ); /* Adjust opacity as needed */
+  pointer-events: none; /* Ensure clicks pass through the overlay */
+}
+.mantine-PasswordInput-innerInput {
+  background: transparent;
+  width: 100%;
+  height: 50px;
+}
+/* .rbc-time-slot {
+  background-color: red;
+}
+.rbc-month-view {
+  background-color: red;
+} */
+/* .rbc-day-bg {
+  background-color: #e6e5de;
+  border: 1px solid #959c7e;
+} */
+/* .rbc-off-range-bg {
+  background-color: #e6e5de;
+  border: 1px solid #959c7e;
+}
+.other-cell {
+  background-color: #e6e5de;
+  border: 1px solid #959c7e;
+} */
+/* .rbc-month-row {
+  background-color: #e6e5de;
+  border: 1px solid #959c7e;
+} */
+/* .today-cell {
+  background-color: #e6e5de;
+  border: 1px solid #959c7e;
+} */

@@ -1,8 +1,36 @@
+// a sign out button that is styled like the other buttons on this component and is positoned at the botttom of this component. also write a code that integrate a signout endpoint here.
 import { sidebarLinks } from "@/modules/landing/resouces";
 import { Link } from "react-router-dom";
 import BrrLogoWhite from "../../../assets/images/BrrLogoWhite.svg";
+import axios from "../../../api/axios";
+import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 const Sidebar: React.FC = () => {
+  const navigate = useNavigate();
+
+  const handleSignOut = async () => {
+  try {
+    const token = localStorage.getItem('authToken');
+    const response = await axios.post('/auth/signout', {}, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    });
+    localStorage.removeItem('authToken');
+    navigate("/");
+  } catch (err: any) {
+    if (!err?.response) {
+      // setErrMsg("No Server Response");
+      console.log("No Server Response");
+    } else if (err.response?.status === 409) {
+      // setErrMsg("Username Taken");
+      console.log("Username Taken");
+    } else {
+      // setErrMsg("Registration Failed");
+      console.log("Registration Failed");
+    }
+  }
+};
   const location = useLocation();
   // Check if the current path is '/about'
   const checkActivePage = (page: string) => {
@@ -24,7 +52,6 @@ const Sidebar: React.FC = () => {
           <Link
             key={menu.id}
             to={menu.link}
-            // onClick={() => setPageTitle(menu.title)}
             className={`${
               checkActivePage(menu.link) &&
               "bg-[#ca8b61] border-l-2 border-white"
@@ -48,6 +75,12 @@ const Sidebar: React.FC = () => {
           </Link>
         ))}
       </div>
+      <div className="sidebar">
+    {/* ... other elements ... */}
+    <button onClick={handleSignOut} className="signout-button">
+      Sign Out
+    </button>
+  </div>
     </div>
   );
 };

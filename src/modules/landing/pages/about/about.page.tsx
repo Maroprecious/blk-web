@@ -1,7 +1,7 @@
 import BRHeader from "@/shared/components/header/header";
-import mainVideo from "@assets/video/brw-video.mp4";
 import sign from "@assets/images/Back rooted team.svg";
 import Footer from "@/components/landing/Footer";
+import FirstVideoComponent from "@/components/landing/firstVideoComponent";
 
 export default function AboutPage() {
   return (
@@ -21,9 +21,7 @@ export default function AboutPage() {
             your path to a healthier, happier life.
           </p>
         </main>
-        <video height="558px" autoPlay loop>
-          <source src={mainVideo} type="video/mp4" />
-        </video>
+        <FirstVideoComponent />
       </section>
       {/* section */}
       <div className="px-4 w-full lg:px-0 max-w-[792px] mx-auto mt-[130px] flex flex-col gap-12">
@@ -74,7 +72,7 @@ export default function AboutPage() {
           </h3>
 
           <form className="w-full grid items-center mb-[116px]">
-            <div className="lg:grid grid-cols-2 gap-x-6 gap-y-4">
+            <div className="lg:grid grid-cols-2 gap-x-6 gap-y-4 mb-4">
               <div>
                 <label htmlFor="">First name</label>
                 <input

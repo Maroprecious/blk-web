@@ -16,7 +16,7 @@ const Header = () => {
   };
   const formattedPageName = capitalizeFirstLetter(currentPage);
   return (
-    <div className="bg-white custom-shadow  p-4 pl-[24px] font-Inter pr-[70px] flex justify-between items-center">
+    <div className="bg-white custom-shadow  p-4 pl-[24px] font-Inter pr-[70px] flex justify-between items-center drop-shadow-sm">
       <h1 className="text-[24px] font-recoleta">{formattedPageName}</h1>
       <div className="">
         <Popover>

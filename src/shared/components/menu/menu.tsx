@@ -1,4 +1,5 @@
 import IMGMenu from "@assets/icons/menu.svg";
+import IMGMenu2 from "@assets/icons/Menu 2.svg";
 import IMGArrow from "@assets/icons/arrow.svg";
 import IMGMenuBg1 from "@assets/images/menu-bg-1.png";
 import IMGMenuBg2 from "@assets/images/menu-bg-2.png";
@@ -7,6 +8,7 @@ import IMGMenuBg4 from "@assets/images/menu-bg-4.png";
 import IMGMenuBg5 from "@assets/images/menu-bg-5.png";
 import IMGClose from "@assets/icons/close.svg";
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import "./menu.css";
 
 function useController() {
@@ -42,6 +44,7 @@ function useController() {
 
   const renderMenuItem = (
     title: string,
+    url: string,
     index: number,
     delayIn: number,
     delayOut: number
@@ -82,7 +85,7 @@ function useController() {
           ></div>
 
           <a
-            href="/"
+            href={url}
             className="text-[56px] font-medium text-white whitespace-nowrap font-maison"
           >
             {title}
@@ -121,16 +124,37 @@ function useController() {
 export default function BRMenu() {
   const { open, closing, links, handleOpen, handleClose, renderMenuItem } =
     useController();
+  const location = useLocation();
+  const renderMenuImage = () => {
+    const showMenuImage =
+      location.pathname.startsWith("/gallery") ||
+      location.pathname.startsWith("/herbalpeadia") ||
+      location.pathname.startsWith("/retreatCalendar");
 
+    if (showMenuImage) {
+      return (
+        <img
+          src={IMGMenu2}
+          alt="Menu Icon"
+          className={`w-8 cursor-pointer`}
+          onClick={handleOpen}
+        />
+      );
+    } else {
+      return (
+        <img
+          src={IMGMenu}
+          alt="Menu Icon"
+          className={`w-8 cursor-pointer`}
+          onClick={handleOpen}
+        />
+      );
+    }
+    return null; // Return null if IMGMenu should not be rendered
+  };
   return (
     <div className="">
-      <img
-        src={IMGMenu}
-        alt="Menu Icon"
-        className={`w-8 cursor-pointer`}
-        onClick={handleOpen}
-      />
-
+      {renderMenuImage()}
       {open && (
         <div className="fixed top-0 bottom-0 left-0 right-0 ">
           <div className="absolute top-16 right-36 cursor-pointer z-10">
@@ -145,6 +169,7 @@ export default function BRMenu() {
             {links.map((link, index) =>
               renderMenuItem(
                 link.title,
+                link.url,
                 index,
                 50 * (index + 1),
                 50 * (index + 1 + (links.length - index * 2))

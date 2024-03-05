@@ -26,15 +26,15 @@ const CalendarComponent: React.FC = () => {
     setCurrentView(view);
   };
   // style fo custom toolbar
-  const CustomToolbar: React.FC<any> = ({ label, onView }) => {
-    const formattedLabel = moment(label).format("MMMM YYYY");
+  const CustomToolbar: React.FC<any> = ({ onView }) => {
+    // const formattedLabel = moment(label).format("MMMM YYYY");
 
     return (
       <div>
         <div className="flex justify-between bg-white pb-3">
           <span className="flex gap-2 items-center bg-[#E6E5DE] px-2 text-[#667085]">
             <IoChevronBackOutline />
-            {formattedLabel}
+            {/* {formattedLabel} */}
             <IoChevronForward />
           </span>
           <div className="flex gap-3">
@@ -65,7 +65,7 @@ const CalendarComponent: React.FC = () => {
   };
   const dayPropGetter = (date: Date) => {
     // Customize the appearance of the days here
-    // const isWeekend = date.getDay() === 0 || date.getDay() === 6;
+    const isWeekend = date.getDay() === 0 || date.getDay() === 6;
     const isToday = moment(date).isSame(moment(), "day");
     return {
       className: isToday ? "today-cell" : "other-cell",
@@ -76,6 +76,7 @@ const CalendarComponent: React.FC = () => {
         borderBottom: "1px solid #959C7E",
         borderLeft: "1px solid #959C7E",
         borderRight: "1px solid #959C7E",
+        borderTop: "1px solid #959C7E",
       },
     };
   };

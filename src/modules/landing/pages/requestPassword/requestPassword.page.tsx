@@ -1,7 +1,5 @@
 import BRHeader from "@/shared/components/header/header";
 import { useState } from "react";
-import { IoEyeOutline } from "react-icons/io5";
-import { BiHide } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import Footer from "@/components/landing/Footer";
 import axios from "../../../../api/axios";
@@ -9,48 +7,70 @@ import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
   const navigate = useNavigate();
-  const [visiblePassword, setVisiblePassword] = useState(false);
   const [email, setUser] = useState("");
-  const [password, setPwd] = useState("");
-  const [errMsg, setErrMsg] = useState("");
+ 
 
   // const EMAIL_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
   // const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 
-  const REGISTER_URL = "/auth/signup";
+  const REGISTER_URL = "/auth/password/request";
   const handleSubmit = async (
     e: React.FormEvent<HTMLFormElement>
   ): Promise<void> => {
     e.preventDefault();
     try {
-      const response = await axios.post(REGISTER_URL, { email, password });
-      const token = response.data.accessToken;
-      localStorage.setItem("authToken", token);
+      const response = await axios.post(REGISTER_URL,{email});
+      console.log(response?.data);
+      // Assuming accessToken exists in the response data
+      console.log(response?.data?.accessToken);
+      console.log(JSON.stringify(response));
       navigate("/");
+      // setSuccess(true);
+      console.log(response.status);
+      // clear state and controlled inputs
       setUser("");
-      setPwd("");
-      setErrMsg("");
-    } catch (err: any) {
+
+    } catch (err:Error) {
       if (!err?.response) {
+        // setErrMsg("No Server Response");
         console.log("No Server Response");
       } else if (err.response?.status === 409) {
+        // setErrMsg("Username Taken");
         console.log("Username Taken");
       } else {
+        // setErrMsg("Registration Failed");
         console.log("Registration Failed");
-        console.log(errMsg);
       }
     }
   };
 
+  // useEffect(() => {
+  //   userRef.current.focus();
+  // }, []);
+
+  // useEffect(() => {
+  //   setValidName(EMAIL_REGEX.test(email));
+  // }, [email]);
+
+  // useEffect(() => {
+  //   setValidPwd(PWD_REGEX.test(password));
+  // }, [password]);
+
+  // useEffect(() => {
+  //   setErrMsg("");
+  // }, [email, password]);
   return (
     <div>
       <div>
         <BRHeader />
         <section className="px-4 lg:px-[120px] md:mt-[150px]  lg:mt-[211px] ">
           <div className="max-w-[468px] mx-auto ">
-            <h2 className="text-[32px] font-recoleta mb-[65px] text-left whitespace-nowrap">
-              Create an account
-            </h2>
+            <div className=" mb-[4 5px]">
+                <h2 className="text-[32px]  font-recoleta text-left whitespace-nowrap">
+                Forgot Password
+                </h2>
+                <p className="mb-2">We will send you an email with instructions on how to recover it</p>
+            </div>
             <form onSubmit={handleSubmit} className="w-full grid items-center">
               <div>
                 <label htmlFor="email" className="text-sm">
@@ -69,41 +89,15 @@ const Signup = () => {
                 />
                 {/* <p>{form.errors.email && "Invalid Email"}</p> */}
               </div>
-              <div className="relative mt-4">
-                <label htmlFor="" className="text-sm">
-                  Create password
-                </label>
-                <input
-                  required
-                  type={visiblePassword ? "text" : "password"}
-                  placeholder="Your password"
-                  className="border w-full mt-2 border-[#EAECF0] focus:outline-none bg-transparent block placeholder:text-[#667085] p-3"
-                  onChange={(e) => setPwd(e.target.value)}
-                  value={password}
-                />
-                <div
-                  className="absolute top-12 right-2 "
-                  onClick={() => {
-                    setVisiblePassword(!visiblePassword);
-                  }}
-                >
-                  {visiblePassword ? (
-                    <BiHide width={38} height={38} />
-                  ) : (
-                    <IoEyeOutline width={38} height={38} />
-                  )}
-                </div>
-              </div>
+            
 
               <button
                 type="submit"
                 className="w-full bg-[#946C3C] uppercase h-14 text-white mt-6"
               >
-                Sign up
+                continue
               </button>
-              <button className="w-full bg-transparent border border-[#946C3C] uppercase h-14 text-[#946C3C] mt-6">
-                Sign up with google
-              </button>
+            
             </form>
             <p className="uppercase text-center mt-4">
               Already have an account? <Link to="/login">Log in</Link>

@@ -131,6 +131,19 @@
   font-weight: 300;
 }
 
+@font-face {
+  font-family: "AmsterdamOne";
+  src: local("AmsterdamOne"),
+    url("./assets/fonts/AmsterdamOne.ttf") format("ttf");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "Arapey";
+  src: local("Arapey"), url("./assets/fonts/Arapey.ttf") format("ttf");
+  font-weight: 300;
+}
+
 .font-maison {
   font-family: "Maison Neue", sans-serif;
 }
@@ -138,6 +151,15 @@
 .font-recoleta {
   font-family: "Recoleta", sans-serif;
 }
+
+.font-amsterdam {
+  font-family: "AmsterdamOne", sans-serif;
+}
+
+.font-arapey {
+  font-family: "Arapey", sans-serif;
+}
+
 .sideNav:hover {
   background: #ca8b61;
   border-left: 2px solid white;

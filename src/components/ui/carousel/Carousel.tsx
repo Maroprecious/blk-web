@@ -10,10 +10,15 @@ import { GrFormPreviousLink } from "react-icons/gr";
 import { GrFormNextLink } from "react-icons/gr";
 import "./carousel.css";
 import { useSwiper } from "swiper/react";
+import { useWindowSize } from 'usehooks-ts'
+
 export default function Carousel() {
+
+  const { width = 0 } = useWindowSize()
   const swiper = useSwiper();
+
   return (
-    <div className="h-[500px] lg:mb-[130px]">
+    <div className="lg:mb-[130px]">
       <Swiper
         pagination={{
           type: "fraction",
@@ -26,45 +31,36 @@ export default function Carousel() {
           disabledClass: "swiper-button-disabled",
         }}
         parallax={true}
-        slidesPerView={1.8}
+        slidesPerView={width > 1440 ? 2.5 : 1.8}
         modules={[Pagination, Navigation, Parallax]}
         className="mySwiper relative flex items-center  gap-0"
       >
         <SwiperSlide className="">
-          {" "}
-          <img src={slideImg1} id="demo2" className="h-[490px] w-[690px]" />
+          <img src={slideImg1} id="demo2" className="w-[690px]" />
         </SwiperSlide>
-        <SwiperSlide className="h-[490px] w-[690px]">
-          {" "}
-          <img src={slideImg1} id="demo2" className="h-[490px] w-[690px]" />
+        <SwiperSlide className="w-[690px]">
+          <img src={slideImg1} id="demo2" className="w-[690px]" />
         </SwiperSlide>
         <SwiperSlide>
-          {" "}
-          <img src={slideImg1} id="demo2" className="h-[490px] w-[690px]" />
+          <img src={slideImg1} id="demo2" className="w-[690px]" />
         </SwiperSlide>
         <SwiperSlide>
-          {" "}
-          <img src={slideImg1} id="demo2" className="h-[490px] w-[690px]" />
+          <img src={slideImg1} id="demo2" className="w-[690px]" />
         </SwiperSlide>
         <SwiperSlide>
-          {" "}
-          <img src={slideImg1} id="demo2" className="h-[490px] w-[690px]" />
+          <img src={slideImg1} id="demo2" className="w-[690px]" />
         </SwiperSlide>
         <SwiperSlide>
-          {" "}
-          <img src={slideImg1} id="demo2" className="h-[490px] w-[690px]" />
+          <img src={slideImg1} id="demo2" className="w-[690px]" />
         </SwiperSlide>
         <SwiperSlide>
-          {" "}
-          <img src={slideImg1} id="demo2" className="h-[490px] w-[690px]" />
+          <img src={slideImg1} id="demo2" className="w-[690px]" />
         </SwiperSlide>
         <SwiperSlide>
-          {" "}
-          <img src={slideImg1} id="demo2" className="h-[490px] w-[690px]" />
+          <img src={slideImg1} id="demo2" className="w-[690px]" />
         </SwiperSlide>
         <SwiperSlide>
-          {" "}
-          <img src={slideImg1} id="demo2" className="h-[490px] w-[690px]" />
+          <img src={slideImg1} id="demo2" className="w-[690px]" />
         </SwiperSlide>
         <div className="flex gap-0 justify-center relative bottom-7">
           <GrFormPreviousLink

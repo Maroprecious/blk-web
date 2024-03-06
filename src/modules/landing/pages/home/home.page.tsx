@@ -10,20 +10,23 @@ import Footer from "@/components/landing/Footer";
 import FirstVideoComponent from "@/components/landing/firstVideoComponent";
 import Carousel from "@/components/ui/carousel/Carousel";
 import "../../../../main.css";
+import { useWindowSize } from "usehooks-ts";
+
 export default function HomePage() {
+  const { width = 0 } = useWindowSize();
   return (
     <div>
       {" "}
       <BRHeader />
       {/* section */}
-      <section className="md:pt-[115px]">
-        <main className="flex px-4 lg:px-[120px] mt-4 md:mt-8 lg:mt-12 items-center">
-          <h1 className="font-maison text- lg:text-[36px] xl:text-[56px] ">
+      <section className="mt-[115px]">
+        <main className="flex flex-col gap-y-4 lg:flex-row px-4 lg:px-[120px] mt-32 lg:mt-48 items-center justify-between">
+          <h1 className="font-maison max-w-[792px] mr-auto text-[28px] md:text-[36px] xl:text-[56px] ">
             Your guided{" "}
             <span className="font-recoleta text-[#CF956F]">pathway</span> to
             Holistic Health and Wellness
           </h1>
-          <p className="lg:text-xl h-[96px] leading-normal text-right max-w-[318px]">
+          <p className="lg:text-xl leading-normal ml-auto text-right max-w-[318px]">
             Whether you're a seasoned wellness enthusiast or just starting on
             your path to a healthier, happier life.
           </p>
@@ -31,12 +34,12 @@ export default function HomePage() {
         <FirstVideoComponent />
       </section>
       {/* section */}
-      <section className="mt-[50px] md:mt-[80px] px-4 lg:pl-[120px] gap-[26px] lg:mt-[130px] flex  ">
+      <section className="mt-[50px] md:mt-[80px] px-4 lg:px-[120px] gap-[26px] lg:mt-[130px] flex 2xl:justify-center">
         <div className="max-w-[408px]">
-          <h2 className="font-recoleta text-[#CF956F] text-2xl lg:text-3xl xl:text-[58px] mb-[16px] xl:leading-[58px]">
+          <h2 className="font-recoleta text-[#CF956F] text-2xl lg:text-[58px] mb-[16px] lg:leading-[58px]">
             Back rooted retreats
           </h2>
-          <p className="lg:text-md xl:text-2xl font-maison xl:leading-[42px] font-light">
+          <p className="lg:text-2xl font-maison lg:leading-[42px] font-light">
             Welcome to Back Rooted Retreats, your portal to holistic wellness
             and self-discovery. In the rush of daily life, it's easy to overlook
             your well-being. Our mission is to guide you towards balance and
@@ -52,7 +55,7 @@ export default function HomePage() {
         </div>
       </section>
       {/* section */}
-      <section className="mt-[50px] md:mt-[80px] px-4 lg:pl-[120px] gap-[26px] lg:mt-[130px] lg:pr-0 ">
+      <section className="mt-[50px] md:mt-[80px] px-4 lg:pl-[240px] gap-[26px] lg:mt-[130px] lg:pr-0 ">
         <h2 className="font-recoleta text-[#CF956F] text-2xl lg:text-3xl xl:text-[58px] mb-[16px] xl:leading-[58px]">
           Gallery
         </h2>
@@ -64,7 +67,7 @@ export default function HomePage() {
         {/* </div> */}
       </section>
       {/* section */}
-      <section className="mt-[40px] md:mt-[80px] px-4 lg:pl-0 lg:pr-[120px] gap-[24px] lg:mt-[149px] flex items-center flex-col lg:flex-row ">
+      <section className="mt-[40px] md:mt-[80px] px-4 lg:pl-0 lg:pr-[120px] gap-[24px] lg:mt-[149px] flex items-center flex-col lg:flex-row 2xl:justify-center">
         <img src={perksImg3} id="demo1" className=" w-[810px]" />
 
         <div className="max-w-[486px]">
@@ -81,7 +84,7 @@ export default function HomePage() {
         </div>
       </section>
       {/* section */}
-      <section className="mt-[40px] md:mt-[80px] px-4 lg:pr-0 lg:pl-[120px] gap-[24px] lg:mt-[152px] flex items-center flex-col lg:flex-row ">
+      <section className="mt-[40px] md:mt-[80px] px-4 lg:pr-0 lg:pl-[120px] gap-[24px] lg:mt-[152px] flex items-center flex-col lg:flex-row 2xl:justify-center">
         <img src={perksImg2} id="demo1" className=" w-[810px] order-2" />
 
         <div className="max-w-[486px] order-1">
@@ -97,7 +100,7 @@ export default function HomePage() {
         </div>
       </section>
       {/* section */}
-      <section className="mt-[40px] md:mt-[80px] px-4 lg:pl-0 lg:pr-[120px] gap-[24px] lg:mt-[152px] flex items-center flex-col lg:flex-row ">
+      <section className="mt-[40px] md:mt-[80px] px-4 lg:pl-0 lg:pr-[120px] gap-[24px] lg:mt-[152px] flex items-center flex-col lg:flex-row 2xl:justify-center">
         <img src={perksImg1} id="demo1" className=" w-[810px]" />
 
         <div className="max-w-[486px]">
@@ -113,7 +116,7 @@ export default function HomePage() {
         </div>
       </section>
       {/* section */}
-      <section className="mt-[40px] md:mt-[80px] px-4 lg:pr-0 lg:pl-[120px] gap-[24px] lg:mt-[152px] flex items-center flex-col lg:flex-row ">
+      <section className="mt-[40px] md:mt-[80px] px-4 lg:pr-0 lg:pl-[120px] gap-[24px] lg:mt-[152px] flex items-center flex-col lg:flex-row 2xl:justify-center">
         <img src={perksImg1} id="demo1" className=" w-[810px] order-2" />
 
         <div className="max-w-[486px] order-1">
@@ -129,61 +132,59 @@ export default function HomePage() {
         </div>
       </section>
       {/* section */}
-      <section className="mt-[40px] md:mt-[80px] px-4 lg:pr-0 lg:pl-[120px] gap-[24px] lg:mt-[178px] flex items-center flex-wrap  ">
-        <div className=" w-[282px]">
-          <img src={articles} className=" w-full h-[358px] mb-8" />
-          <p className="text-[#959C7E] mb-4">JANUARY, 2023</p>
-          <h3 className="lg:text-2xl font-recoleta text-[#CF956F] mb-10">
-            The Healing Power of Nature: Why You Should Choose a Nature Retreat
-          </h3>
-          <p className="text-[#959C7E] font-maison mb-4">
-            In our fast-paced world, it's easy to forget the therapeutic
-            benefits of nature. We often find ourselves consumed by the demands
-            of our daily lives, surrounded by technology and concrete jungles.
-          </p>
-          <hr className="bg-[#959C7E]" />
-        </div>
-        <div className=" w-[282px]">
-          <img src={articles} className=" w-full h-[358px] mb-8" />
-          <p className="text-[#959C7E] mb-4">JANUARY, 2023</p>
-          <h3 className="lg:text-2xl font-recoleta text-[#CF956F] mb-10">
-            The Healing Power of Nature: Why You Should Choose a Nature Retreat
-          </h3>
-          <p className="text-[#959C7E] font-maison mb-4">
-            In our fast-paced world, it's easy to forget the therapeutic
-            benefits of nature. We often find ourselves consumed by the demands
-            of our daily lives, surrounded by technology and concrete jungles.
-          </p>
-          <hr className="bg-[#959C7E]" />
-        </div>
-        <div className=" w-[282px]">
-          <img src={articles} className=" w-full h-[358px] mb-8" />
-          <p className="text-[#959C7E] mb-4">JANUARY, 2023</p>
-          <h3 className="lg:text-2xl font-recoleta text-[#CF956F] mb-10">
-            The Healing Power of Nature: Why You Should Choose a Nature Retreat
-          </h3>
-          <p className="text-[#959C7E] font-maison mb-4">
-            In our fast-paced world, it's easy to forget the therapeutic
-            benefits of nature. We often find ourselves consumed by the demands
-            of our daily lives, surrounded by technology and concrete jungles.
-          </p>
-          <hr className="bg-[#959C7E]" />
-        </div>
-        <div className=" w-[282px]">
-          <img src={articles} className=" w-full h-[358px] mb-8" />
-          <p className="text-[#959C7E] mb-4">JANUARY, 2023</p>
-          <h3 className="lg:text-2xl font-recoleta text-[#CF956F] mb-10">
-            The Healing Power of Nature: Why You Should Choose a Nature Retreat
-          </h3>
-          <p className="text-[#959C7E] font-maison mb-4">
-            In our fast-paced world, it's easy to forget the therapeutic
-            benefits of nature. We often find ourselves consumed by the demands
-            of our daily lives, surrounded by technology and concrete jungles.
-          </p>
-          <hr className="bg-[#959C7E]" />
-        </div>
+      <section className="mt-[40px] md:mt-[80px] gap-[24px] lg:mt-[178px] flex items-center flex-wrap justify-center">
+        {articlesMock
+          .map((art, key) => (
+            <div key={key} className={`lg:max-w-[300px] ${width < 640 ? 'w-11/12' : width < 1000 ? 'w-2/5' : width < 1350 ? 'w-1/4' : 'w-1/5'}`}>
+              <img src={art.img} className=" w-full h-[358px] mb-8 object-cover" />
+              <p className="text-[#959C7E] mb-4">{art.date}</p>
+              <h3 className="lg:text-2xl font-recoleta text-[#CF956F] mb-5 lg:mb-10">
+                {art.title}
+              </h3>
+              <p className="text-[#959C7E] font-maison mb-4">
+                {art.description}
+              </p>
+              <hr className="bg-[#959C7E]" />
+            </div>
+          ))
+          .splice(0, width < 640 ? 1 : width < 1000 ? 2 : width < 1350 ? 3 : 4)}
       </section>
       <Footer />
     </div>
   );
 }
+
+const articlesMock = [
+  {
+    img: articles,
+    date: "JANUARY, 2023",
+    title:
+      "The Healing Power of Nature: Why You Should Choose a Nature Retreat",
+    description:
+      "In our fast-paced world, it's easy to forget the therapeutic benefits of nature. We often find ourselves consumed by the demands of our daily lives, surrounded by technology and concrete jungles.",
+  },
+  {
+    img: articles,
+    date: "JANUARY, 2023",
+    title:
+      "The Healing Power of Nature: Why You Should Choose a Nature Retreat",
+    description:
+      "In our fast-paced world, it's easy to forget the therapeutic benefits of nature. We often find ourselves consumed by the demands of our daily lives, surrounded by technology and concrete jungles.",
+  },
+  {
+    img: articles,
+    date: "JANUARY, 2023",
+    title:
+      "The Healing Power of Nature: Why You Should Choose a Nature Retreat",
+    description:
+      "In our fast-paced world, it's easy to forget the therapeutic benefits of nature. We often find ourselves consumed by the demands of our daily lives, surrounded by technology and concrete jungles.",
+  },
+  {
+    img: articles,
+    date: "JANUARY, 2023",
+    title:
+      "The Healing Power of Nature: Why You Should Choose a Nature Retreat",
+    description:
+      "In our fast-paced world, it's easy to forget the therapeutic benefits of nature. We often find ourselves consumed by the demands of our daily lives, surrounded by technology and concrete jungles.",
+  },
+];

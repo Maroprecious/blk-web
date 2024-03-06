@@ -2,7 +2,7 @@ import mainVideo from "@assets/video/brw-video.mp4";
 
 const FirstVideoComponent = () => {
   return (
-    <div className="relative ">
+    <div className="relative mt-[28px]">
       <p className="absolute bottom-16 left-36 cursor-pointer z-10 text-white">
         Scroll for more
       </p>

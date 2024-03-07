@@ -1,6 +1,8 @@
+/* eslint-disable react-refresh/only-export-components */
 import { RouteType } from "@/router/router.types";
 import { BRProgress } from "@/shared/components/page-progress/page-progress";
 import { Suspense, lazy } from "react";
+import ScrollToTop from "@/lib/utils";
 
 const HomePage = lazy(() => import("./pages/home/home.page"));
 const AboutPage = lazy(() => import("./pages/about/about.page"));
@@ -16,6 +18,7 @@ const Herbalpeadia = lazy(
 const HerbalProduct = lazy(
   () => import("./pages/herbalpeadia/herbalProduct.page")
 );
+const Gallery = lazy(() => import("./pages/gallery/gallery.page"));
 const Store = lazy(() => import("./pages/store/store.page"));
 const ProductDetails = lazy(
   () => import("../../components/landing/products/ProductDetails")
@@ -34,21 +37,23 @@ const Analytics = lazy(() => import("../admin/pages/analytics/analytics.page"));
 const AdminStore = lazy(() => import("../admin/pages/store/Store.page"));
 const AdminOrder = lazy(() => import("../admin/pages/orders/orders.page"));
 const AllOrders = lazy(() => import("../admin/pages/orders/AllOrders.page"));
+
 export const landingPaths = [
   "",
   "/",
   "about",
-  "singleRetreat",
-  "retreatCalendar",
+  "single-retreat",
+  "retreat-calendar",
   "herbalpeadia",
-  "herbalProduct",
+  "herbal-product",
+  "gallery",
   "store",
   "store/:productId",
   "herbs/:productId",
   "login",
   "signup",
-  "forgotpassword",
-  "requestPassword",
+  "forgot-password",
+  "request-password",
   "admin/dashboard",
   "admin/analytics",
   "admin/store",
@@ -56,149 +61,164 @@ export const landingPaths = [
   "admin/orders/all",
 ] as const;
 
+const SuspenseWrapper = ({ children }: { children: React.ReactNode }) => (
+  <Suspense fallback={<BRProgress />}>
+    <ScrollToTop />
+    {children}
+  </Suspense>
+);
+
 export const landingRoutes: RouteType[] = [
   {
     path: "/",
     element: (
-      <Suspense fallback={<BRProgress />}>
+      <SuspenseWrapper>
         <HomePage />
-      </Suspense>
+      </SuspenseWrapper>
     ),
   },
   {
     path: "about",
     element: (
-      <Suspense fallback={<BRProgress />}>
+      <SuspenseWrapper>
         <AboutPage />
-      </Suspense>
+      </SuspenseWrapper>
     ),
   },
   {
-    path: "singleRetreat",
+    path: "single-retreat",
     element: (
-      <Suspense fallback={<BRProgress />}>
+      <SuspenseWrapper>
         <SingleRetreatPage />
-      </Suspense>
+      </SuspenseWrapper>
     ),
   },
   {
-    path: "retreatCalendar",
+    path: "retreat-calendar",
     element: (
-      <Suspense fallback={<BRProgress />}>
+      <SuspenseWrapper>
         <RetreatCalendar />
-      </Suspense>
+      </SuspenseWrapper>
     ),
   },
   {
     path: "herbalpeadia",
     element: (
-      <Suspense fallback={<BRProgress />}>
+      <SuspenseWrapper>
         <Herbalpeadia />
-      </Suspense>
+      </SuspenseWrapper>
     ),
   },
   {
-    path: "herbalProduct",
+    path: "herbal-product",
     element: (
-      <Suspense fallback={<BRProgress />}>
+      <SuspenseWrapper>
         <HerbalProduct />
-      </Suspense>
+      </SuspenseWrapper>
+    ),
+  },
+  {
+    path: "gallery",
+    element: (
+      <SuspenseWrapper>
+        <Gallery />
+      </SuspenseWrapper>
     ),
   },
   {
     path: "store",
     element: (
-      <Suspense fallback={<BRProgress />}>
+      <SuspenseWrapper>
         <Store />
-      </Suspense>
+      </SuspenseWrapper>
     ),
   },
   {
     path: "store/:productId",
     element: (
-      <Suspense fallback={<BRProgress />}>
+      <SuspenseWrapper>
         <StoreDetails />
-      </Suspense>
+      </SuspenseWrapper>
     ),
   },
   {
     path: "herbs/:productId",
     element: (
-      <Suspense fallback={<BRProgress />}>
+      <SuspenseWrapper>
         <ProductDetails />
-      </Suspense>
+      </SuspenseWrapper>
     ),
   },
   {
     path: "login",
     element: (
-      <Suspense fallback={<BRProgress />}>
+      <SuspenseWrapper>
         <Login />
-      </Suspense>
+      </SuspenseWrapper>
     ),
   },
   {
     path: "signup",
     element: (
-      <Suspense fallback={<BRProgress />}>
+      <SuspenseWrapper>
         <Signup />
-      </Suspense>
+      </SuspenseWrapper>
     ),
   },
   {
-    path: "forgotpassword",
+    path: "forgot-password",
     element: (
-      <Suspense fallback={<BRProgress />}>
+      <SuspenseWrapper>
         <ForgotPassword />
-      </Suspense>
+      </SuspenseWrapper>
     ),
   },
   {
-    path: "requestPassword",
+    path: "request-password",
     element: (
-      <Suspense fallback={<BRProgress />}>
+      <SuspenseWrapper>
         <RequestPassword />
-      </Suspense>
+      </SuspenseWrapper>
     ),
   },
   {
     path: "admin/dashboard",
     element: (
-      <Suspense fallback={<BRProgress />}>
+      <SuspenseWrapper>
         <Dashbaord />
-      </Suspense>
+      </SuspenseWrapper>
     ),
   },
   {
     path: "admin/analytics",
     element: (
-      <Suspense fallback={<BRProgress />}>
+      <SuspenseWrapper>
         <Analytics />
-      </Suspense>
+      </SuspenseWrapper>
     ),
   },
   {
     path: "admin/store",
     element: (
-      <Suspense fallback={<BRProgress />}>
+      <SuspenseWrapper>
         <AdminStore />
-      </Suspense>
+      </SuspenseWrapper>
     ),
   },
   {
     path: "admin/orders",
     element: (
-      <Suspense fallback={<BRProgress />}>
+      <SuspenseWrapper>
         <AdminOrder />
-      </Suspense>
+      </SuspenseWrapper>
     ),
   },
   {
     path: "admin/orders/all",
     element: (
-      <Suspense fallback={<BRProgress />}>
+      <SuspenseWrapper>
         <AllOrders />
-      </Suspense>
+      </SuspenseWrapper>
     ),
   },
 ];

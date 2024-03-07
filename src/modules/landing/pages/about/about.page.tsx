@@ -9,14 +9,14 @@ export default function AboutPage() {
       {" "}
       <BRHeader />
       {/* section */}
-      <section className="md:pt-[115px]">
-        <main className=" flex px-4 lg:px-[120px] mt-4 md:mt-8 lg:mt-12 items-center">
-          <h1 className="font-maison text- lg:text-[36px] xl:text-[56px] ">
+      <section className="mt-[115px]">
+        <main className="flex flex-col gap-y-4 lg:flex-row px-4 lg:px-[120px] lg:mt-40 items-center justify-between">
+          <h1 className="font-arapey max-w-[792px] mr-auto text-[28px] md:text-[36px] xl:text-[56px] ">
             Your guided{" "}
-            <span className="font-recoleta text-[#CF956F]">pathway</span> to
+            <span className="font-amsterdam text-[#CF956F]">pathway</span> to
             Holistic Health and Wellness
           </h1>
-          <p className="lg:text-xl h-[96px] leading-normal text-right max-w-[318px]">
+          <p className="lg:text-xl leading-normal ml-auto text-right max-w-[318px]">
             Whether you're a seasoned wellness enthusiast or just starting on
             your path to a healthier, happier life.
           </p>
@@ -24,8 +24,8 @@ export default function AboutPage() {
         <FirstVideoComponent />
       </section>
       {/* section */}
-      <div className="px-4 w-full lg:px-0 max-w-[792px] mx-auto mt-[130px] flex flex-col gap-12">
-        <h2 className="font-recoleta text-[#CF956F] text-2xl lg:text-3xl xl:text-[58px] mb-[16px] xl:leading-[58px]">
+      <div className="px-4 w-full lg:px-0 max-w-[792px] mx-auto mt-[64px] lg:mt-[130px] flex flex-col gap-12">
+        <h2 className="font-amsterdam text-[#CF956F] text-2xl lg:text-3xl xl:text-[58px] mb-[16px] xl:leading-[58px]">
           Our Story
         </h2>
         <p className="lg:text-[24px]">
@@ -44,12 +44,12 @@ export default function AboutPage() {
           starting your path to a healthier, happier life. Explore our
           transformative retreats.
         </p>
-        <p>– The Back rooted team</p>
-        <img src={sign} alt="sign" className="w-[200px]" />
-        <div className="flex flex-col lg:flex-row justify-between">
+        <p className="text-2xl lg:text-3xl">– The Back rooted team</p>
+        <img src={sign} alt="sign" className="w-[200px] relative top-[-36px]" />
+        <div className="flex flex-col gap-[24px] lg:flex-row justify-between">
           <div className="bg-[#959C7E] text-white px-[30px] pt-8 pb-[84px] max-w-[384px]">
-            <h3 className="text-[40px] font-recoleta">Our Mission</h3>
-            <p className="font-maison text-[20px]">
+            <h3 className="text-[40px] font-amsterdam">Our Mission</h3>
+            <p className="font-arapey text-[20px]">
               Step into the world of mindfulness and meditation, where stillness
               and self-awareness await. Learn to calm your mind, reduce stress,
               and develop a profound sense of inner peace under the guidance of
@@ -57,8 +57,8 @@ export default function AboutPage() {
             </p>
           </div>
           <div className="bg-[#959C7E] text-white px-[30px] pt-8 pb-[84px] max-w-[384px]">
-            <h3 className="text-[40px] font-recoleta">Our Mission</h3>
-            <p className="font-maison text-[20px]">
+            <h3 className="text-[40px] font-amsterdam">Our Values</h3>
+            <p className="font-arapey text-[20px]">
               Step into the world of mindfulness and meditation, where stillness
               and self-awareness await. Learn to calm your mind, reduce stress,
               and develop a profound sense of inner peace under the guidance of
@@ -66,12 +66,12 @@ export default function AboutPage() {
             </p>
           </div>
         </div>
-        <div className="mt-[180px]">
-          <h3 className="text-[40px] text-[#CF956F] lg:text-[64px] text-center font-medium font-recoleta">
+        <div className="mt-[40px] lg:mt-[80px]">
+          <h3 className="text-[40px] text-[#CF956F] lg:text-[64px] text-center font-medium font-amsterdam">
             Contact Us
           </h3>
 
-          <form className="w-full grid items-center mb-[116px]">
+          <form className="w-full grid items-center mt-10 mb-[116px]">
             <div className="lg:grid grid-cols-2 gap-x-6 gap-y-4 mb-4">
               <div>
                 <label htmlFor="">First name</label>
@@ -132,7 +132,7 @@ export default function AboutPage() {
               />
             </div>
             <button className="bg-[#946C3C] uppercase text-white w-full max-w-[468px] py-4 mx-auto mt-[33px] ">
-              Send message
+              <p className="font-arapey opacity-70">Send message</p>
             </button>
           </form>
         </div>

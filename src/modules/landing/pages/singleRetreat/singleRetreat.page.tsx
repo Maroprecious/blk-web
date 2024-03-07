@@ -20,7 +20,7 @@ const SingleRetreatPage = () => {
         </video>
       </section>
       <section className="px-4 lg:pl-[120px] mt-[80px] md:mt-[30px] lg:mt-[56px}">
-        <p className="lg:text-2xl font-maison">
+        <p className="lg:text-2xl font-arapey">
           On the first day of the Serenity Retreat, participants arrive at our
           tranquil location and are greeted with a warm welcome. Check-in and
           registration ease everyone into their temporary haven. The day begins

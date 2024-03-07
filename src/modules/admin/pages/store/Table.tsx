@@ -38,7 +38,7 @@ export function DataTable<TData, TValue>({
                 return (
                   <TableHead
                     key={header.id}
-                    className="font-maison text-[#667085] font-light"
+                    className="font-arapey text-[#667085] font-light"
                   >
                     {header.isPlaceholder
                       ? null
@@ -52,7 +52,7 @@ export function DataTable<TData, TValue>({
             </TableRow>
           ))}
         </TableHeader>
-        <TableBody className="font-maison font-light text-[#101828]">
+        <TableBody className="font-arapey font-light text-[#101828]">
           {table.getRowModel().rows?.length ? (
             table.getRowModel().rows.map((row) => (
               <TableRow

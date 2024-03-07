@@ -40,7 +40,7 @@ const dashboard = () => {
       </section>
       <div className="flex gap-6 mt-6 ">
         <div className="flex-1">
-          <section className="font-maison">
+          <section className="font-arapey">
             <h2 className="font-medium text-2xl mb-2">Summary</h2>
             <div className="w-full max-w-[733px] flex gap-6">
               <Cards />

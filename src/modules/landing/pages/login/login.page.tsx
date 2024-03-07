@@ -53,7 +53,7 @@ const Login = () => {
         <BRHeader />
         <section className="px-4 lg:px-[120px] md:mt-[150px]  lg:mt-[211px] ">
           <div className="max-w-[468px] mx-auto ">
-            <h2 className="text-[32px] font-recoleta mb-[65px] text-left whitespace-nowrap">
+            <h2 className="text-[32px] font-amsterdam mb-[65px] text-left whitespace-nowrap">
               Log in to your account
             </h2>
             <form className="w-full grid items-center " onSubmit={handleSubmit}>

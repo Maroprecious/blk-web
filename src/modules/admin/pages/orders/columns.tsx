@@ -26,43 +26,43 @@ export const columns: ColumnDef<Orders>[] = [
   {
     accessorKey: "orderName",
     header: () => (
-      <p className="font-maison text-[#667085] font-light">Product name</p>
+      <p className="font-arapey text-[#667085] font-light">Product name</p>
     ),
   },
   {
     accessorKey: "customerName",
     header: () => (
-      <p className="font-maison text-[#667085] font-light">Product category</p>
+      <p className="font-arapey text-[#667085] font-light">Product category</p>
     ),
   },
   {
     accessorKey: "email",
     header: () => (
-      <p className="font-maison text-[#667085] font-light">Email address</p>
+      <p className="font-arapey text-[#667085] font-light">Email address</p>
     ),
   },
   {
     accessorKey: "date",
     header: () => (
-      <p className="font-maison text-[#667085] font-light">In stock</p>
+      <p className="font-arapey text-[#667085] font-light">In stock</p>
     ),
   },
   {
     accessorKey: "prdName",
     header: () => (
-      <p className="font-maison text-[#667085] font-light">No of sales</p>
+      <p className="font-arapey text-[#667085] font-light">No of sales</p>
     ),
   },
   {
     accessorKey: "Price",
     header: () => (
-      <p className="font-maison text-[#667085] font-light">Price</p>
+      <p className="font-arapey text-[#667085] font-light">Price</p>
     ),
   },
   {
     accessorKey: "status",
     header: () => (
-      <p className="font-maison text-[#667085] font-light">Status</p>
+      <p className="font-arapey text-[#667085] font-light">Status</p>
     ),
     cell: ({ row }) => {
       return (
@@ -82,7 +82,7 @@ export const columns: ColumnDef<Orders>[] = [
   {
     accessorKey: "action",
     header: () => (
-      <p className="font-maison text-[#667085] font-light">Action</p>
+      <p className="font-arapey text-[#667085] font-light">Action</p>
     ),
     cell({ row }) {
       return (

@@ -17,7 +17,7 @@ const Orders = () => {
       <section className=" mt-10">
         <Tabs defaultValue="account" className="">
           <TabsList className="flex justify-between">
-            <h3 className="font-maison text-2xl ">Order timeline</h3>
+            <h3 className="font-arapey text-2xl ">Order timeline</h3>
 
             <div>
               <TabsTrigger value="account">Weekly</TabsTrigger>
@@ -36,7 +36,7 @@ const Orders = () => {
       </section>
       <section>
         <div className="flex justify-between my-3">
-          <h3 className="font-maison text-2xl ">Recent orders</h3>
+          <h3 className="font-arapey text-2xl ">Recent orders</h3>
           {/* <a href="./AllOrders.tsx">View all</a> */}
           <Link to="admin/orders/all">View all</Link>
         </div>

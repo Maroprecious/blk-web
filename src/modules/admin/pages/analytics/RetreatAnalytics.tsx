@@ -7,7 +7,7 @@ const RetreatAnalytics = () => {
       <section className=" mt-10">
         <Tabs defaultValue="account" className="">
           <TabsList className="flex justify-between">
-            <h3 className="font-maison text-2xl ">Order timeline</h3>
+            <h3 className="font-arapey text-2xl ">Order timeline</h3>
 
             <div>
               <TabsTrigger value="account">Weekly</TabsTrigger>

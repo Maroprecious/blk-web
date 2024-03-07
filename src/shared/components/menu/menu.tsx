@@ -8,7 +8,7 @@ import IMGMenuBg4 from "@assets/images/menu-bg-4.png";
 import IMGMenuBg5 from "@assets/images/menu-bg-5.png";
 import IMGClose from "@assets/icons/close.svg";
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import "./menu.css";
 
 function useController() {
@@ -18,6 +18,8 @@ function useController() {
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setClosing(true);
+
+  const navigate = useNavigate()
 
   const links = [
     {
@@ -64,6 +66,7 @@ function useController() {
           closing ? "opacity-100" : "opacity-0"
         } flex flex-col items-center justify-end py-[151px]`}
         onMouseEnter={() => setMenuItemIndexHovered(index)}
+        onClick={() => navigate(url)}
         style={{
           backgroundImage: `url(${bgs[index]})`,
           animation: `${
@@ -84,12 +87,11 @@ function useController() {
             }`}
           ></div>
 
-          <a
-            href={url}
-            className="text-[56px] font-medium text-white whitespace-nowrap font-maison"
+          <p
+            className="text-[56px] font-medium text-white whitespace-nowrap font-arapey"
           >
             {title}
-          </a>
+          </p>
           <img
             src={IMGArrow}
             alt="Arrow Icon"

@@ -76,88 +76,25 @@
 }
 
 @font-face {
-  font-family: "Maison Neue";
-  src: url("./assets/fonts/Maison\ Neue/MaisonNeue-Book.otf") format("opentype");
-}
-
-@font-face {
-  font-family: "Maison Neue";
-  src: url("./assets/fonts/Maison\ Neue/MaisonNeue-Bold.otf") format("opentype");
-  font-weight: bold;
-}
-
-@font-face {
-  font-family: "Maison Neue";
-  src: url("./assets/fonts/Maison\ Neue/MaisonNeue-Medium.otf")
-    format("opentype");
-  font-weight: 500;
-}
-
-@font-face {
-  font-family: "Maison Neue";
-  src: url("./assets/fonts/Maison\ Neue/MaisonNeue-Light.otf")
-    format("opentype");
-  font-weight: 300;
-}
-
-@font-face {
-  font-family: "Recoleta";
-  src: local("Recoleta"),
-    url("./assets/fonts/Recoleta/Recoleta-Regular.woff") format("woff"),
-    url("./assets/fonts/Recoleta/Recoleta-Regular.woff2") format("woff2");
-}
-
-@font-face {
-  font-family: "Recoleta";
-  src: local("Recoleta"),
-    url("./assets/fonts/Recoleta/Recoleta-Bold.woff") format("woff"),
-    url("./assets/fonts/Recoleta/Recoleta-Bold.woff2") format("woff2");
-  font-weight: bold;
-}
-
-@font-face {
-  font-family: "Recoleta";
-  src: local("Recoleta"),
-    url("./assets/fonts/Recoleta/Recoleta-Medium.woff") format("woff"),
-    url("./assets/fonts/Recoleta/Recoleta-Medium.woff2") format("woff2");
-  font-weight: 500;
-}
-
-@font-face {
-  font-family: "Recoleta";
-  src: local("Recoleta"),
-    url("./assets/fonts/Recoleta/Recoleta-Light.woff") format("woff"),
-    url("./assets/fonts/Recoleta/Recoleta-Light.woff2") format("woff2");
-  font-weight: 300;
-}
-
-@font-face {
   font-family: "AmsterdamOne";
-  src: local("AmsterdamOne"),
-    url("./assets/fonts/AmsterdamOne.ttf") format("ttf");
-  font-weight: 300;
+  src: url("./assets/fonts/AmsterdamOne.ttf");
 }
 
 @font-face {
   font-family: "Arapey";
-  src: local("Arapey"), url("./assets/fonts/Arapey.ttf") format("ttf");
-  font-weight: 300;
-}
-
-.font-maison {
-  font-family: "Maison Neue", sans-serif;
-}
-
-.font-recoleta {
-  font-family: "Recoleta", sans-serif;
+  src: url("./assets/fonts/Arapey.ttf");
 }
 
 .font-amsterdam {
-  font-family: "AmsterdamOne", sans-serif;
+  font-family: "AmsterdamOne";
 }
 
 .font-arapey {
-  font-family: "Arapey", sans-serif;
+  font-family: "Arapey";
+}
+
+html, body {
+  font-family: "Arapey";
 }
 
 .sideNav:hover {

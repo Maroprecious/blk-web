@@ -91,7 +91,7 @@ const StoreItemDetail = () => {
             </div>
           </div>
           <div>
-            <h3 className="font-maison text-3xl mb-2">
+            <h3 className="text-3xl mb-2">
               {selectedProduct.name}({selectedProduct.scientificName})
             </h3>
             <h4 className="font-recoleta text-[#946C3C] font-medium text-5xl">
@@ -111,7 +111,7 @@ const StoreItemDetail = () => {
                 in aromatherapy.
               </li>
             </ul>
-            <div className="flex w-full justify-around mt-8">
+            <div className="flex w-full item-baseline justify-around mt-8">
               {" "}
               <p
                 className="text-2xl cursor-pointer"
@@ -139,17 +139,16 @@ const StoreItemDetail = () => {
           <h2 className="px-4 lg:px-[120px] lg:text-[64px] font-recoleta ">
             Related herbs
           </h2>
-          <div className="flex">
+          <div className="flex flex-wrap">
             {products.slice(0, 3).map((product) => {
               return (
                 <div
                   key={product.id}
-                  className="border-[0.5px] border-[#DBDAD1]  w-460 p-6"
+                  className="border-[0.5px] w-full sm:w-1/2 lg:w-1/3 border-[#DBDAD1] p-6"
                 >
                   <img src={product.image} alt={product.name} />
-
                   <div className="flex gap-6 mb-4 mt-2">
-                    <p className="text-2xl font-maison mt-4">
+                    <p className="text-2xl mt-4">
                       {product.name}
                       <span className="italic">({product.scientificName})</span>
                     </p>

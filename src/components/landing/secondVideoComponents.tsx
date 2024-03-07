@@ -8,9 +8,9 @@ const SecondVideoComponents = () => {
 
       <div className="absolute bottom-16 left-36 cursor-pointer z-10 text-white">
         <main className=" flex gap-16 justify-between   items-center">
-          <h1 className="font-maison text- lg:text-[36px] xl:text-[56px] max-w-[792px]">
+          <h1 className="font-arapey text- lg:text-[36px] xl:text-[56px] max-w-[792px]">
             Your guided{" "}
-            <span className="font-recoleta text-[#CF956F]">pathway</span> to
+            <span className="font-amsterdam text-[#CF956F]">pathway</span> to
             Holistic Health and Wellness
           </h1>
           <p className="lg:text-xl h-[96px] leading-normal text-right max-w-[318px]">

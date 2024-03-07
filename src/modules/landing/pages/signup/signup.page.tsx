@@ -48,7 +48,7 @@ const Signup = () => {
         <BRHeader />
         <section className="px-4 lg:px-[120px] md:mt-[150px]  lg:mt-[211px] ">
           <div className="max-w-[468px] mx-auto ">
-            <h2 className="text-[32px] font-recoleta mb-[65px] text-left whitespace-nowrap">
+            <h2 className="text-[32px] font-amsterdam mb-[65px] text-left whitespace-nowrap">
               Create an account
             </h2>
             <form onSubmit={handleSubmit} className="w-full grid items-center">

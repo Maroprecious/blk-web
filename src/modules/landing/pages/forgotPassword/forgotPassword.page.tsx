@@ -7,7 +7,7 @@ const Signup = () => {
         <BRHeader />
         <section className="px-4 lg:px-[120px] md:mt-[150px]  lg:mt-[211px] ">
           <div className="max-w-[468px] mx-auto ">
-            <h2 className="text-[32px] font-recoleta  text-left whitespace-nowrap">
+            <h2 className="text-[32px] font-amsterdam  text-left whitespace-nowrap">
               Forgot Password
             </h2>
             <p className="mb-[40px] text-[20px]">

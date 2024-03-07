@@ -81,13 +81,13 @@ export const columns: ColumnDef<Payment>[] = [
           </AlertDialogTrigger>
           <AlertDialogContent className="bg-white w-[456px]  h-[273px]">
             <AlertDialogHeader>
-              <AlertDialogTitle className="text-[#F04438] font-recoleta font-medium text-2xl">
+              <AlertDialogTitle className="text-[#F04438] font-amsterdam font-medium text-2xl">
                 <div className=" h-10 w-10 bg-[#FEF3F2] rounded-full  flex justify-center items-center mb-1">
                   <img src={deleteBtn} alt="The delete button" />
                 </div>
                 Delete Product
               </AlertDialogTitle>
-              <AlertDialogDescription className="text-[#667085] font-maison font-light">
+              <AlertDialogDescription className="text-[#667085] font-arapey font-light">
                 Are you sure you want delete this product, this action is
                 irreversible and can not be undone?
               </AlertDialogDescription>

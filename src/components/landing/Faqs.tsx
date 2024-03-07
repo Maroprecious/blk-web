@@ -51,7 +51,7 @@ const Faqs = () => {
   return (
     <section className="mt-10">
       <div className="flex flex-col lg:flex-row gap-6">
-        <h3 className="lg:text-6xl font-recoleta text-[#CF956F]">
+        <h3 className="lg:text-6xl font-amsterdam text-[#CF956F]">
           Frequently Asked Questions
         </h3>
         <div className="w-full max-w-[736px]">

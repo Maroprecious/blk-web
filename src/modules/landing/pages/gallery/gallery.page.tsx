@@ -21,7 +21,7 @@ const Gallery = () => {
             className="border-[0.5px] border-[#DBDAD1]  w-460 p-6"
           >
             <img src={product.image} alt={product.name} />
-            <p className="text-2xl font-maison mt-4">
+            <p className="text-2xl font-arapey mt-4">
               {product.name}
               <span className="italic">({product.scientificName})</span>
             </p>

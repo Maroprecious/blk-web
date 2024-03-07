@@ -24,14 +24,14 @@ const Store = () => {
           </SheetTrigger>
           <SheetContent className="w-[956px] bg-white">
             <SheetHeader>
-              <SheetTitle className="font-recoleta text-[#946C3C] text-2xl font-medium">
+              <SheetTitle className="font-amsterdam text-[#946C3C] text-2xl font-medium">
                 Add new product
               </SheetTitle>
-              <SheetTitle className="font-maison text-[#667085] font-light">
+              <SheetTitle className="font-arapey text-[#667085] font-light">
                 Enter the product details to start selling.
               </SheetTitle>
               <SheetDescription>
-                <form className="w-full grid items-center mb-[116px] font-maison">
+                <form className="w-full grid items-center mb-[116px] font-arapey">
                   <div className="lg:grid gap-x-6 gap-y-4">
                     <div className="mt-6">
                       <label className="font-light text-[#101828]">
@@ -40,7 +40,7 @@ const Store = () => {
                       <input
                         type="text"
                         placeholder="Enter name of Product"
-                        className="border w-full mt-2 bg-transparent block  p-3 placeholder:text-base outline-none placeholder:text-[#667085] border-[#EAECF0] font-maison font-light"
+                        className="border w-full mt-2 bg-transparent block  p-3 placeholder:text-base outline-none placeholder:text-[#667085] border-[#EAECF0] font-arapey font-light"
                       />
                     </div>
                     <div className="mt-4">
@@ -48,14 +48,14 @@ const Store = () => {
                         Price of product
                       </label>
                       <div className="relative">
-                        <p className="absolute font-maison px-2 font-light flex items-center  text-[#667085] top-[12px]">
+                        <p className="absolute font-arapey px-2 font-light flex items-center  text-[#667085] top-[12px]">
                           USD ($)
                           <div className="bg-[#EAECF0] h-4 w-[1px] ml-2"></div>
                         </p>
                         <input
                           type="text"
                           placeholder="0.00"
-                          className="border w-full mt-2 bg-transparent block pl-[80px]  p-3 placeholder:text-base outline-none placeholder:text-[#667085] border-[#EAECF0] font-maison font-light"
+                          className="border w-full mt-2 bg-transparent block pl-[80px]  p-3 placeholder:text-base outline-none placeholder:text-[#667085] border-[#EAECF0] font-arapey font-light"
                         />
                       </div>
                     </div>
@@ -66,7 +66,7 @@ const Store = () => {
                       <input
                         type="text"
                         placeholder="Enter quantity"
-                        className="border w-full mt-2 bg-transparent block  p-3 placeholder:text-base outline-none placeholder:text-[#667085] border-[#EAECF0] font-maison font-light"
+                        className="border w-full mt-2 bg-transparent block  p-3 placeholder:text-base outline-none placeholder:text-[#667085] border-[#EAECF0] font-arapey font-light"
                       />
                     </div>
                   </div>

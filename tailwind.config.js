@@ -16,8 +16,8 @@ export default {
       'md': '768px',
       'lg': '1024px',
       'xl': '1280px',
+      'screen': '1441px',
       '2xl': '1536px',
-      'screen': '1440px',
     },
     container: {
       center: true,

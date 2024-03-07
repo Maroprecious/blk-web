@@ -2,6 +2,7 @@ import itemImg from "@assets/images/herbImg1.svg";
 import itemImg2 from "@assets/images/herbImg2.svg";
 import itemImg3 from "@assets/images/herbImg3.svg";
 import options from "@assets/icons/3Dots.svg";
+
 export const products = [
   {
     id: 1,

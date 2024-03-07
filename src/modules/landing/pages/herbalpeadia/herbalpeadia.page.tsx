@@ -1,18 +1,21 @@
 import Products from "@/components/landing/products/Products";
 import BRTHeader from "@/shared/components/header/transparentHeader";
 import mainVideo from "@assets/video/brw-video.mp4";
+import Footer from "@/components/landing/Footer";
+import { products } from "@/modules/landing/resouces";
+
 const Herbalpeadia = () => {
   return (
-    <div className="bg-[#FAF6F3]">
+    <div>
       <BRTHeader />
       {/* section */}
       <section className="">
-        <video height="558px" autoPlay loop>
+        <video className="h-[558px] lg:h-full w-auto object-cover object-center" autoPlay loop>
           <source src={mainVideo} type="video/mp4" />
         </video>
       </section>
-      <section className="px-4 lg:px-[120px] mt-[80px] md:mt-[30px] lg:mt-[56px}">
-        <p className="lg:text-2xl font-maison">
+      <section className="max-w-[1200px] mx-auto px-4 lg:px-[120px] mt-[80px] md:my-[30px] lg:my-[56px]">
+        <p className="lg:text-2xl">
           On the first day of the Serenity Retreat, participants arrive at our
           tranquil location and are greeted with a warm welcome. Check-in and
           registration ease everyone into their temporary haven. The day begins
@@ -30,17 +33,18 @@ const Herbalpeadia = () => {
           a serene close to the day.
         </p>
       </section>
-      <section className="px-4  mt-[80px] md:mt-[30px] lg:mt-[80px}">
+      <section className="px-4 mt-[40px] md:mt-[30px] lg:mt-[80px]">
         <div className="lg:px-[120px] flex justify-between items-center">
-          <h2 className=" lg:text-[64px] font-recoleta ">Featured items</h2>
-          <a href="/herbalProduct" className="text-[#959C7E]">
+          <h2 className="my-[24px] relative text-2xl lg:text-[36px] xl:text-[64px] font-amsterdam">Featured items</h2>
+          <a href="/herbal-product" className="text-2xl text-[#959C7E]">
             View all
           </a>
         </div>
       </section>
       <section className="mb-[130px]">
-        <Products />
+        <Products products={products} />
       </section>
+      <Footer />
     </div>
   );
 };

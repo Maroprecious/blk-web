@@ -5,7 +5,7 @@ const ContactUs = () => {
       {/* section */}
       <div className="px-4 w-full lg:px-0 max-w-[792px] mx-auto mt-[130px] flex flex-col gap-12">
         <div className="mt-[180px]">
-          <h3 className="text-[40px] text-[#CF956F] lg:text-[64px] text-center font-medium font-recoleta">
+          <h3 className="text-[40px] text-[#CF956F] lg:text-[64px] text-center font-medium font-amsterdam">
             Contact Us
           </h3>
 

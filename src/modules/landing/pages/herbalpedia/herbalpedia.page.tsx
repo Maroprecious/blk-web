@@ -4,13 +4,20 @@ import mainVideo from "@assets/video/brw-video.mp4";
 import Footer from "@/components/landing/Footer";
 import { products } from "@/modules/landing/resouces";
 
-const Herbalpeadia = () => {
+const Herbalpedia = () => {
   return (
     <div>
       <BRTHeader />
       {/* section */}
-      <section className="">
-        <video className="h-[558px] lg:h-full w-auto object-cover object-center" autoPlay loop>
+      <section className="relative">
+        <p className="absolute px-6 lg:px-[120px] py-[40px] lg:py-[77px] text-3xl lg:text-[58px] font-amsterdam text-white left-0 bottom-0 ">
+          Herbalpedia
+        </p>
+        <video
+          className="h-[558px] lg:h-full max-h-[900px] w-full object-cover object-center"
+          autoPlay
+          loop
+        >
           <source src={mainVideo} type="video/mp4" />
         </video>
       </section>
@@ -35,7 +42,9 @@ const Herbalpeadia = () => {
       </section>
       <section className="px-4 mt-[40px] md:mt-[30px] lg:mt-[80px]">
         <div className="lg:px-[120px] flex justify-between items-center">
-          <h2 className="my-[24px] relative text-2xl lg:text-[36px] xl:text-[64px] font-amsterdam">Featured items</h2>
+          <h2 className="my-[24px] relative text-2xl lg:text-[36px] xl:text-[64px] font-amsterdam">
+            Featured items
+          </h2>
           <a href="/herbal-product" className="text-2xl text-[#959C7E]">
             View all
           </a>
@@ -49,4 +58,4 @@ const Herbalpeadia = () => {
   );
 };
 
-export default Herbalpeadia;
+export default Herbalpedia;

@@ -14,13 +14,13 @@ const Footer = () => {
               ABOUT
             </a>
             <a
-              href="/herbalpeadia"
+              href="/herbalpedia"
               className="text-[14px] text-[#E6E5DE] font-arapey mt-3 lg:mt-0 lg:border-l lg:px-4"
             >
               HERBALPEDIA
             </a>
             <a
-              href="/retreatCalendar"
+              href="/retreat-calendar"
               className="text-[14px] text-[#E6E5DE] font-arapey mt-3 lg:mt-0 lg:border-l lg:px-4"
             >
               RETREATS CALENDAR

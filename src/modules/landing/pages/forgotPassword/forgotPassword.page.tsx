@@ -1,17 +1,18 @@
 import BRHeader from "@/shared/components/header/header";
 import Footer from "@/components/landing/Footer";
-const Signup = () => {
+
+const ForgotPassword = () => {
   return (
     <div>
       <div>
         <BRHeader />
-        <section className="px-4 lg:px-[120px] md:mt-[150px]  lg:mt-[211px] ">
+        <section className="px-4 lg:px-[120px] mt-[150px] lg:mt-[211px] ">
           <div className="max-w-[468px] mx-auto ">
-            <h2 className="text-[32px] font-amsterdam  text-left whitespace-nowrap">
+          <h2 className="text-[32px] font-amsterdam mb-[65px] text-left whitespace-nowrap relative left-[-10px]">
               Forgot Password
             </h2>
             <p className="mb-[40px] text-[20px]">
-              We will send you an email with instructions on how to recover it
+              We will send you an email with instructions on how to recover it.
             </p>
             <form className="w-full grid items-center">
               <div>
@@ -31,9 +32,8 @@ const Signup = () => {
         </section>
         <Footer />
       </div>
-      ;
     </div>
   );
 };
 
-export default Signup;
+export default ForgotPassword;

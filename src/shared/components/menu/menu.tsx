@@ -10,6 +10,7 @@ import IMGClose from "@assets/icons/close.svg";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import "./menu.css";
+import { useWindowSize } from "usehooks-ts";
 
 function useController() {
   const [open, setOpen] = useState(false);
@@ -19,16 +20,18 @@ function useController() {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setClosing(true);
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const { width = 0, height = 0 } = useWindowSize();
+  const isSmallerScreen = width < 1050 || height < 770;
 
   const links = [
     {
       title: "Retreats calendar",
-      url: "/retreatCalendar",
+      url: "/retreat-calendar",
     },
     {
       title: "Herbalpaedia",
-      url: "/herbalpeadia",
+      url: "/herbalpedia",
     },
     {
       title: "Store",
@@ -55,7 +58,9 @@ function useController() {
     return (
       <div
         className={`relative ${
-          menuItemIndexHovered === index
+          isSmallerScreen
+            ? "w-1/5"
+            : menuItemIndexHovered === index
             ? menuItemIndexHovered === 0
               ? "w-[40%]"
               : "w-2/6"
@@ -64,7 +69,10 @@ function useController() {
             : "w-1/6"
         } transition-all duration-1000 h-full bg-cover bg-center cursor-pointer ${
           closing ? "opacity-100" : "opacity-0"
-        } flex flex-col items-center justify-end py-[151px]`}
+        } flex flex-col items-center justify-end ${
+          isSmallerScreen ? "" : "py-[151px]"
+        }
+        `}
         onMouseEnter={() => setMenuItemIndexHovered(index)}
         onClick={() => navigate(url)}
         style={{
@@ -77,26 +85,30 @@ function useController() {
       >
         <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50"></div>
         <div
-          className={`w-full flex flex-col items-stretch justify-center space-y-4 px-[69px] transition-transform duration-1000 ${
-            menuItemIndexHovered === index ? "rotate-0" : "-rotate-90"
+          className={`w-full flex flex-col items-stretch justify-center px-[69px] transition-transform duration-1000 ${
+            !isSmallerScreen && menuItemIndexHovered === index
+              ? "rotate-0"
+              : "-rotate-90"
           }`}
         >
           <div
             className={`h-[2px] w-full bg-white ${
-              menuItemIndexHovered === index ? "opacity-100" : "opacity-0"
+              !isSmallerScreen && menuItemIndexHovered === index
+                ? "opacity-100"
+                : "opacity-0"
             }`}
           ></div>
 
-          <p
-            className="text-[56px] font-medium text-white whitespace-nowrap font-arapey"
-          >
+          <p className={`${isSmallerScreen ? 'text-[32px] mt-8' : 'text-[56px]'} font-medium text-white whitespace-nowrap font-arapey`}>
             {title}
           </p>
           <img
             src={IMGArrow}
             alt="Arrow Icon"
             className={`h-[40px] w-[28px] transition-all duration-1000 ${
-              menuItemIndexHovered === index ? "opacity-100" : "opacity-0"
+              !isSmallerScreen && menuItemIndexHovered === index
+                ? "opacity-100"
+                : "opacity-0"
             }`}
           />
         </div>
@@ -129,9 +141,9 @@ export default function BRMenu() {
   const location = useLocation();
   const renderMenuImage = () => {
     const showMenuImage =
-      location.pathname.startsWith("/gallery") ||
-      location.pathname.startsWith("/herbalpeadia") ||
-      location.pathname.startsWith("/retreatCalendar");
+      location.pathname.match(/^\/gallery$/) ||
+      location.pathname.startsWith("/herbalpedia") ||
+      location.pathname.startsWith("/retreat-calendar");
 
     if (showMenuImage) {
       return (
@@ -159,7 +171,7 @@ export default function BRMenu() {
       {renderMenuImage()}
       {open && (
         <div className="fixed top-0 bottom-0 left-0 right-0 ">
-          <div className="absolute top-16 right-36 cursor-pointer z-10">
+          <div className="absolute right-0 m-8 lg:m-16 cursor-pointer z-10">
             <img
               src={IMGClose}
               alt="Close Icon"

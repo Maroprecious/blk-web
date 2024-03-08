@@ -5,9 +5,9 @@ interface AuthProviderProps {
 }
 const AuthContext = createContext({});
 export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
-  const [auth, SetAuth] = useState({});
+  const [auth, setAuth] = useState({});
   return (
-    <AuthContext.Provider value={{ auth, SetAuth }}>
+    <AuthContext.Provider value={{ auth, setAuth }}>
       {children}
     </AuthContext.Provider>
   );

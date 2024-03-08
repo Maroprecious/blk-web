@@ -10,7 +10,7 @@ import axios from "@/api/axios";
 
 const Login = () => {
   const LOGIN_URL = "/auth/signin";
-  const { SetAuth } = useContext(AuthContext);
+  const { setAuth } = useContext(AuthContext);
   const [visiblePassword, setVisiblePassword] = useState(false);
   const [email, setUser] = useState("");
   const [password, setPwd] = useState("");
@@ -28,7 +28,7 @@ const Login = () => {
       console.log(email, password);
 
       console.log(JSON.stringify(response?.data));
-      SetAuth({ email, password });
+      setAuth({ email, password });
       setUser("");
       setPwd("");
       navigate("/");
@@ -51,7 +51,7 @@ const Login = () => {
     <div>
       <div>
         <BRHeader />
-        <section className="px-4 lg:px-[120px] md:mt-[150px]  lg:mt-[211px] ">
+        <section className="px-4 lg:px-[120px] mt-[150px] lg:mt-[211px] ">
           <div className="max-w-[468px] mx-auto ">
             <h2 className="text-[32px] font-amsterdam mb-[65px] text-left whitespace-nowrap">
               Log in to your account
@@ -91,7 +91,7 @@ const Login = () => {
                   )}
                 </div>
               </div>
-              <Link to="" className="mt-2">
+              <Link to="/forgot-password" className="mt-2">
                 Forgot Password?
               </Link>
               <button className="w-full bg-[#946C3C] uppercase h-14 text-white mt-6">
@@ -102,13 +102,12 @@ const Login = () => {
               </button>
             </form>
             <p className="uppercase text-center mt-4">
-              Don’t have an account? <Link to="/signup">Sign UP</Link>
+              <Link to="/signup">Don’t have an account? Sign UP</Link>
             </p>
           </div>
         </section>
         <Footer />
       </div>
-      ;
     </div>
   );
 };

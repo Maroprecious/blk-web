@@ -69,7 +69,7 @@ export default function Carousel() {
           />
           <GrFormNextLink
             onClick={() => swiper.slideNext()}
-            className="swiper-button-next  "
+            className="swiper-button-next"
           />
         </div>
       </Swiper>

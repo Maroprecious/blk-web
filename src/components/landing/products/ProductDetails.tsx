@@ -6,7 +6,7 @@ import {
 } from "@/components/ui/accordion";
 import { Link, useParams } from "react-router-dom";
 import { products } from "@/modules/landing/resouces";
-import NoResultsFound from "@/modules/landing/pages/herbalpeadia/NoResultsFound.page";
+import NoResultsFound from "@/modules/landing/pages/herbalpedia/NoResultsFound.page";
 import BRHeader from "@/shared/components/header/header";
 import Footer from "../Footer";
 
@@ -127,7 +127,7 @@ const ProductDetails = () => {
         </button>
       </section>
       {/* section */}
-      <section className=" mt-[60px]">
+      <section className="mt-[60px]">
         <h2 className="px-4 lg:px-[120px] text-2xl lg:text-[64px] font-amsterdam mb-4 lg:mb-16">
           Related herbs
         </h2>

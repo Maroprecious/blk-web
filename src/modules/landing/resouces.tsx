@@ -2,6 +2,14 @@ import itemImg from "@assets/images/herbImg1.svg";
 import itemImg2 from "@assets/images/herbImg2.svg";
 import itemImg3 from "@assets/images/herbImg3.svg";
 import options from "@assets/icons/3Dots.svg";
+import {
+  img1,
+  img2,
+  img3,
+  img4,
+  img5,
+  img6,
+} from "@/assets/images/gallery-mock";
 
 export const products = [
   {
@@ -333,5 +341,68 @@ export const OrderItems = [
     color: " #959C7E",
     bg: "#F8FBF0",
     img: options,
+  },
+];
+
+export const galleryMock = [
+  {
+    id: 1,
+    img: img1,
+    title: "Tranquil Forest Retreat, Pacific Northwest",
+    description: `Welcome to Back Rooted Retreats, your portal to holistic wellness and self-discovery. In the rush of daily life, it's easy to overlook your well-being. Our mission is to guide you towards balance and connection with nature, whether you're a seasoned wellness enthusiast or just starting your path to a healthier, happier life. Explore our transformative retreats.
+
+Welcome to Back Rooted Retreats, your portal to holistic wellness and self-discovery. In the rush of daily life, it's easy to overlook your well-being. Our mission is to guide you towards balance and connection with nature, whether you're a seasoned wellness enthusiast or just starting your path to a healthier, happier life. Explore our transformative retreats.`,
+    date: "Mar. 18 - Mar. 22, 2023",
+    totalNumber: 56,
+  },
+  {
+    id: 2,
+    img: img2,
+    title: "Tranquil Forest Retreat, Pacific Northwest",
+    description: `Welcome to Back Rooted Retreats, your portal to holistic wellness and self-discovery. In the rush of daily life, it's easy to overlook your well-being. Our mission is to guide you towards balance and connection with nature, whether you're a seasoned wellness enthusiast or just starting your path to a healthier, happier life. Explore our transformative retreats.
+
+Welcome to Back Rooted Retreats, your portal to holistic wellness and self-discovery. In the rush of daily life, it's easy to overlook your well-being. Our mission is to guide you towards balance and connection with nature, whether you're a seasoned wellness enthusiast or just starting your path to a healthier, happier life. Explore our transformative retreats.`,
+    date: "Mar. 18 - Mar. 22, 2023",
+    totalNumber: 56,
+  },
+  {
+    id: 3,
+    img: img3,
+    title: "Tranquil Forest Retreat, Pacific Northwest",
+    description: `Welcome to Back Rooted Retreats, your portal to holistic wellness and self-discovery. In the rush of daily life, it's easy to overlook your well-being. Our mission is to guide you towards balance and connection with nature, whether you're a seasoned wellness enthusiast or just starting your path to a healthier, happier life. Explore our transformative retreats.
+
+Welcome to Back Rooted Retreats, your portal to holistic wellness and self-discovery. In the rush of daily life, it's easy to overlook your well-being. Our mission is to guide you towards balance and connection with nature, whether you're a seasoned wellness enthusiast or just starting your path to a healthier, happier life. Explore our transformative retreats.`,
+    date: "Mar. 18 - Mar. 22, 2023",
+    totalNumber: 56,
+  },
+  {
+    id: 4,
+    img: img4,
+    title: "Tranquil Forest Retreat, Pacific Northwest",
+    description: `Welcome to Back Rooted Retreats, your portal to holistic wellness and self-discovery. In the rush of daily life, it's easy to overlook your well-being. Our mission is to guide you towards balance and connection with nature, whether you're a seasoned wellness enthusiast or just starting your path to a healthier, happier life. Explore our transformative retreats.
+
+Welcome to Back Rooted Retreats, your portal to holistic wellness and self-discovery. In the rush of daily life, it's easy to overlook your well-being. Our mission is to guide you towards balance and connection with nature, whether you're a seasoned wellness enthusiast or just starting your path to a healthier, happier life. Explore our transformative retreats.`,
+    date: "Mar. 18 - Mar. 22, 2023",
+    totalNumber: 56,
+  },
+  {
+    id: 5,
+    img: img5,
+    title: "Tranquil Forest Retreat, Pacific Northwest",
+    description: `Welcome to Back Rooted Retreats, your portal to holistic wellness and self-discovery. In the rush of daily life, it's easy to overlook your well-being. Our mission is to guide you towards balance and connection with nature, whether you're a seasoned wellness enthusiast or just starting your path to a healthier, happier life. Explore our transformative retreats.
+
+Welcome to Back Rooted Retreats, your portal to holistic wellness and self-discovery. In the rush of daily life, it's easy to overlook your well-being. Our mission is to guide you towards balance and connection with nature, whether you're a seasoned wellness enthusiast or just starting your path to a healthier, happier life. Explore our transformative retreats.`,
+    date: "Mar. 18 - Mar. 22, 2023",
+    totalNumber: 56,
+  },
+  {
+    id: 6,
+    img: img6,
+    title: "Tranquil Forest Retreat, Pacific Northwest",
+    description: `Welcome to Back Rooted Retreats, your portal to holistic wellness and self-discovery. In the rush of daily life, it's easy to overlook your well-being. Our mission is to guide you towards balance and connection with nature, whether you're a seasoned wellness enthusiast or just starting your path to a healthier, happier life. Explore our transformative retreats.
+
+Welcome to Back Rooted Retreats, your portal to holistic wellness and self-discovery. In the rush of daily life, it's easy to overlook your well-being. Our mission is to guide you towards balance and connection with nature, whether you're a seasoned wellness enthusiast or just starting your path to a healthier, happier life. Explore our transformative retreats.`,
+    date: "Mar. 18 - Mar. 22, 2023",
+    totalNumber: 56,
   },
 ];

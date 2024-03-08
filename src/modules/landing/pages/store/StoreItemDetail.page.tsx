@@ -1,6 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import { products } from "../../resouces";
-import NoResultsFound from "../herbalpeadia/NoResultsFound.page";
+import NoResultsFound from "../herbalpedia/NoResultsFound.page";
 import BRHeader from "@/shared/components/header/header";
 import "./store.css";
 import Footer from "@/components/landing/Footer";
@@ -50,16 +50,9 @@ const StoreItemDetail = () => {
     <div>
       <div>
         <BRHeader />
-        <section className="px-4 lg:px-[120px] mt-[150px] flex gap-[42px] ">
+        <section className="px-4 lg:px-[120px] mt-[96px] lg:mt-[150px] tablet:flex gap-[42px] ">
           <div className="flex">
-            <div className="grid gap-6">
-              <div className="w-[180px] h-[155px]">
-                <img
-                  src={selectedProduct.image}
-                  alt=""
-                  className="object-contain w-full h-full"
-                />
-              </div>
+            <div className="hidden xl:flex flex-col justify-between">
               <div className="w-[180px] h-[155px]">
                 <img
                   src={selectedProduct.image}
@@ -82,7 +75,7 @@ const StoreItemDetail = () => {
                 />
               </div>
             </div>
-            <div className="w-[486px] h-[694px] ">
+            <div className="w-full tablet:min-w-[486px] object-cover object-center w-[486px] h-[558px]">
               {" "}
               <img
                 src={selectedProduct.image}
@@ -90,23 +83,23 @@ const StoreItemDetail = () => {
               />
             </div>
           </div>
-          <div>
-            <h3 className="text-3xl mb-2">
-              {selectedProduct.name}({selectedProduct.scientificName})
+          <div className="my-6">
+            <h3 className="text-2xl lg:text-3xl mb-2">
+              {selectedProduct.name} ({selectedProduct.scientificName})
             </h3>
-            <h4 className="font-recoleta text-[#946C3C] font-medium text-5xl">
+            <h4 className="font-recoleta text-[#946C3C] font-medium text-2xl lg:text-5xl">
               ${selectedProduct.Price} USD
             </h4>
-            <ul className="list-disc  text-[20px] mt-10">
-              <li className=" mb-4">
+            <ul className="list-disc text-[20px] mt-5 tablet:mt-10">
+              <li className="ml-5">
                 Lavender is known for its pleasant fragrance and is often used
                 in aromatherapy.
               </li>
-              <li>
+              <li className="ml-5">
                 Lavender is known for its pleasant fragrance and is often used
                 in aromatherapy.
               </li>
-              <li>
+              <li className="ml-5">
                 Lavender is known for its pleasant fragrance and is often used
                 in aromatherapy.
               </li>
@@ -135,8 +128,8 @@ const StoreItemDetail = () => {
           </div>
         </section>
         {/* section */}
-        <section className=" mt-[60px]">
-          <h2 className="px-4 lg:px-[120px] lg:text-[64px] font-recoleta ">
+        <section className="mt-[75px] lg:mt-[140px]">
+          <h2 className="px-4 lg:px-[120px] text-2xl lg:text-[64px] font-amsterdam mb-4 lg:mb-16">
             Related herbs
           </h2>
           <div className="flex flex-wrap">
@@ -147,12 +140,12 @@ const StoreItemDetail = () => {
                   className="border-[0.5px] w-full sm:w-1/2 lg:w-1/3 border-[#DBDAD1] p-6"
                 >
                   <img src={product.image} alt={product.name} />
-                  <div className="flex gap-6 mb-4 mt-2">
+                  <div className="flex flex-wrap xl:flex-nowrap gap-3 xl:gap-6 mb-4 mt-2">
                     <p className="text-2xl mt-4">
                       {product.name}
                       <span className="italic">({product.scientificName})</span>
                     </p>
-                    <p className="text-2xl mt-4 whitespace-nowrap text-[#CF956F] font-recoleta font-medium">
+                    <p className="text-2xl xl:mt-4 whitespace-nowrap text-[#CF956F] font-recoleta font-medium">
                       $ {product.Price} USD
                     </p>
                   </div>

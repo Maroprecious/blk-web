@@ -25,7 +25,7 @@ const NoResultsFound = () => {
         <img src={NoResults} alt="NoResults" />
         <h4 className="font-amsterdam text-2xl mb-4">No search results</h4>
         <p className="text-[#667085]">
-          We couldn't find a herb with that name.
+          We couldn't find a herb with that name or id
         </p>
       </section>
         <Footer />

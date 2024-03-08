@@ -12,25 +12,26 @@ const SingleRetreatPage = lazy(
 const RetreatCalendar = lazy(
   () => import("./pages/retreatCalendar/retreatCalendar.page")
 );
-const Herbalpeadia = lazy(
-  () => import("./pages/herbalpeadia/herbalpeadia.page")
-);
+const Herbalpedia = lazy(() => import("./pages/herbalpedia/herbalpedia.page"));
 const HerbalProduct = lazy(
-  () => import("./pages/herbalpeadia/herbalProduct.page")
+  () => import("./pages/herbalpedia/herbalProduct.page")
 );
 const Gallery = lazy(() => import("./pages/gallery/gallery.page"));
+const GalleryDetail = lazy(
+  () => import("./pages/gallery/galleryItemDetail.page")
+);
 const Store = lazy(() => import("./pages/store/store.page"));
 const ProductDetails = lazy(
   () => import("../../components/landing/products/ProductDetails")
 );
-const StoreDetails = lazy(() => import("./pages/store/StoreItemDetail.page"));
+const StoreDetails = lazy(() => import("./pages/store/storeItemDetail.page"));
 const Login = lazy(() => import("./pages/login/login.page"));
 const Signup = lazy(() => import("./pages/signup/signup.page"));
 const ForgotPassword = lazy(
   () => import("./pages/forgotPassword/forgotPassword.page")
 );
-const RequestPassword = lazy(
-  () => import("./pages/requestPassword/requestPassword.page")
+const ResetPassword = lazy(
+  () => import("./pages/resetPassword/resetPassword.page")
 );
 const Dashbaord = lazy(() => import("../admin/pages/dashboard/dashboard.page"));
 const Analytics = lazy(() => import("../admin/pages/analytics/analytics.page"));
@@ -44,16 +45,17 @@ export const landingPaths = [
   "about",
   "single-retreat",
   "retreat-calendar",
-  "herbalpeadia",
+  "herbalpedia",
   "herbal-product",
   "gallery",
+  "gallery/:galleryId",
   "store",
   "store/:productId",
   "herbs/:productId",
   "login",
   "signup",
   "forgot-password",
-  "request-password",
+  "reset-password",
   "admin/dashboard",
   "admin/analytics",
   "admin/store",
@@ -102,10 +104,10 @@ export const landingRoutes: RouteType[] = [
     ),
   },
   {
-    path: "herbalpeadia",
+    path: "herbalpedia",
     element: (
       <SuspenseWrapper>
-        <Herbalpeadia />
+        <Herbalpedia />
       </SuspenseWrapper>
     ),
   },
@@ -122,6 +124,14 @@ export const landingRoutes: RouteType[] = [
     element: (
       <SuspenseWrapper>
         <Gallery />
+      </SuspenseWrapper>
+    ),
+  },
+  {
+    path: "gallery/:galleryId",
+    element: (
+      <SuspenseWrapper>
+        <GalleryDetail />
       </SuspenseWrapper>
     ),
   },
@@ -174,10 +184,10 @@ export const landingRoutes: RouteType[] = [
     ),
   },
   {
-    path: "request-password",
+    path: "reset-password",
     element: (
       <SuspenseWrapper>
-        <RequestPassword />
+        <ResetPassword />
       </SuspenseWrapper>
     ),
   },

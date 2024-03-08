@@ -4,7 +4,7 @@ import BRHeader from "@/shared/components/header/header";
 import { useState, ChangeEvent } from "react";
 import { CiSearch } from "react-icons/ci";
 import { products } from "@/modules/landing/resouces";
-import NoResultsFound from "@/modules/landing/pages/herbalpeadia/NoResultsFound.page";
+import NoResultsFound from "@/modules/landing/pages/herbalpedia/NoResultsFound.page";
 
 const HerbalProduct = () => {
   const [inputValue, setInputValue] = useState<string>("");
@@ -21,7 +21,7 @@ const HerbalProduct = () => {
       <BRHeader />
       <section className="px-4 lg:pl-[120px] mt-[96px] xl:mt-[150px]">
         <form className=" w-full  lg:max-w-[470px]  mx-auto">
-          <div className={`relative  `}>
+          <div className={`relative`}>
             <CiSearch
               className={`text-xl lg:text-5xl cursor-pointer w-6 absolute left-3 h-full my-auto`}
               width="24"

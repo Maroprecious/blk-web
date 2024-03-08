@@ -71,7 +71,7 @@ export default function AboutPage() {
             Contact Us
           </h3>
 
-          <form className="w-full grid items-center mt-10 mb-[116px]">
+          <form className="w-full grid items-center mt-10 lg:mb-[64px]">
             <div className="lg:grid grid-cols-2 gap-x-6 gap-y-4 mb-4">
               <div>
                 <label htmlFor="">First name</label>

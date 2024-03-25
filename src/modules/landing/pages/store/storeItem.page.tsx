@@ -5,7 +5,7 @@ import BRHeader from "@/shared/components/header/header";
 import "./store.css";
 import Footer from "@/components/landing/Footer";
 
-const StoreItemDetail = () => {
+const StoreItem = () => {
   const { productId } = useParams<{ productId: string }>();
   const selectedProduct = products.find(
     (product) => product.id.toString() === productId
@@ -183,4 +183,4 @@ const StoreItemDetail = () => {
   );
 };
 
-export default StoreItemDetail;
+export default StoreItem;

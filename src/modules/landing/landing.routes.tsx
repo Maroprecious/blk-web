@@ -24,7 +24,7 @@ const Store = lazy(() => import("./pages/store/store.page"));
 const ProductDetails = lazy(
   () => import("../../components/landing/products/ProductDetails")
 );
-const StoreItemDetail = lazy(() => import("./pages/store/storeItemDetail.page"));
+const StoreItem = lazy(() => import("./pages/store/storeItem.page"));
 const Login = lazy(() => import("./pages/login/login.page"));
 const Signup = lazy(() => import("./pages/signup/signup.page"));
 const ForgotPassword = lazy(
@@ -147,7 +147,7 @@ export const landingRoutes: RouteType[] = [
     path: "store/:productId",
     element: (
       <SuspenseWrapper>
-        <StoreItemDetail />
+        <StoreItem />
       </SuspenseWrapper>
     ),
   },

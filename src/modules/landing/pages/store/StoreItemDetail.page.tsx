@@ -4,6 +4,7 @@ import NoResultsFound from "../herbalpedia/NoResultsFound.page";
 import BRHeader from "@/shared/components/header/header";
 import "./store.css";
 import Footer from "@/components/landing/Footer";
+
 const StoreItemDetail = () => {
   const { productId } = useParams<{ productId: string }>();
   const selectedProduct = products.find(

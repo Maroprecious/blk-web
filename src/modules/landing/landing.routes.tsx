@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable react-refresh/only-export-components */
 import { RouteType } from "@/router/router.types";
 import { BRProgress } from "@/shared/components/page-progress/page-progress";
@@ -24,6 +25,7 @@ const Store = lazy(() => import("./pages/store/store.page"));
 const ProductDetails = lazy(
   () => import("../../components/landing/products/ProductDetails")
 );
+// @ts-error
 const StoreDetails = lazy(() => import("./pages/store/storeItemDetail.page"));
 const Login = lazy(() => import("./pages/login/login.page"));
 const Signup = lazy(() => import("./pages/signup/signup.page"));

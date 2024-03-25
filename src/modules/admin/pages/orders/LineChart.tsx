@@ -22,7 +22,7 @@ ChartJS.register(
   Legend
 );
 
-const options = {
+const options: any = {
   responsive: true,
   plugins: {
     legend: {
@@ -57,12 +57,12 @@ const options = {
 
 const labels = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
-const data = {
+const data: any = {
   labels,
   datasets: [
     {
       fill: "start",
-      backgroundColor: (context) => {
+      backgroundColor: (context: any) => {
         const ctx = context.chart.ctx;
         const gradient = ctx.createLinearGradient(0, 0, 90, 400);
         gradient.addColorStop(0, "#CF956F");

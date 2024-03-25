@@ -65,7 +65,7 @@ const CalendarComponent: React.FC = () => {
   };
   const dayPropGetter = (date: Date) => {
     // Customize the appearance of the days here
-    const isWeekend = date.getDay() === 0 || date.getDay() === 6;
+    // const isWeekend = date.getDay() === 0 || date.getDay() === 6;
     const isToday = moment(date).isSame(moment(), "day");
     return {
       className: isToday ? "today-cell" : "other-cell",

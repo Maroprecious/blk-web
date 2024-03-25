@@ -3,7 +3,7 @@ import { createContext, useState, ReactNode } from "react";
 interface AuthProviderProps {
   children: ReactNode;
 }
-const AuthContext = createContext({});
+const AuthContext = createContext<any>({});
 export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const [auth, setAuth] = useState({});
   return (

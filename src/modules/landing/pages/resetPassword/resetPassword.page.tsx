@@ -34,7 +34,7 @@ const ResetPassword = () => {
       // clear state and controlled inputs
       setPwd("");
       setConfirmPwd("");
-    } catch (err: Error) {
+    } catch (err: any) {
       if (!err?.response) {
         // setErrMsg("No Server Response");
         console.log("No Server Response");

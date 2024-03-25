@@ -23,6 +23,7 @@
   color: #946c3c;
   font-size: 34px;
   margin-top: -8px;
+  cursor: pointer;
 }
 @media screen and (max-width: 900px) {
   .swiper-button-next,

@@ -30,7 +30,7 @@ const retreatCalendar = () => {
       </div>
       {/* section */}
       <section className="px-4 lg:px-[120px] mt-[80px] md:mt-[130px] bg-white lg:mt-[175px}">
-        <h2 className="text-[64px] font-amsterdam font-medium">
+        <h2 className="text-[64px] mb-2 font-amsterdam font-medium">
           Retreat calendar
         </h2>
         <CalendarComponent />

@@ -50,7 +50,11 @@ export default function HomePage() {
         </div>
         <div className="hidden lg:block h-[748px] w-[820px] demo-container relative ">
           <img src={demo1} id="demo1" className="absolute left-[108px]" />
-          <img src={demo3} id="demo3" className="absolute right-[-54px] screen:right-[0] bottom-0" />
+          <img
+            src={demo3}
+            id="demo3"
+            className="absolute right-[-54px] screen:right-[0] bottom-0"
+          />
           <img src={demo2} id="demo2" className="absolute left-0 bottom-0" />
         </div>
       </section>
@@ -127,34 +131,42 @@ export default function HomePage() {
         </div>
       </section>
       {/* section */}
-      <section className="mt-[80px] md:mt-[80px] gap-[24px] lg:mt-[178px] flex items-center flex-wrap justify-center">
-        {articlesMock
-          .map((art, key) => (
-            <div
-              key={key}
-              className={`lg:max-w-[300px] ${
-                width < 640
-                  ? "w-11/12"
-                  : width < 1000
-                  ? "w-2/5"
-                  : width < 1350
-                  ? "w-1/4"
-                  : "w-1/5"
-              }`}
-            >
-              <img
-                src={art.img}
-                className=" w-full h-[358px] mb-8 object-cover"
-              />
-              <p className="text-[#959C7E] mb-4">{art.date}</p>
-              <h3 className="lg:text-2xl text-[#CF956F] mb-5">{art.title}</h3>
-              <p className="text-[#959C7E] font-arapey mb-4">
-                {art.description}
-              </p>
-              <hr className="bg-[#959C7E]" />
-            </div>
-          ))
-          .splice(0, width < 640 ? 2 : width < 1350 ? 3 : 4)}
+      <section className="mt-[80px] md:mt-[80px] lg:mt-[178px] px-4">
+        <h3
+          className="font-amsterdam text-[#CF956F] text-2xl lg:text-3xl xl:text-[56px]
+         mb-[32px] lg:mb-[64px] xl:leading-[58px] md:text-center lg:text-left max-w-[1200px] mx-auto"
+        >
+          Blog
+        </h3>
+        <div className="gap-[24px] flex items-center flex-wrap justify-center">
+          {articlesMock
+            .map((art, key) => (
+              <div
+                key={key}
+                className={`lg:max-w-[300px] ${
+                  width < 640
+                    ? "w-full"
+                    : width < 1000
+                    ? "w-2/5"
+                    : width < 1350
+                    ? "w-1/4"
+                    : "w-1/5"
+                }`}
+              >
+                <img
+                  src={art.img}
+                  className=" w-full h-[241px] lg:h-[358px] mb-8 object-cover"
+                />
+                <p className="text-[#959C7E] mb-4">{art.date}</p>
+                <h3 className="lg:text-2xl text-[#CF956F] mb-5">{art.title}</h3>
+                <p className="text-[#959C7E] font-arapey mb-4">
+                  {art.description}
+                </p>
+                <hr className="bg-[#959C7E]" />
+              </div>
+            ))
+            .splice(0, width < 950 ? 2 : width < 1350 ? 3 : 4)}
+        </div>
       </section>
       <Footer />
     </div>

@@ -25,7 +25,7 @@ export default function AboutPage() {
       </section>
       {/* section */}
       <div className="px-4 w-full lg:px-0 max-w-[792px] mx-auto mt-[64px] lg:mt-[130px] flex flex-col gap-12">
-        <h2 className="font-amsterdam text-[#CF956F] text-2xl lg:text-3xl xl:text-[58px] mb-[16px] xl:leading-[58px]">
+        <h2 className="font-amsterdam text-[#CF956F] text-2xl lg:text-3xl xl:text-[58px] mb-[-32px] lg:mb-[16px] xl:leading-[58px]">
           Our Story
         </h2>
         <p className="lg:text-[24px]">
@@ -46,7 +46,7 @@ export default function AboutPage() {
         </p>
         <p className="text-2xl lg:text-3xl">– The Back rooted team</p>
         <img src={sign} alt="sign" className="w-[200px] relative top-[-36px]" />
-        <div className="flex flex-col gap-[24px] lg:flex-row justify-between">
+        <div className="flex flex-col md:flex-row gap-[24px]  justify-between">
           <div className="bg-[#959C7E] text-white px-[30px] pt-8 pb-[84px] max-w-[384px]">
             <h3 className="text-[40px] font-amsterdam">Our Mission</h3>
             <p className="font-arapey text-[20px]">

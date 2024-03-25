@@ -2,8 +2,6 @@
 import { RouteType } from "@/router/router.types";
 import { BRProgress } from "@/shared/components/page-progress/page-progress";
 import { Suspense, lazy } from "react";
-import StoreDetails from "./pages/store/storeItemDetail.page";
-
 import ScrollToTop from "@/lib/utils";
 
 const HomePage = lazy(() => import("./pages/home/home.page"));
@@ -26,7 +24,7 @@ const Store = lazy(() => import("./pages/store/store.page"));
 const ProductDetails = lazy(
   () => import("../../components/landing/products/ProductDetails")
 );
-// const StoreDetails = lazy(() => import("./pages/store/storeItemDetail.page"));
+const StoreItemDetail = lazy(() => import("./pages/store/storeItemDetail.page"));
 const Login = lazy(() => import("./pages/login/login.page"));
 const Signup = lazy(() => import("./pages/signup/signup.page"));
 const ForgotPassword = lazy(
@@ -149,7 +147,7 @@ export const landingRoutes: RouteType[] = [
     path: "store/:productId",
     element: (
       <SuspenseWrapper>
-        <StoreDetails />
+        <StoreItemDetail />
       </SuspenseWrapper>
     ),
   },

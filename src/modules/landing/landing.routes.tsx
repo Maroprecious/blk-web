@@ -17,7 +17,8 @@ const HerbalpaediaPage = lazy(() => import("./pages/herbalpaedia/herbalpaedia.pa
 const HerbalpaediaPageId = lazy(() => import("./pages/herbalpaedia/herbalpaedia-id.page.tsx"));
 const StorPage = lazy(() => import("./pages/stores/store.page.tsx"));
 const StoreIdPage = lazy(() => import("./pages/stores/store.id.page.tsx"));
-
+const Checkout = lazy(() => import("./pages/stores/checkout.tsx"))
+const Profile = lazy(() => import("./pages/auth/my-profile.tsx"))
 
 export const landingPaths = [
   "",
@@ -32,7 +33,9 @@ export const landingPaths = [
   "/herbalpaedia",
   "/herbalpaedia/:id",
   "/store",
-  "/store/:id"
+  "/store/:id",
+  "/checkout",
+  "/my-profile"
 ] as const;
 
 export const landingRoutes: RouteType[] = [
@@ -121,6 +124,22 @@ export const landingRoutes: RouteType[] = [
     element: (
       <Suspense fallback={<BRProgress />}>
         <StoreIdPage />
+      </Suspense>
+    ),
+  },
+  {
+    path: "/checkout",
+    element: (
+      <Suspense fallback={<BRProgress />}>
+        <Checkout />
+      </Suspense>
+    ),
+  },
+  {
+    path: "/my-profile",
+    element: (
+      <Suspense fallback={<BRProgress />}>
+        <Profile />
       </Suspense>
     ),
   },

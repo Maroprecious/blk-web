@@ -98,7 +98,7 @@ function renderEventContent(eventInfo: any) {
   return (
     <div
       style={{ outline: "none !important" }}
-      className="h-[38px] mt-6 ring-0 scale-y-2 outline-none bg-white text-gray-700 border-0 font-maison text-[12px] rounded-[4px] flex justify-start items-center pl-2 border-l border-l-[3px] border-l-[#959C7E]"
+      className="h-[44px] mt-6 ring-0 scale-y-2 outline-none bg-white text-gray-700 border-0 font-maison text-[12px] rounded-[4px] flex justify-start items-center pl-2 border-l border-l-[3px] border-l-[#959C7E]"
     >
       <b>{eventInfo.timeText}</b>
       <i>{eventInfo.event.title}</i>

@@ -37,6 +37,7 @@
 .fc .fc-col-header-cell-cushion {
     color: #667085;
     font-size: 14px;
+    padding-top: 1rem;
     text-transform: uppercase;
     font-family: "Maison Neue", sans-serif;
     font-weight: 300;

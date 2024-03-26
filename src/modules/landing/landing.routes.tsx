@@ -14,6 +14,9 @@ const ForgotPasswordPage = lazy(() => import("./pages/auth/forgot-password.page"
 const ResetPasswordPage = lazy(() => import("./pages/auth/reset-password.page.tsx"));
 const HomeTab = lazy(() => import("./pages/home/home.tab.tsx"));
 const HerbalpaediaPage = lazy(() => import("./pages/herbalpaedia/herbalpaedia.page.tsx"));
+const HerbalpaediaPageId = lazy(() => import("./pages/herbalpaedia/herbalpaedia-id.page.tsx"));
+const StorPage = lazy(() => import("./pages/stores/store.page.tsx"));
+const StoreIdPage = lazy(() => import("./pages/stores/store.id.page.tsx"));
 
 
 export const landingPaths = [
@@ -26,7 +29,10 @@ export const landingPaths = [
   '/forgot-password',
   "/reset-password",
   "/home-tab",
-  "/herbalpaedia"
+  "/herbalpaedia",
+  "/herbalpaedia/:id",
+  "/store",
+  "/store/:id"
 ] as const;
 
 export const landingRoutes: RouteType[] = [
@@ -91,6 +97,30 @@ export const landingRoutes: RouteType[] = [
     element: (
       <Suspense fallback={<BRProgress />}>
         <HerbalpaediaPage />
+      </Suspense>
+    ),
+  },
+  {
+    path: '/herbalpaedia/:id',
+    element: (
+      <Suspense fallback={<BRProgress />}>
+        <HerbalpaediaPageId />
+      </Suspense>
+    ),
+  },
+  {
+    path: '/store',
+    element: (
+      <Suspense fallback={<BRProgress />}>
+        <StorPage />
+      </Suspense>
+    ),
+  },
+  {
+    path: '/store/:id',
+    element: (
+      <Suspense fallback={<BRProgress />}>
+        <StoreIdPage />
       </Suspense>
     ),
   },

@@ -1,0 +1,5 @@
+ul.list-disc::marker {
+  color: #946c3c; /* Set the color of the marker */
+  font-size: 1.5rem; /* Set the font size of the marker */
+  /* Add any other styling properties as needed */
+}

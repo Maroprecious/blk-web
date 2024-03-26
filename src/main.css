@@ -91,65 +91,136 @@
 }
 
 @font-face {
-  font-family: "Maison Neue";
-  src: url("./assets/fonts/Maison\ Neue/MaisonNeue-Book.otf") format("opentype");
+  font-family: "AmsterdamOne";
+  src: url("./assets/fonts/AmsterdamOne.ttf");
 }
 
 @font-face {
-  font-family: "Maison Neue";
-  src: url("./assets/fonts/Maison\ Neue/MaisonNeue-Bold.otf") format("opentype");
-  font-weight: bold;
+  font-family: "Arapey";
+  src: url("./assets/fonts/Arapey.ttf");
 }
 
-@font-face {
-  font-family: "Maison Neue";
-  src: url("./assets/fonts/Maison\ Neue/MaisonNeue-Medium.otf")
-    format("opentype");
-  font-weight: 500;
+.font-amsterdam {
+  font-family: "AmsterdamOne";
 }
 
-@font-face {
-  font-family: "Maison Neue";
-  src: url("./assets/fonts/Maison\ Neue/MaisonNeue-Light.otf")
-    format("opentype");
-  font-weight: 300;
+.font-arapey {
+  font-family: "Arapey";
 }
 
-@font-face {
-  font-family: "Recoleta";
-  src: local("Recoleta"),
-    url("./assets/fonts/Recoleta/Recoleta-Regular.woff") format("woff"),
-    url("./assets/fonts/Recoleta/Recoleta-Regular.woff2") format("woff2");
+html, body {
+  font-family: "Arapey";
 }
 
-@font-face {
-  font-family: "Recoleta";
-  src: local("Recoleta"),
-    url("./assets/fonts/Recoleta/Recoleta-Bold.woff") format("woff"),
-    url("./assets/fonts/Recoleta/Recoleta-Bold.woff2") format("woff2");
-  font-weight: bold;
+.sideNav:hover {
+  background: #ca8b61;
+  border-left: 2px solid white;
+  color: white;
 }
-
-@font-face {
-  font-family: "Recoleta";
-  src: local("Recoleta"),
-    url("./assets/fonts/Recoleta/Recoleta-Medium.woff") format("woff"),
-    url("./assets/fonts/Recoleta/Recoleta-Medium.woff2") format("woff2");
-  font-weight: 500;
+.popup-boxShadow {
+  box-shadow: 0px 8px 8px -4px rgba(16, 24, 40, 0.03),
+    0px 20px 24px -4px rgba(16, 24, 40, 0.08);
 }
-
-@font-face {
-  font-family: "Recoleta";
-  src: local("Recoleta"),
-    url("./assets/fonts/Recoleta/Recoleta-Light.woff") format("woff"),
-    url("./assets/fonts/Recoleta/Recoleta-Light.woff2") format("woff2");
-  font-weight: 300;
+.custom-shadow {
+  box-shadow: 0px -12px 76px 0px rgba(208, 216, 229, 0.33);
 }
-
-.font-maison {
+.custom-calendar .rbc-month-view .rbc-row-bg {
+  height: 150px;
+}
+.custom-calendar .rbc-month-view .rbc-row-content {
+  text-align: center; /* Center-align the entire cell content */
+  margin-top: 20px;
   font-family: "Maison Neue", sans-serif;
+  font-size: 26px;
+  font-weight: 300;
 }
 
-.font-recoleta {
-  font-family: "Recoleta", sans-serif;
+.custom-calendar .rbc-month-view .rbc-date-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100%; /* Ensure the cell takes the full height */
 }
+.custom-calendar .rbc-month-view .rbc-header {
+  color: #667085;
+  font-family: "Maison Neue", sans-serif;
+  font-size: 20px;
+  display: block;
+  font-weight: 300;
+}
+.custom-calendar .rbc-month-view .rbc-row:nth-child(3) .rbc-row-segment {
+  border: none; /* Remove the top border for the second row */
+}
+.custom-calendar .rbc-event {
+  background-color: white; /* Change the background color to white */
+  border-left: 4px solid #959c7e; /* Optional: Set border color for the event */
+  color: #344054; /* Optional: Set text color for the event */
+  font-size: 20px;
+  height: 47px;
+  padding-top: 8px;
+}
+
+.custom-calendar .rbc-today {
+  background-color: transparent;
+  border: none;
+  color: inherit;
+  font-weight: 400;
+}
+.custom-list {
+  list-style-type: disc; /* You can use 'circle' or 'square' as well */
+}
+.video-wrapper {
+  position: relative;
+}
+
+.video {
+  width: 100%;
+  height: auto;
+}
+
+.video:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 1, 1, 0.4),
+    rgba(0, 0, 0, 0.5)
+  ); /* Adjust opacity as needed */
+  pointer-events: none; /* Ensure clicks pass through the overlay */
+}
+.mantine-PasswordInput-innerInput {
+  background: transparent;
+  width: 100%;
+  height: 50px;
+}
+/* .rbc-time-slot {
+  background-color: red;
+}
+.rbc-month-view {
+  background-color: red;
+} */
+/* .rbc-day-bg {
+  background-color: #e6e5de;
+  border: 1px solid #959c7e;
+} */
+/* .rbc-off-range-bg {
+  background-color: #e6e5de;
+  border: 1px solid #959c7e;
+}
+.other-cell {
+  background-color: #e6e5de;
+  border: 1px solid #959c7e;
+} */
+/* .rbc-month-row {
+  background-color: #e6e5de;
+  border: 1px solid #959c7e;
+} */
+/* .today-cell {
+  background-color: #e6e5de;
+  border: 1px solid #959c7e;
+} */

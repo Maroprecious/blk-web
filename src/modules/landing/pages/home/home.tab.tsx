@@ -4,6 +4,7 @@ import HerbalpaediaCard from "@/shared/components/cards/retreats/herbalpaedia-ca
 import ProductCard from "@/shared/components/cards/retreats/product-card";
 import { PageLayout } from "@/shared/components/layout/page-layout";
 
+
 export default function HomeTab () {
   return (
     <PageLayout>

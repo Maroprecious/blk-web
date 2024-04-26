@@ -59,6 +59,7 @@ export const Select: FC<SelectProps> = ({
           "focus:outline-none focus:ring-0",
           "placeholder-gray-500 disabled:placeholder-gray-200 disabled:text-gray-100"
         )}
+        {...rest}
       >
         {options?.map((element) => (
           <option value={element.value} key={element.label}>

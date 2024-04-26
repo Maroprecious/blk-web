@@ -1,12 +1,25 @@
+import { useCompleteProfile } from "@/api/mutations";
 import { Button } from "@/components/ui/button";
 import Input from "@/components/ui/input";
 import { Select } from "@/components/ui/select";
+import { createProfileValidationSchema } from "@/schema/profile";
 import { AuthLayout } from "@/shared/components/layout/auth.layout";
-import { useCallback, useState } from "react";
+import { continents } from "@/utils/continents";
+import { useFormik } from "formik";
+import { useCallback, useEffect, useState } from "react";
+import { toast } from "react-hot-toast";
 import { FiCamera } from "react-icons/fi";
+import { useAtom } from "jotai";
+import { userAtom } from "@/store/store";
+import useGetUser from "@/api/queries";
+import { useNavigate } from "react-router-dom";
 
 export default function CustomizeProfilePage() {
   const [imageUrl, setImageUrl] = useState<string>("");
+  const { mutate, isPending } = useCompleteProfile();
+  const [, setUser] = useAtom(userAtom);
+  const { refetch, isSuccess, isPending: isLoading } = useGetUser();
+  const navigate = useNavigate();
 
   const handleUploadImage = useCallback(() => {
     const doc = document.createElement("input");
@@ -17,6 +30,55 @@ export default function CustomizeProfilePage() {
     doc.hidden = true;
     doc.click();
   }, [setImageUrl]);
+
+  const {
+    handleSubmit,
+    handleChange,
+    handleBlur,
+    errors,
+    touched,
+    setFieldValue,
+  } = useFormik({
+    initialValues: {
+      firstName: "",
+      lastName: "",
+      dob: "",
+      continent: "",
+    },
+    validationSchema: createProfileValidationSchema,
+    onSubmit: async (values) => {
+      try {
+        mutate(
+          {
+            firstName: values.firstName,
+            lastName: values.lastName,
+            dob: values.dob,
+            continent: values.continent,
+            photoUrl: "l",
+          },
+          {
+            onSuccess: (data) => {
+              refetch().then((res) => {
+                if (isSuccess) {
+                  setUser(res?.data);
+                  toast.success("User created successfully");
+                  navigate('/home-tab')
+                }
+              });
+            },
+            onError: (data: any) => {
+              toast.error(
+                data?.response?.data?.error.message ??
+                  "An error occured, please try again"
+              );
+            },
+          }
+        );
+      } catch (error: any) {
+        console.log(error, "ll");
+      }
+    },
+  });
 
   return (
     <AuthLayout>
@@ -39,27 +101,49 @@ export default function CustomizeProfilePage() {
             >
               <FiCamera size={40} strokeWidth={1} color="#000" />
             </div>
-            <Input label="Last name" placeholder="Your last name" />
-            <Input label="First name" placeholder="Your first name" />
             <Input
+              onChange={handleChange}
+              onBlur={handleBlur}
+              hasError={!!errors.lastName && touched.lastName}
+              error={errors.lastName}
+              label="Last name"
+              placeholder="Your last name"
+              name="lastName"
+            />
+            <Input
+              onChange={handleChange}
+              onBlur={handleBlur}
+              hasError={!!errors.firstName && touched.firstName}
+              error={errors.firstName}
+              name="firstName"
+              label="First name"
+              placeholder="Your first name"
+            />
+            <Input
+              name="dob"
+              onChange={handleChange}
+              onBlur={handleBlur}
+              hasError={!!errors.dob && touched.dob}
+              error={errors.dob}
               label="Birthday"
               placeholder="DD/MM/YYYY"
               onFocus={(e) => (e.currentTarget.type = "date")}
             />
             <Select
               label="Location (Continent)"
-              options={[
-                {
-                  label: "Lagos",
-                  value: "Lagos",
-                },
-                {
-                  label: "Abuja",
-                  value: "Abuja",
-                },
-              ]}
+              name="continent"
+              onChange={handleChange}
+              onBlur={handleBlur}
+              options={continents}
+              onSelect={(value) => setFieldValue("continent", value)}
             />
-            <Button className="w-full h-[56px] text-[16px]">SIGN UP</Button>
+            <Button
+              isLoading={isPending || isLoading}
+              className="w-full h-[56px] text-[16px]"
+              onClick={() => handleSubmit()}
+            >
+              SETUP ACCOUNT
+            </Button>
           </div>
         </div>
       </div>

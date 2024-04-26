@@ -153,3 +153,20 @@
 .font-recoleta {
   font-family: "Recoleta", sans-serif;
 }
+
+.spinner {
+  animation-name: spinner_loader;
+  animation-duration:1s;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
+  color: #fff !important;
+}
+
+@keyframes spinner_loader {
+  from {
+    transform: rotate(0deg);
+  } 
+  to {
+    transform: rotate(360deg);
+  }
+}

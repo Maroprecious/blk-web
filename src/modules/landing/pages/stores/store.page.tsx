@@ -4,6 +4,7 @@ import { CiSearch } from "react-icons/ci";
 import { PageLayout } from "@/shared/components/layout/page-layout";
 import { useGetAllProducts } from "@/api/queries";
 import { useNavigate } from "react-router-dom";
+import RetreatCard from "@/shared/components/cards/retreats/retreat-card";
 
 export default function StorePage() {
   const { data } = useGetAllProducts();

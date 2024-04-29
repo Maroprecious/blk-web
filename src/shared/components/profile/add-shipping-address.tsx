@@ -12,7 +12,7 @@ export const ShippingAddress = () => {
   const [show, setShow] = useState(false);
   const { mutate } = useAddShippingAdress();
   const { data, refetch, isSuccess } = useGetShippingAddress();
-  console.log(data.data, "address");
+  console.log(data?.data, "address");
 
   const { handleSubmit, handleChange, handleBlur, errors, touched, values } =
     useFormik({

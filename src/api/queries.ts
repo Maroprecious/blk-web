@@ -51,3 +51,10 @@ export function useGetOneProduct(id: number) {
       enabled: false,
     });
   }
+  export function useGetAllRetreats() {
+    return useQuery({
+      queryKey: ["get-retreats"],
+      queryFn: () => api.get('/retreats').then((resp) => resp.data),
+    
+    });
+  }

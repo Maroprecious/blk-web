@@ -14,6 +14,8 @@ import { continents } from "@/utils/continents";
 import { EditProfile } from "@/shared/components/profile/profile";
 import { ChangePassword } from "@/shared/components/profile/change-password";
 import { ShippingAddress } from "@/shared/components/profile/add-shipping-address";
+import { OngoingRetreats } from "@/shared/components/profile/ongoing-retreats";
+import { PastRetreats } from "@/shared/components/profile/past-retreats";
 
 export default function MyProfile() {
   const [active, setActive] = useState<number | null>(0);
@@ -127,6 +129,18 @@ export default function MyProfile() {
         {active === 3 && (
           <>
            <ShippingAddress />
+          
+          </>
+        )}
+         {active === 4 && (
+          <>
+           <OngoingRetreats />
+          
+          </>
+        )}
+         {active === 5 && (
+          <>
+           <PastRetreats />
           
           </>
         )}

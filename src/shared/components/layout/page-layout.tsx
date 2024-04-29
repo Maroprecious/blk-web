@@ -7,11 +7,17 @@ import { LogoutModal } from "../modals/log-out";
 import user from "@assets/icons/user.svg";
 import logout from "@assets/icons/logout.svg";
 import { CartSideBar } from "../dropdown/cart-sidebar";
+import { useAtom } from "jotai";
+import { userAtom } from "@/store/store";
+import { useNavigate } from "react-router-dom";
 
 type props = {
   children: ReactNode;
 };
 export const PageLayout = ({ children }: props) => {
+  const [users, setUsers] = useAtom(userAtom);
+  const navigate = useNavigate()
+
   const userOptions = [
     {
       image: user,
@@ -47,6 +53,7 @@ export const PageLayout = ({ children }: props) => {
       setOpenUser(false);
     }
   };
+
   return (
     <div>
       <div
@@ -54,7 +61,7 @@ export const PageLayout = ({ children }: props) => {
        left-0 top-0 h-[88px] border-b border-b-[1px] border-[#EAECF0]"
       >
         <div className="w-[23%]">
-          <div className="w-[134px] h-[44px] px-4">
+          <div className="w-[134px] h-[44px] px-4" onClick={() => navigate('/home-tab')}>
             <img src={logo} style={{ width: "100%", height: "100%" }} />
           </div>
         </div>
@@ -100,7 +107,8 @@ export const PageLayout = ({ children }: props) => {
             onClick={() => handleUserDropdown()}
           >
             <h2 className="font-maison text-[#fff] font-extrabold text-[17px]">
-              LC
+              {users.data?.profile?.firstName?.charAt(0)}{" "}
+              {users.data?.profile?.lastName?.charAt(0)}{" "}
             </h2>
           </div>
         </div>

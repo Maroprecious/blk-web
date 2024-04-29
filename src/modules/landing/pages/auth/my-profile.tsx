@@ -3,17 +3,26 @@ import Input from "@/components/ui/input";
 import { Select } from "@/components/ui/select";
 import { PageLayout } from "@/shared/components/layout/page-layout";
 import user from "@assets/images/user.jpg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { PiCamera } from "react-icons/pi";
 import { TbPhoto } from "react-icons/tb";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { FiEye } from "react-icons/fi";
 import { AddressCard } from "@/shared/components/cards/address/address-card";
+import { useGetUser } from "@/api/queries";
+import { continents } from "@/utils/continents";
+import { EditProfile } from "@/shared/components/profile/profile";
+import { ChangePassword } from "@/shared/components/profile/change-password";
+import { ShippingAddress } from "@/shared/components/profile/add-shipping-address";
 
 export default function MyProfile() {
   const [active, setActive] = useState<number | null>(0);
   const [changePopup, setChangePopup] = useState<boolean>(false);
-
+  const { data, refetch } = useGetUser();
+  useEffect(() => {
+    refetch();
+  }, []);
+  console.log(data, "user");
   const handleActive = (id: number) => {
     setActive(id);
   };
@@ -33,11 +42,11 @@ export default function MyProfile() {
   ];
   return (
     <PageLayout>
-      <div className="bg-[#fff] pt-20 px-6 h-screen">
-        <h4 className="font-recoleta font-medium text-[24px] text-gray-900">
+      <div className="bg-[#fff] pt-20 h-screen">
+        <h4 className="font-recoleta font-medium px-6 text-[24px] text-gray-900">
           Profile
         </h4>
-        <div className="flex items-center gap-[1rem]">
+        <div className="flex items-center gap-[1rem] px-6">
           <div className="w-[114px] h-[114px] rounded-[50%]">
             <img
               src={user}
@@ -50,9 +59,9 @@ export default function MyProfile() {
               className="rounded-[50%]"
             />
           </div>
-          <div className="gap-[8px]">
+          <div className="gap-[8px] px-6">
             <h4 className="font-recoleta text-gray-900 font-medium text-[22px]">
-              Hailey Hemsworth
+              {data?.data?.profile.firstName} {data?.data?.profile.lastName}
             </h4>
             <Button
               variant="border"
@@ -84,7 +93,7 @@ export default function MyProfile() {
             )}
           </div>
         </div>
-        <div className="flex justify-between items-center w-[85%] mt-6">
+        <div className="flex px-6 justify-between items-center w-[85%] mt-6">
           {[
             "Profile details",
             "Password mgt",
@@ -110,82 +119,15 @@ export default function MyProfile() {
         <div className="border-b border-b-gray-200" />
 
         {active === 0 && (
-          <div className="w-[71%] mt-6">
-            <div className="flex gap-[1.5rem] items-center">
-              <Input
-                className="bg-transparent"
-                label="First name"
-                value="Hailey"
-              />
-              <Input
-                className="bg-transparent"
-                label="Last name"
-                value="Hemsworth"
-              />
-            </div>
-            <div className="flex gap-[1.5rem] items-center">
-              <Input
-                className="bg-transparent"
-                label="Email address"
-                value="hhems58@gmail.com"
-              />
-              <Select
-                className="bg-transparent"
-                label="Location preferences"
-                options={[
-                  {
-                    label: "-Select-",
-                    value: "select",
-                  },
-                  {
-                    label: "Lagos",
-                    value: "Lagos",
-                  },
-                  {
-                    label: "Abuja",
-                    value: "Abuja",
-                  },
-                ]}
-              />
-            </div>
-            <Button variant="border" className="text-[#946C3C]">
-              EDIT PROFILE DETAILS
-            </Button>
-          </div>
+        <EditProfile />
         )}
         {active === 1 && (
-          <>
-            <div className={"w-[72%] flex gap-[1.5rem] mt-6"}>
-              <Input
-                className="bg-transparent"
-                label="Password"
-                placeholder="Your password"
-                inputRightElement={<FiEye color="black" />}
-              />
-              <Input
-                className="bg-transparent"
-                label="Confirm Password"
-                placeholder="Confirm password"
-                inputRightElement={<FiEye color="black" />}
-              />
-            </div>
-            <Button>SAVE CHANGES</Button>
-          </>
+         <ChangePassword />
         )}
         {active === 3 && (
           <>
-            <div className="flex w-[73%] flex-wrap justify-start items-center gap-4">
-              {Array(3)
-                .fill("_")
-                .map((element, idx) => (
-                  <div className="w-[32%]" key={element + idx}>
-                    <AddressCard />
-                  </div>
-                ))}
-            </div>
-            <Button  className="text-[#fff] mt-2">
-              ADD SHIPPING ADDRESS
-            </Button>
+           <ShippingAddress />
+          
           </>
         )}
       </div>

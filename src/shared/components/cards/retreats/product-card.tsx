@@ -5,9 +5,11 @@ import { CgMathMinus, CgMathPlus } from "react-icons/cg";
 
 type Props = {
   items?: Array<string>;
+  name: string;
+  price: string;
 };
 
-export default function ProductCard({ items }: Props) {
+export default function ProductCard({ items, name, price }: Props) {
   const [count, setCount] = useState<number>(0);
 
   return (
@@ -36,10 +38,11 @@ export default function ProductCard({ items }: Props) {
       </div>
       <div className="w-full p-2">
         <h3 className="font-maison text-gray-900 text-[24px] font-medium">
-          Lavender <span className="italic">(Lavandula angustifolia)</span>
+          {/* Lavender <span className="italic">(Lavandula angustifolia)</span> */}
+          {name}
         </h3>
         <h1 className="font-recoleta text-primary font-bold text-[24px]">
-          $ 350 USD
+          $ {price} USD
         </h1>
         <div className="w-full px-10 py-2 flex justify-between items-center">
           <CgMathMinus
@@ -56,7 +59,7 @@ export default function ProductCard({ items }: Props) {
             color="#000"
           />
         </div>
-        <Button className="w-full mt-4">READ</Button>
+        <Button className="w-full mt-4">ADD TO CART</Button>
       </div>
     </div>
   );

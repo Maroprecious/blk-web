@@ -6,12 +6,12 @@ import { createProfileValidationSchema } from "@/schema/profile";
 import { AuthLayout } from "@/shared/components/layout/auth.layout";
 import { continents } from "@/utils/continents";
 import { useFormik } from "formik";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 import { toast } from "react-hot-toast";
 import { FiCamera } from "react-icons/fi";
 import { useAtom } from "jotai";
 import { userAtom } from "@/store/store";
-import useGetUser from "@/api/queries";
+import {useGetUser} from "@/api/queries";
 import { useNavigate } from "react-router-dom";
 
 export default function CustomizeProfilePage() {

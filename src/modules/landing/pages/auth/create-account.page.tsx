@@ -5,7 +5,6 @@ import { AuthLayout } from "@/shared/components/layout/auth.layout";
 import { signUpValidationSchema } from "@/schema/auth";
 import { useFormik } from "formik";
 import toast from "react-hot-toast";
-import useGetUser from "@/api/queries";
 import { useNavigate } from "react-router-dom";
 
 export default function CreateAccountPage() {

@@ -39,15 +39,14 @@ export const forgotPasswordValidationSchema = Yup.object().shape({
 
 export const resetPasswordValidationSchema = Yup.object().shape({
   email: Yup.string().email().required("Email is required"),
-  password:  Yup.string().required("Password is required"),
-  token:  Yup.string().required("Token is required"),
+  password: Yup.string().required("Password is required"),
+  token: Yup.string().required("Token is required"),
 });
 
 export const updatePasswordValidationSchema = Yup.object().shape({
-  oldPassword:  Yup.string().required(" Old password is required"),
-  newPassword:  Yup.string().required("New password is required"),
+  oldPassword: Yup.string().required(" Old password is required"),
+  newPassword: Yup.string().required("New password is required"),
 });
-
 
 export const CheckoutValidationSchema = Yup.object().shape({
   address: Yup.string().required(),
@@ -55,6 +54,16 @@ export const CheckoutValidationSchema = Yup.object().shape({
   state: Yup.string().required(),
   zip: Yup.string().required(),
   apartment: Yup.string().required(),
-  phone: Yup.string().required() 
-
-})
+  phone: Yup.string().required(),
+});
+export const addShippingValidationSchema = Yup.object().shape({
+  firstName: Yup.string().required("First name is required"),
+  lastName: Yup.string().required("Last name is required"),
+  email: Yup.string().email().required("Email is required"),
+  phone: Yup.string().required("Phone is required"),
+  address: Yup.string().required("Address is required"),
+  suit: Yup.string().required("suite is required"),
+  city: Yup.string().required("city is required"),
+  state: Yup.string().required("state is required"),
+  zip: Yup.string().required("zip code is required"),
+});

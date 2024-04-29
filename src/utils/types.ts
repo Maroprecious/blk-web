@@ -99,3 +99,14 @@ export interface AuthPayload {
       apartment?: string;
     };
   }
+  export interface addShippingPayload {
+    firstName: string,
+    lastName: string,
+    email: string,
+    phone: string,
+    address: string,
+    suit: string,
+    city: string,
+    state: string,
+    zip: string
+  }

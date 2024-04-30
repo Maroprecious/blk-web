@@ -4,7 +4,7 @@ import { EmptyRetreat } from "../cards/retreats/empty-state";
 
 export const PastRetreats = () => {
   const { data } = useGetAllRetreats();
-  console.log(data.data.data, "retreats");
+  console.log(data?.data?.data, "retreats");
   return (
     <>
       {data?.data?.data?.some((ele) => ele?.status === 'past') ? (
@@ -24,7 +24,7 @@ export const PastRetreats = () => {
             </div>
           </>
         ) : (
-          <EmptyRetreat />
+          <EmptyRetreat text="past" />
         )
       }
     </>

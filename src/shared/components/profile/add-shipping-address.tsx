@@ -67,7 +67,7 @@ export const ShippingAddress = () => {
     <>
       {" "}
       <div className="flex w-[73%] px-6 flex-wrap justify-start items-center gap-4">
-        {data?.data.map((element, idx: number) => (
+        {data?.data?.map((element, idx: number) => (
           <div className="w-[32%]" key={idx}>
             <AddressCard
               firstName={element.firstName}

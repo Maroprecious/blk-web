@@ -29,7 +29,15 @@ const events = [
 ];
 const currentDate = new Date();
 
-export default function Calandar() {
+export default function Calandar({
+  events,
+}: {
+  events: Array<{
+    title: string;
+    start: string;
+    end: string;
+  }>;
+}) {
   const [date, setDate] = useState(
     currentDate.toLocaleDateString("en-US", { month: "long", year: "numeric" })
   );

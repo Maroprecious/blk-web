@@ -1,19 +1,38 @@
 import { Button } from "@/components/ui/button";
 import { randomColor } from "@/lib/utils";
-import { useState } from "react";
 import { FaRegClock } from "react-icons/fa6";
-import people from '../../.././../assets/icons/people.svg'
+import people from "../../.././../assets/icons/people.svg";
+import moment from "moment";
+import { useNavigate } from "react-router-dom";
 
 type Props = {
   items?: Array<string>;
   name: string;
   price: string;
+  start: string;
+  end: string;
+  participants: string;
+  image: string;
+  id: number;
 };
 
-export default function RetreatCard({ items, name, price }: Props) {
+export default function RetreatCard({
+  items,
+  name,
+  price,
+  start,
+  participants,
+  end,
+  image,
+  id,
+}: Props) {
+  const navigate = useNavigate();
   return (
-    <div className="w-full h-[504px] border border-gray-200 p-2 flex flex-col justify-center items-start">
-      <div className="w-full p-2 flex flex-wrap gap-2 h-[300px] bg-[url('@assets/images/product-bg.png')] bg-cover bg-center bg-no-repeat">
+    <div className="w-auto h-[504px] border border-gray-200 p-2 flex flex-col justify-center items-start">
+      <div
+        className="w-full p-2 flex flex-wrap gap-2 h-[300px] bg-[url('@assets/images/product-bg.png')] bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: image }}
+      >
         {items?.map((element) => {
           const { colorWithOpacity, colorWithoutOpacity } = randomColor(0.1);
           return (
@@ -45,15 +64,23 @@ export default function RetreatCard({ items, name, price }: Props) {
         </h1>
         <div className="w-full py-2 flex justify-start gap-[.7rem] items-start">
           <div className="flex items-center p-2 gap-[.3rem] justify-items-start bg-cream-300">
-            <FaRegClock size={20} color='#CF956F'/>
-            <p className="text-clay-900 text-[15px]">18th - 22nd, 2023</p>
+            <FaRegClock size={20} color="#CF956F" />
+            <p className="text-clay-900 text-[15px]">
+              {moment(start).format("Do")} - {moment(end).format("Do")},{" "}
+              {moment(end).year()}
+            </p>
           </div>
           <div className="flex items-center p-2 gap-[.3rem] justify-items-start bg-cream-300">
             <img src={people} />
-            <p className="text-clay-900 text-[15px]">56 people</p>
+            <p className="text-clay-900 text-[15px]">
+              {participants.length}{" "}
+              {`${participants.length < 2 ? "person" : "people"}`}
+            </p>
           </div>
         </div>
-        <Button className="w-full mt-4">VIEW DETAILS</Button>
+        <Button className="w-full mt-4" onClick={() => navigate(`/retreats/${id}`)}>
+          VIEW DETAILS
+        </Button>
       </div>
     </div>
   );

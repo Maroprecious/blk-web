@@ -48,7 +48,7 @@ export function useGetOneProduct(id: number) {
     return useQuery({
       queryKey: ["get-addresses"],
       queryFn: () => api.get('/users/me/addresses').then((resp) => resp.data),
-      enabled: false,
+   
     });
   }
   export function useGetAllRetreats() {
@@ -56,5 +56,12 @@ export function useGetOneProduct(id: number) {
       queryKey: ["get-retreats"],
       queryFn: () => api.get('/retreats').then((resp) => resp.data),
     
+    });
+  }
+  export function useGetOneRetreat(id: number) {
+    return useQuery({
+      queryKey: ["get-one-retreat"],
+      queryFn: () => api.get(`/retreats/${id}`).then((resp) => resp.data),
+      enabled: false,
     });
   }

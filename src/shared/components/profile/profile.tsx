@@ -104,6 +104,7 @@ export const EditProfile = () => {
         />
         <Input
           name="dob"
+          className="bg-transparent"
           onChange={handleChange}
           onBlur={handleBlur}
           value={values.dob}
@@ -122,6 +123,7 @@ export const EditProfile = () => {
           disabled
         />
         <Select
+         className="bg-transparent"
           label="Location (Continent)"
           name="continent"
           onChange={handleChange}

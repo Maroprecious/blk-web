@@ -1,6 +1,7 @@
 import { RouteType } from "@/router/router.types";
 import { BRProgress } from "@/shared/components/page-progress/page-progress";
 import { Suspense, lazy } from "react";
+import RetreatPage from "./pages/retreats/retreats.page.tsx";
 
 const HomePage = lazy(() => import("./pages/home/home.page"));
 const CreateAccountPage = lazy(
@@ -19,6 +20,8 @@ const StorPage = lazy(() => import("./pages/stores/store.page.tsx"));
 const StoreIdPage = lazy(() => import("./pages/stores/store.id.page.tsx"));
 const Checkout = lazy(() => import("./pages/stores/checkout.tsx"))
 const Profile = lazy(() => import("./pages/auth/my-profile.tsx"))
+const Retreats = lazy(() =>import("./pages/retreats/retreats.page.tsx"))
+const RetreatPageId = lazy(() => import("./pages/retreats/retreats-id.page.tsx"))
 
 export const landingPaths = [
   "",
@@ -35,7 +38,9 @@ export const landingPaths = [
   "/store",
   "/store/:id",
   "/checkout",
-  "/my-profile"
+  "/my-profile",
+  "/retreats",
+  "/retreats/:id"
 ] as const;
 
 export const landingRoutes: RouteType[] = [
@@ -140,6 +145,22 @@ export const landingRoutes: RouteType[] = [
     element: (
       <Suspense fallback={<BRProgress />}>
         <Profile />
+      </Suspense>
+    ),
+  },
+  {
+    path: "/retreats",
+    element: (
+      <Suspense fallback={<BRProgress />}>
+        <RetreatPage />
+      </Suspense>
+    ),
+  },
+  {
+    path: '/retreats/:id',
+    element: (
+      <Suspense fallback={<BRProgress />}>
+        <RetreatPageId />
       </Suspense>
     ),
   },

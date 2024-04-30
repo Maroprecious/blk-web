@@ -25,7 +25,7 @@ export const OngoingRetreats = () => {
             </div>
           </>
         ) : (
-          <EmptyRetreat />
+          <EmptyRetreat  />
         )
       }
     </>

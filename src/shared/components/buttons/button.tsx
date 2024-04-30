@@ -10,9 +10,9 @@ export const Button = ({ variant, title, onClick }: props) => {
         onClick={onClick}
         className={
           variant === "outline"
-            ? "border border-[#946C3C] w-full text-[#946C3C] h-[53px] text-[15px] font-normal"
+            ? "border border-[#946C3C] w-full text-[#946C3C] h-[50px] text-[14px] font-normal"
             : variant === "solid"
-            ? "bg-[#946C3C] h-[53px] w-full text-[#FFF] text-[15px] font-normal"
+            ? "bg-[#946C3C] h-[50px] w-full text-[#FFF] text-[14px] font-normal"
             : ""
         }
       >

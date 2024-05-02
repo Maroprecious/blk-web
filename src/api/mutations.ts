@@ -24,6 +24,7 @@ export function useLogin() {
       api.post("/auth/signin", data).then((resp) => resp.data),
   });
 }
+
 export function useCompleteProfile() {
   return useMutation({
     mutationFn: (data: createProfilePayload) =>

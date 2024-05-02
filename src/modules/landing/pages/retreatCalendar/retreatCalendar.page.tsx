@@ -1,8 +1,10 @@
 // import mainVideo from "@assets/video/brw-video.mp4";
-import CalendarComponent from "@/components/landing/Calendar";
+// import CalendarComponent from "@/components/landing/Calendar";
 import mainVideo from "@assets/video/brw-video.mp4";
 import BRTHeader from "@/shared/components/header/transparentHeader";
 import Footer from "@/components/landing/Footer";
+import Calandar from "./calandar/calandar";
+
 const retreatCalendar = () => {
   return (
     <div className="bg-white">
@@ -30,12 +32,12 @@ const retreatCalendar = () => {
       </div>
       {/* section */}
       <section className="px-4 lg:px-[120px] mt-[80px] md:mt-[130px] bg-white lg:mt-[175px}">
-        <h2 className="text-[64px] mb-2 font-amsterdam font-medium">
+        <h2 className="text-[64px] mb-24 font-amsterdam font-medium">
           Retreat calendar
         </h2>
-        <CalendarComponent />
+        <Calandar />
       </section>
-      <Footer/>
+      <Footer />
     </div>
   );
 };

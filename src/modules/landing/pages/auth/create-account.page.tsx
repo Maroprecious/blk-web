@@ -5,7 +5,7 @@ import { AuthLayout } from "@/shared/components/layout/auth.layout";
 export default function CreateAccountPage() {
   return (
     <AuthLayout>
-      <div className="w-full pt-20 lg:pb-[23em] flex justify-center items-center">
+      <div className="w-full mt-36 pt-20 lg:pb-[23em] flex justify-center items-center">
         <div className="w-[38%] max-w-[1440px]">
           <h1 className="font-recoleta pb-6 font-medium text-[32px]">
             Create an account

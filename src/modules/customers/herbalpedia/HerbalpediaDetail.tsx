@@ -1,16 +1,14 @@
+import NoResultsFound from "@/modules/landing/pages/herbalpedia/NoResultsFound.page";
+import { useParams } from "react-router-dom";
+import { products } from "@/modules/landing/resouces";
+import Header from "@/shared/components/customersPanel/header/header";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Link, useParams } from "react-router-dom";
-import { products } from "@/modules/landing/resouces";
-import NoResultsFound from "@/modules/landing/pages/herbalpedia/NoResultsFound.page";
-import BRHeader from "@/shared/components/header/header";
-import Footer from "../Footer";
-
-const ProductDetails = () => {
+const HerbalpediaDetail = () => {
   const { productId } = useParams<{ productId: string }>();
   const selectedProduct = products.find(
     (product) => product.id.toString() === productId
@@ -23,10 +21,9 @@ const ProductDetails = () => {
       </div>
     );
   }
-
   return (
     <div>
-      <BRHeader />
+      <Header />
       <section className="max-w-[1200px] mx-auto px-4 screen:px-[0px] mt-[96px] xl:mt-[150px]">
         <div className="flex gap-6">
           <div className="w-full md:w-[588px] h-[499px] overflow-hidden">
@@ -63,7 +60,6 @@ const ProductDetails = () => {
           </div>
         </div>
       </section>
-      {/* section */}
       <section className="px-4 lg:px-[120px] mt-[60px] grid">
         <div className="flex flex-wrap gap-y-4 items-center mb-2 justify-between">
           <h4 className="text-[#946C3C] text-3xl font-medium ">
@@ -126,54 +122,8 @@ const ProductDetails = () => {
           buy now ${selectedProduct?.Price}
         </button>
       </section>
-      {/* section */}
-      <section className="mt-[60px]">
-        <h2 className="px-4 lg:px-[120px] text-2xl lg:text-[64px] font-amsterdam mb-4 lg:mb-16">
-          Related herbs
-        </h2>
-        <div className="flex flex-wrap">
-          {products.slice(0, 3).map((product, key) => {
-            return (
-              <div
-                key={key}
-                className="border-[0.5px] w-full sm:w-1/2 lg:w-1/3 border-[#DBDAD1] p-6"
-              >
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="object-cover max-h-[505px] w-full"
-                />
-                <p className="text-2xl font-arapey mt-4">
-                  {product.name}
-                  <span className="italic">({product.scientificName})</span>
-                </p>
-                <div className="flex flex-wrap gap-2 mb-4 mt-2">
-                  <div className="bg-white p-2 flex items-center gap-1">
-                    <div className="bg-[#CF956F] h-[6px] w-[6px] rounded-full"></div>
-                    <p className="text-[#CF956F] inline-block">Spiritual use</p>
-                  </div>
-                  <div className="bg-white p-2 flex items-center gap-1">
-                    <div className="bg-[#CF956F] h-[6px] w-[6px] rounded-full"></div>
-                    <p className="text-[#CF956F] inline-block">Medicinal use</p>
-                  </div>
-                  <div className="bg-white p-2 flex items-center gap-1">
-                    <div className="bg-[#CF956F] h-[6px] w-[6px] rounded-full"></div>
-                    <p className="text-[#CF956F] inline-block">Side effects</p>
-                  </div>
-                </div>
-                <Link to={`/herbs/${product.id}`}>
-                  <button className="w-full bg-[#946C3C] uppercase h-10 text-white">
-                    read more
-                  </button>
-                </Link>
-              </div>
-            );
-          })}
-        </div>
-      </section>
-      <Footer />
     </div>
   );
 };
 
-export default ProductDetails;
+export default HerbalpediaDetail;

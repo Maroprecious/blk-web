@@ -6,11 +6,10 @@ import {
 } from "@/components/ui/accordion";
 import BreadCrumb from "@/components/ui/bread-crumb";
 import { GoPlus } from "react-icons/go";
-import { PageLayout } from "@/shared/components/layout/page-layout";
-
+import Layout from "@/shared/admin/layout/Layout";
 export default function HerbalpaediaID() {
   return (
-    <PageLayout>
+    <Layout>
       <div className="w-full p-8 bg-white pt-10 relative min-h-[100vh]">
         <BreadCrumb
           items={[
@@ -102,6 +101,6 @@ export default function HerbalpaediaID() {
           buy now $150
         </button>
       </div>
-    </PageLayout>
+    </Layout>
   );
 }

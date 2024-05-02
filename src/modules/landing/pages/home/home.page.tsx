@@ -11,9 +11,9 @@ import FirstVideoComponent from "@/components/landing/firstVideoComponent";
 import Carousel from "@/components/ui/carousel/Carousel";
 import "../../../../main.css";
 import { useWindowSize } from "usehooks-ts";
-
 export default function HomePage() {
   const { width = 0 } = useWindowSize();
+
   return (
     <div>
       {" "}
@@ -70,7 +70,7 @@ export default function HomePage() {
         <img src={perksImg3} id="demo1" className="w-[810px]" />
 
         <div className="max-w-[486px]">
-          <h3 className="font-amsterdam text-[#CF956F] text-2xl lg:text-3xl xl:text-[56px] mb-[16px] xl:leading-[58px]">
+          <h3 className="font-amsterdam text-[#CF956F] text-2xl lg:text-3xl xl:text-[56px] mb-[46px] xl:leading-[58px]">
             Yoga retreats
           </h3>
           <p className="lg:text-md xl:text-2xl font-arapey xl:leading-[42px] font-light">
@@ -87,7 +87,7 @@ export default function HomePage() {
         <img src={perksImg2} id="demo1" className=" w-[810px] lg:order-2" />
 
         <div className="max-w-[486px] lg:order-1">
-          <h3 className="font-amsterdam text-[#CF956F] text-2xl lg:text-3xl xl:text-[56px] mb-[16px] xl:leading-[58px]">
+          <h3 className="font-amsterdam text-[#CF956F] text-2xl lg:text-3xl xl:text-[56px] mb-[46px] xl:leading-[58px]">
             Meditation retreats
           </h3>
           <p className="lg:text-md xl:text-2xl font-arapey xl:leading-[42px] font-light">
@@ -103,7 +103,7 @@ export default function HomePage() {
         <img src={perksImg1} id="demo1" className=" w-[810px]" />
 
         <div className="max-w-[486px]">
-          <h3 className="font-amsterdam text-[#CF956F] text-2xl lg:text-3xl xl:text-[56px] mb-[16px] xl:leading-[58px]">
+          <h3 className="font-amsterdam  text-[#CF956F] text-2xl lg:text-3xl xl:text-[56px] mb-[46px] xl:leading-[58px]">
             Nature Escapes
           </h3>
           <p className="lg:text-md xl:text-2xl font-arapey xl:leading-[42px] font-light">
@@ -119,7 +119,7 @@ export default function HomePage() {
         <img src={perksImg1} id="demo1" className=" w-[810px] lg:order-2" />
 
         <div className="max-w-[486px] lg:order-1">
-          <h3 className="font-amsterdam text-[#CF956F] text-2xl lg:text-3xl xl:text-[56px] mb-[16px] xl:leading-[58px]">
+          <h3 className="font-amsterdam text-[#CF956F] text-2xl lg:text-3xl xl:text-[56px] mb-[46px] xl:leading-[58px]">
             Meditation retreats
           </h3>
           <p className="lg:text-md xl:text-2xl font-arapey xl:leading-[42px] font-light">

@@ -34,20 +34,19 @@
 
     --radius: 0.5rem;
 
-
     --gray-900: #101828;
     --gray-700: #344054;
     --gray-500: #667085;
-    --gray-400: #98A2B3;
-    --gray-200: #EAECF0;
-    --gray-50: #F9FAFB;
+    --gray-400: #98a2b3;
+    --gray-200: #eaecf0;
+    --gray-50: #f9fafb;
 
-    --sage-300: #E6E5DE;
-    --sage-200: #E9D7C7;
+    --sage-300: #e6e5de;
+    --sage-200: #e9d7c7;
 
-    --cream-300: #FAF6F3;
+    --cream-300: #faf6f3;
 
-    --clay-900: #CF956F;
+    --clay-900: #cf956f;
   }
 
   .dark {
@@ -108,7 +107,8 @@
   font-family: "Arapey";
 }
 
-html, body {
+html,
+body {
   font-family: "Arapey";
 }
 

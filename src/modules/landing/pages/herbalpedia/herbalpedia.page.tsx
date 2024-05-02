@@ -2,8 +2,6 @@ import Products from "@/components/landing/products/Products";
 import BRTHeader from "@/shared/components/header/transparentHeader";
 import mainVideo from "@assets/video/brw-video.mp4";
 import Footer from "@/components/landing/Footer";
-import { products } from "@/modules/landing/resouces";
-
 const Herbalpedia = () => {
   return (
     <div>
@@ -41,7 +39,7 @@ const Herbalpedia = () => {
         </p>
       </section>
       <section className="px-4 mt-[40px] md:mt-[30px] lg:mt-[80px]">
-        <div className="lg:px-[120px] flex justify-between items-center">
+        <div className="lg:px-[120px] mb-10 flex justify-between items-center">
           <h2 className="my-[24px] relative text-2xl lg:text-[36px] xl:text-[64px] font-amsterdam">
             Featured items
           </h2>
@@ -51,7 +49,7 @@ const Herbalpedia = () => {
         </div>
       </section>
       <section className="mb-[130px]">
-        <Products products={products} />
+        <Products />
       </section>
       <Footer />
     </div>

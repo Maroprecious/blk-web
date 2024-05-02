@@ -6,7 +6,7 @@ function Cards() {
       <div className="bg-[#FAF6F3] w-8 mb-2  h-8 rounded-full">
         <img src={retreatParticipant} alt="retreatParticipant Icon" />
       </div>
-      <h3 className="font-amsterdam text-[#101828] text-6xl py-3">$60</h3>
+      <h3 className="font-arapey text-[#101828] text-6xl py-3">$60</h3>
       <p className="text-[#667085] text-[20px]">No of retreat participants</p>
     </div>
   );

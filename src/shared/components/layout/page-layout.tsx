@@ -51,7 +51,7 @@ export const PageLayout = ({ children }: props) => {
     <div>
       <div
         className="fixed w-full z-[100] px-8 gap-[4%] flex justify-between items-center bg-[#FFF]
-       left-0 top-0 h-[88px] border-b border-b-[1px] border-[#EAECF0]"
+       left-0 top-0 h-[88px] border-b-[1px] border-[#EAECF0]"
       >
         <div className="w-[23%]">
           <div className="w-[134px] h-[44px] px-4">

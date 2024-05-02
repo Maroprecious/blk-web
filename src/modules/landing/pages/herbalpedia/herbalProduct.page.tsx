@@ -42,7 +42,7 @@ const HerbalProduct = () => {
         </div>
       </section>
       <section>
-        <Products products={products} />
+        <Products />
       </section>
       <Footer />
     </div>

@@ -15,7 +15,9 @@ const AllOrders = () => {
       <section>
         <div className="flex justify-between my-3">
           <div className="flex font-light">
-            <h3 className="font-arapey  text-[#98A2B3]">Orders</h3>
+            <a href="/admin/orders" className="font-arapey  text-[#98A2B3]">
+              Orders
+            </a>
             <ChevronRight className="text-[#98A2B3]" />
             <h3 className="text-[#946C3C]">All orders</h3>
           </div>

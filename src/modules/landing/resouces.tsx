@@ -215,7 +215,7 @@ export const sidebarLinks = [
   {
     id: 5,
     title: "Retreats",
-    link: "/admin/retreats",
+    link: "/admin/retreat",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -343,7 +343,82 @@ export const OrderItems = [
     img: options,
   },
 ];
+export const OrderItem = [
+  {
+    orderName: "BRR-42940",
+    id: 1,
+    image: img1,
+    dop: "21/12/2023",
+    category: "Spirit healing",
+    email: "hhems58@gmail.com",
+    date: "21/12/2023",
+    prdName: "Grains of paradise (Aframomum melegueta)",
+    orderNum: "BRR-42940",
+    Price: "$68,460",
+    status: "Received",
+    color: " #CF956F",
+    bg: "#FDF7F3",
+    img: options,
+  },
+];
+export const customer = [
+  {
+    name: "Hailey Hemsworth",
+    id: 1,
+    email: "hhems58@gmail.com",
+    amt: "$2,460",
+    phoneNum: "+1 (206) 781-1374",
+  },
+  {
+    orderName: "Hailey Hemsworth",
+    id: 2,
+    email: "hhems58@gmail.com",
+    amt: "$2,460",
+    phoneNum: "+1 (206) 781-1374",
+  },
+];
+export const particpant = [
+  {
+    name: "Hailey Hemsworth",
+    id: 1,
+    email: "hhems58@gmail.com",
+    dob: "21/12/2023",
+    price: "$2,460",
+    outstanding: "$960",
+    phoneNum: "+1 (206) 781-1374",
+    status: "Paid in full",
+    color: "#F6FEF9",
+  },
+  {
+    name: "Hailey Hemsworth",
+    id: 2,
+    email: "hhems58@gmail.com",
+    dob: "21/12/2023",
+    price: "$2,460",
+    outstanding: "$960",
+    phoneNum: "+1 (206) 781-1374",
+    status: "Partially",
+    color: "#FFFCF5",
+  },
+];
+export const customers = [
+  {
+    name: "Hailey Hemsworth",
+    id: 1,
+    email: "hhems58@gmail.com",
 
+    amt: "$960",
+    phoneNum: "+1 (206) 781-1374",
+  },
+  {
+    name: "Hailey Hemsworth",
+    id: 1,
+    email: "hhems58@gmail.com",
+
+    amt: "$960",
+    phoneNum: "+1 (206) 781-1374",
+  },
+];
 export const galleryMock = [
   {
     id: 1,

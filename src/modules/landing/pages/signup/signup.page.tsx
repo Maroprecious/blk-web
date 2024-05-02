@@ -4,45 +4,66 @@ import { IoEyeOutline } from "react-icons/io5";
 import { BiHide } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import Footer from "@/components/landing/Footer";
-import axios from "../../../../api/axios";
-import { useNavigate } from "react-router-dom";
+import useFetch from "@/hooks/useFetch";
+import { URL } from "@/api/axios";
+// import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [visiblePassword, setVisiblePassword] = useState(false);
   const [visibleConfirmPassword, setVisibleConfirmPassword] = useState(false);
-  const [email, setUser] = useState("");
-  const [password, setPwd] = useState("");
+
   const [confirmPassword, setConfirmPwd] = useState("");
-  const [errMsg, setErrMsg] = useState("");
 
   // const EMAIL_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
   // const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 
-  const REGISTER_URL = "/auth/signup";
-  const handleSubmit = async (
-    e: React.FormEvent<HTMLFormElement>
-  ): Promise<void> => {
+  // const REGISTER_URL = "/auth/signup";
+  // const handleSubmit = async (
+  //   e: React.FormEvent<HTMLFormElement>
+  // ): Promise<void> => {
+  //   e.preventDefault();
+  //   try {
+  //     const response = await axios.post(REGISTER_URL, { email, password });
+  //     const token = response.data.accessToken;
+  //     localStorage.setItem("authToken", token);
+  //     navigate("/");
+  //     setUser("");
+  //     setPwd("");
+  //     setConfirmPwd("");
+  //     setErrMsg("");
+  //   } catch (err: any) {
+  //     if (!err?.response) {
+  //       console.log("No Server Response");
+  //     } else if (err.response?.status === 409) {
+  //       console.log("Username Taken");
+  //     } else {
+  //       console.log("Registration Failed");
+  //       console.log(errMsg);
+  //     }
+  //   }
+  // };
+
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const { data } = useFetch(`${URL}/auth/signup`, "POST", formData); // Call the useFetch hook
+
+  const handleInputChange = (e: any) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = (e: any) => {
     e.preventDefault();
-    try {
-      const response = await axios.post(REGISTER_URL, { email, password });
-      const token = response.data.accessToken;
-      localStorage.setItem("authToken", token);
-      navigate("/");
-      setUser("");
-      setPwd("");
-      setConfirmPwd("");
-      setErrMsg("");
-    } catch (err: any) {
-      if (!err?.response) {
-        console.log("No Server Response");
-      } else if (err.response?.status === 409) {
-        console.log("Username Taken");
-      } else {
-        console.log("Registration Failed");
-        console.log(errMsg);
-      }
-    }
+    console.log(data);
+
+    // Call the useFetch hook to send a POST request with the form data
   };
 
   return (
@@ -67,8 +88,9 @@ const Signup = () => {
                   // aria-invalid={validName ? "false" : "true"}
                   placeholder="Your email address"
                   className="border w-full mt-2 border-[#EAECF0] focus:outline-none placeholder:font-light bg-transparent block placeholder:text-[#667085] p-3"
-                  onChange={(e) => setUser(e.target.value)}
-                  value={email}
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
                 />
                 {/* <p>{form.errors.email && "Invalid Email"}</p> */}
               </div>
@@ -81,8 +103,9 @@ const Signup = () => {
                   type={visiblePassword ? "text" : "password"}
                   placeholder="Enter password"
                   className="border w-full mt-2 border-[#EAECF0] focus:outline-none bg-transparent block placeholder:text-[#667085] p-3"
-                  onChange={(e) => setPwd(e.target.value)}
-                  value={password}
+                  name="password"
+                  value={formData.password}
+                  onChange={handleInputChange}
                 />
                 <div
                   className="absolute top-12 right-2 "

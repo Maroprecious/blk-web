@@ -99,7 +99,11 @@ function useController() {
             }`}
           ></div>
 
-          <p className={`${isSmallerScreen ? 'text-[32px] mt-8' : 'text-[56px]'} font-medium text-white whitespace-nowrap font-arapey`}>
+          <p
+            className={`${
+              isSmallerScreen ? "text-[32px] mt-8" : "text-[56px]"
+            } font-medium text-white whitespace-nowrap font-arapey`}
+          >
             {title}
           </p>
           <img

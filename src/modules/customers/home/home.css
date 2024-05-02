@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer base {
+  :root {
+    --background: #fff;
+  }
+}
+@layer base {
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+@font-face {
+  font-family: "AmsterdamOne";
+  src: url("./assets/fonts/AmsterdamOne.ttf");
+}
+@font-face {
+  font-family: "Arapey";
+  src: url("./assets/fonts/Arapey.ttf");
+}

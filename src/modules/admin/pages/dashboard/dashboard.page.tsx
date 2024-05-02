@@ -11,6 +11,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import { Link } from "react-router-dom";
 
 const dashboard = () => {
   return (
@@ -25,15 +26,15 @@ const dashboard = () => {
           <PopoverContent className="max-w-[178px] mt-2">
             <div className="flex gap-1">
               <img src={addRetreat} alt="" />
-              <p>Add retreat</p>
+              <Link to="/admin/createRetreat">Add retreat</Link>
             </div>
             <div className="flex gap-1 mt-4">
               <img src={addProduct} alt="" />
-              <p>Add product</p>
+              <Link to="/admin/store">Add product</Link>
             </div>
             <div className="flex gap-1 mt-4">
               <img src={add} alt="" />
-              <p>Add herb</p>
+              <Link to="/admin/herbalpaedia">Add herb</Link>
             </div>
           </PopoverContent>
         </Popover>

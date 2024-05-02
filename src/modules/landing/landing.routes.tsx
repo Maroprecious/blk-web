@@ -12,15 +12,23 @@ const CustomizeProfilePage = lazy(
   () => import("./pages/auth/customize-profile.page")
 );
 const LoginPage = lazy(() => import("./pages/auth/login.page"));
-const ForgotPasswordPage = lazy(() => import("./pages/auth/forgot-password.page"));
-const ResetPasswordPage = lazy(() => import("./pages/auth/reset-password.page.tsx"));
+const ForgotPasswordPage = lazy(
+  () => import("./pages/auth/forgot-password.page")
+);
+const ResetPasswordPage = lazy(
+  () => import("./pages/auth/reset-password.page.tsx")
+);
 const HomeTab = lazy(() => import("./pages/home/home.tab.tsx"));
-const HerbalpaediaPage = lazy(() => import("./pages/herbalpaedia/herbalpaedia.page.tsx"));
-const HerbalpaediaPageId = lazy(() => import("./pages/herbalpaedia/herbalpaedia-id.page.tsx"));
+const HerbalpaediaPage = lazy(
+  () => import("./pages/herbalpaedia/herbalpaedia.page.tsx")
+);
+const HerbalpaediaPageId = lazy(
+  () => import("./pages/herbalpaedia/herbalpaedia-id.page.tsx")
+);
 const StorPage = lazy(() => import("./pages/stores/store.page.tsx"));
 const StoreIdPage = lazy(() => import("./pages/stores/store.id.page.tsx"));
-const Checkout = lazy(() => import("./pages/stores/checkout.tsx"))
-const Profile = lazy(() => import("./pages/auth/my-profile.tsx"))
+const Checkout = lazy(() => import("./pages/stores/checkout.tsx"));
+const Profile = lazy(() => import("./pages/auth/my-profile.tsx"));
 const AboutPage = lazy(() => import("./pages/about/about.page"));
 const SingleRetreatPage = lazy(
   () => import("./pages/singleRetreat/singleRetreat.page")
@@ -38,7 +46,7 @@ const GalleryDetail = lazy(
 );
 const Store = lazy(() => import("./pages/store/store.page"));
 const ProductDetails = lazy(
-  () => import("../../components/landing/products/ProductDetails")
+  () => import("./pages/herbalpedia/ProductDetails.tsx")
 );
 const StoreItem = lazy(() => import("./pages/store/storeItem.page"));
 const Login = lazy(() => import("./pages/login/login.page"));
@@ -54,6 +62,38 @@ const Analytics = lazy(() => import("../admin/pages/analytics/analytics.page"));
 const AdminStore = lazy(() => import("../admin/pages/store/Store.page"));
 const AdminOrder = lazy(() => import("../admin/pages/orders/orders.page"));
 const AllOrders = lazy(() => import("../admin/pages/orders/AllOrders.page"));
+const AdminRetreats = lazy(() => import("../admin/pages/retreat/retreat.page"));
+const AdminRetreat = lazy(
+  () => import("../admin/pages/retreat/retreatDetail.page.tsx")
+);
+const CreateRetreat = lazy(
+  () => import("../admin/pages/retreat/createRetreat/createaRetreat.tsx")
+);
+const CreateRetreat2 = lazy(
+  () => import("../admin/pages/retreat/createRetreat/createRetreat2.tsx")
+);
+const CreateRetreat3 = lazy(
+  () => import("../admin/pages/retreat/createRetreat/createRetreat3.tsx")
+);
+const Adminherbalpedia = lazy(
+  () => import("../admin/pages/herbalpedia/herbalpedia.page.tsx")
+);
+const AdminherbalpediaItems = lazy(
+  () => import("../admin/pages/herbalpedia/herbalpeadiaItem.tsx")
+);
+const AdminCustomers = lazy(
+  () => import("../admin/pages/customers/customer.page.tsx")
+);
+const AdminCustomersDetails = lazy(
+  () => import("../admin/pages/customers/CustomersDetails.tsx")
+);
+const CustomerHomePage = lazy(() => import("../customers/home/home.tsx"));
+const CustomerHerbalpedia = lazy(
+  () => import("../customers/herbalpedia/Herbalpedia.tsx")
+);
+const CustomerGallery = lazy(() => import("../customers/gallery/Gallery.tsx"));
+const Customertore = lazy(() => import("../customers/store/Store.tsx"));
+const CustomerOrders = lazy(() => import("../customers/orders/Orders.tsx"));
 
 export const landingPaths = [
   "",
@@ -62,7 +102,7 @@ export const landingPaths = [
   "/create-account",
   "/customize-profile",
   "/login",
-  '/forgot-password',
+  "/forgot-password",
   "/reset-password",
   "/home-tab",
   "/herbalpaedia",
@@ -79,7 +119,7 @@ export const landingPaths = [
   "gallery/:galleryId",
   "store",
   "store/:productId",
-  "herbs/:productId",
+  "herbalpedia/:herbId",
   "login",
   "signup",
   "forgot-password",
@@ -89,6 +129,20 @@ export const landingPaths = [
   "admin/store",
   "admin/orders",
   "admin/orders/all",
+  "admin/retreat",
+  "admin/retreat/:retreatId",
+  "admin/createRetreat",
+  "admin/createRetreat2",
+  "admin/createRetreat3",
+  "admin/herbalpaedia",
+  "admin/herbalpaedia/:herbId",
+  "admin/customers",
+  "admin/customers/:customersId",
+  "customers/home",
+  "customers/herbalpedia",
+  "customers/store",
+  "customers/gallery",
+  "customers/orders",
 ] as const;
 
 const SuspenseWrapper = ({ children }: { children: React.ReactNode }) => (
@@ -180,7 +234,7 @@ export const landingRoutes: RouteType[] = [
     ),
   },
   {
-    path: "herbs/:productId",
+    path: "herbalpedia/:herbId",
     element: (
       <SuspenseWrapper>
         <ProductDetails />
@@ -260,6 +314,79 @@ export const landingRoutes: RouteType[] = [
     ),
   },
   {
+    path: "admin/retreat",
+    element: (
+      <SuspenseWrapper>
+        <AdminRetreats />
+      </SuspenseWrapper>
+    ),
+  },
+  {
+    path: "admin/createRetreat",
+    element: (
+      <SuspenseWrapper>
+        <CreateRetreat />
+      </SuspenseWrapper>
+    ),
+  },
+  {
+    path: "admin/createRetreat2",
+    element: (
+      <SuspenseWrapper>
+        <CreateRetreat2 />
+      </SuspenseWrapper>
+    ),
+  },
+  {
+    path: "admin/createRetreat3",
+    element: (
+      <SuspenseWrapper>
+        <CreateRetreat3 />
+      </SuspenseWrapper>
+    ),
+  },
+  {
+    path: "admin/retreat/:retreatId",
+    element: (
+      <SuspenseWrapper>
+        <AdminRetreat />
+      </SuspenseWrapper>
+    ),
+  },
+  {
+    path: "admin/herbalpaedia",
+    element: (
+      <SuspenseWrapper>
+        <Adminherbalpedia />
+      </SuspenseWrapper>
+    ),
+  },
+  {
+    path: "admin/herbalpaedia/:herbId",
+    element: (
+      <SuspenseWrapper>
+        <AdminherbalpediaItems />
+      </SuspenseWrapper>
+    ),
+  },
+  {
+    path: "admin/customers",
+    element: (
+      <SuspenseWrapper>
+        <AdminCustomers />
+      </SuspenseWrapper>
+    ),
+  },
+  {
+    path: "admin/customers/:customersId",
+    element: (
+      <SuspenseWrapper>
+        <AdminCustomersDetails />
+      </SuspenseWrapper>
+    ),
+  },
+
+  {
     path: "/create-account",
     element: (
       <Suspense fallback={<BRProgress />}>
@@ -292,7 +419,7 @@ export const landingRoutes: RouteType[] = [
     ),
   },
   {
-    path: '/reset-password',
+    path: "/reset-password",
     element: (
       <Suspense fallback={<BRProgress />}>
         <ResetPasswordPage />
@@ -300,7 +427,7 @@ export const landingRoutes: RouteType[] = [
     ),
   },
   {
-    path: '/home-tab',
+    path: "/home-tab",
     element: (
       <Suspense fallback={<BRProgress />}>
         <HomeTab />
@@ -308,7 +435,7 @@ export const landingRoutes: RouteType[] = [
     ),
   },
   {
-    path: '/herbalpaedia',
+    path: "/herbalpaedia",
     element: (
       <Suspense fallback={<BRProgress />}>
         <HerbalpaediaPage />
@@ -316,7 +443,7 @@ export const landingRoutes: RouteType[] = [
     ),
   },
   {
-    path: '/herbalpaedia/:id',
+    path: "/herbalpaedia/:id",
     element: (
       <Suspense fallback={<BRProgress />}>
         <HerbalpaediaPageId />
@@ -324,7 +451,7 @@ export const landingRoutes: RouteType[] = [
     ),
   },
   {
-    path: '/store',
+    path: "/store",
     element: (
       <Suspense fallback={<BRProgress />}>
         <StorPage />
@@ -332,7 +459,7 @@ export const landingRoutes: RouteType[] = [
     ),
   },
   {
-    path: '/store/:id',
+    path: "/store/:id",
     element: (
       <Suspense fallback={<BRProgress />}>
         <StoreIdPage />
@@ -352,6 +479,46 @@ export const landingRoutes: RouteType[] = [
     element: (
       <Suspense fallback={<BRProgress />}>
         <Profile />
+      </Suspense>
+    ),
+  },
+  {
+    path: "customers/home",
+    element: (
+      <Suspense fallback={<BRProgress />}>
+        <CustomerHomePage />
+      </Suspense>
+    ),
+  },
+  {
+    path: "customers/herbalpedia",
+    element: (
+      <Suspense fallback={<BRProgress />}>
+        <CustomerHerbalpedia />
+      </Suspense>
+    ),
+  },
+  {
+    path: "customers/store",
+    element: (
+      <Suspense fallback={<BRProgress />}>
+        <Customertore />
+      </Suspense>
+    ),
+  },
+  {
+    path: "customers/gallery",
+    element: (
+      <Suspense fallback={<BRProgress />}>
+        <CustomerGallery />
+      </Suspense>
+    ),
+  },
+  {
+    path: "customers/orders",
+    element: (
+      <Suspense fallback={<BRProgress />}>
+        <CustomerOrders />
       </Suspense>
     ),
   },

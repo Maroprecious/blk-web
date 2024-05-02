@@ -11,7 +11,7 @@ export default function HomeTab() {
   const { data } = useGetAllHerbapaedia();
   const [user] = useAtom(userAtom);
 
-  const {data: featured} = useGetFeaturedProducts()
+  const { data: featured } = useGetFeaturedProducts();
 
   return (
     <PageLayout>
@@ -34,9 +34,9 @@ export default function HomeTab() {
             <h2 className="font-maison text-gray-900 text-[24px]">
               Herbalpaedia
             </h2>
-            {data?.data?.data?.slice(0, 2)
-            .map(
-              (elem: { name: string; sciName: string; id: number }) => (
+            {data?.data?.data
+              ?.slice(0, 2)
+              .map((elem: { name: string; sciName: string; id: number }) => (
                 <div className="flex justify-start items-center gap-4">
                   <HerbalpaediaCard
                     name={elem.name}
@@ -44,23 +44,32 @@ export default function HomeTab() {
                     id={elem.id}
                   />
                 </div>
-              )
-            )}
+              ))}
           </div>
           <div className="w-1/2">
             <h2 className="font-maison text-gray-900 text-[24px]">
               Featured products
             </h2>
             <div className="flex justify-start items-center gap-4">
-            {/* {featured?.data?.data?.slice(0, 2)
-            .map(
-              (elem: { name: string; price: string}) => (
-                <div className="flex justify-start items-center gap-4">
-                  <ProductCard name={elem.name} price={elem.price} />
-                </div>
-              )
-            )} */}
-             
+              {featured?.data?.data
+                ?.slice(0, 2)
+                .map(
+                  (elem: {
+                    name: string;
+                    price: string;
+                    id: number;
+                    images: Array<string>;
+                  }) => (
+                    <div className="flex justify-start items-center gap-4">
+                      <ProductCard
+                        productId={elem.id.toString()}
+                        images={elem.images}
+                        name={elem.name}
+                        price={elem.price}
+                      />
+                    </div>
+                  )
+                )}
             </div>
           </div>
         </section>

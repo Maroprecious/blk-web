@@ -3,11 +3,11 @@ import ProductCard from "@/shared/components/cards/retreats/product-card";
 import { CiSearch } from "react-icons/ci";
 import { PageLayout } from "@/shared/components/layout/page-layout";
 import { useGetAllProducts } from "@/api/queries";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 export default function StorePage() {
   const { data } = useGetAllProducts();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   console.log(data, "store");
   return (
     <PageLayout>

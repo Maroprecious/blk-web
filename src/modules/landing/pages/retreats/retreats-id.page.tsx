@@ -14,6 +14,7 @@ import Input from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { Select } from "@/components/ui/select";
 import { FaStar } from "react-icons/fa";
+import { MakeEnquiryCard } from "@/shared/components/cards/retreats/make-enquiry";
 
 export default function RetreatID() {
   const [active, setActive] = useState(0);
@@ -39,43 +40,7 @@ export default function RetreatID() {
   return (
     <PageLayout>
       {open && (
-        <SidebarCard title=" Make Enquiry" onClick={() => setOpen(false)}>
-          <div className="flex relative flex-col justify-between">
-            <div className="pt-4">
-              <Input
-                name=""
-                className="bg-transparent"
-                label="Full name"
-                placeholder=""
-              />
-              <Input
-                name=""
-                className="bg-transparent"
-                label="Email address"
-                placeholder=""
-              />
-              <Input
-                name=""
-                className="bg-transparent"
-                style={{ height: "100px" }}
-                label="Enquiry"
-                placeholder="Enter Message"
-              />
-            </div>
-            <div className="flex items-center justify-start gap-4 absolute top-[140%] w-full ">
-              <Button
-                title="Cancel"
-                variant="outline"
-                onClick={() => setOpen(false)}
-              />
-              <Button
-                title="Make Enquiry"
-                variant="solid"
-                onClick={() => null}
-              />
-            </div>
-          </div>
-        </SidebarCard>
+        <MakeEnquiryCard params={params.id} onclick={() => setOpen(false)} />
       )}
       {show && (
         <SidebarCard title=" Book Retreat" onClick={() => setShow(false)}>
@@ -99,12 +64,12 @@ export default function RetreatID() {
                 className="bg-transparent"
                 options={[
                   {
-                    label: "Part Payment",
-                    value: "1",
+                    label: "Partial payment",
+                    value: "partial",
                   },
                   {
-                    label: "Full Payment",
-                    value: "2",
+                    label: "Full payment",
+                    value: "full",
                   },
                 ]}
               />
@@ -274,7 +239,7 @@ export default function RetreatID() {
               </div>
               <p className="mt-6">Hotel Information</p>
               <div>
-                {data?.data?.hotel.map((ele:any) => (
+                {data?.data?.hotel.map((ele: any) => (
                   <div className="w-[24%] h-[420px] border border-gray-200 p-2 flex flex-col justify-center items-start">
                     <div
                       className="w-[99.5%] mx-auto h-[264px] bg-cover bg-center bg-no-repeat"

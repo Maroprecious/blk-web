@@ -4,12 +4,15 @@ import { EmptyRetreat } from "@/shared/components/cards/retreats/empty-state";
 import HerbalpaediaCard from "@/shared/components/cards/retreats/herbalpaedia-card";
 import ProductCard from "@/shared/components/cards/retreats/product-card";
 import { PageLayout } from "@/shared/components/layout/page-layout";
+import { userAtom } from "@/store/store";
+import { useAtom } from "jotai";
 
 export default function HomeTab() {
   const { data } = useGetAllHerbapaedia();
+  const [user] = useAtom(userAtom);
+
   const {data: featured} = useGetFeaturedProducts()
 
-  console.log(featured, "data");
   return (
     <PageLayout>
       <div className="w-full p-8 bg-white">

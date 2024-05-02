@@ -15,3 +15,8 @@ export const randomColor = (opacity: number = 1): { colorWithOpacity: string, co
     colorWithoutOpacity: `rgb(${red}, ${green}, ${blue})`
   }
 }
+
+export const formatter = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: 'USD' 
+})

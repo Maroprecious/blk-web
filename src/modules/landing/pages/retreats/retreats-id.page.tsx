@@ -6,24 +6,30 @@ import { Button } from "@/shared/components/buttons/button";
 import { PageLayout } from "@/shared/components/layout/page-layout";
 import moment from "moment";
 import { useEffect, useState } from "react";
-import { FaRegClock } from "react-icons/fa6";
+import { FaRegClock, FaRegStar } from "react-icons/fa6";
 import { useParams } from "react-router-dom";
 import people from "../../../../assets/icons/people.svg";
 import { SidebarCard } from "@/shared/components/cards/sidebar-card";
 import Input from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { Select } from "@/components/ui/select";
+import { FaStar } from "react-icons/fa";
 
 export default function RetreatID() {
   const [active, setActive] = useState(0);
   const [open, setOpen] = useState(false);
   const [show, setShow] = useState(false);
+  const [selected, setSelected] = useState({
+    name: "",
+    image: "",
+    address: "",
+    rating: 0,
+  });
   const handleActive = (id: number) => {
     setActive(id);
   };
   const params = useParams();
-  const { data, refetch } = useGetOneRetreat(params.id);
-  console.log(data?.data, "one");
+  const { data, refetch } = useGetOneRetreat(params?.id as any);
 
   useEffect(() => {
     if (params.id) {
@@ -102,8 +108,40 @@ export default function RetreatID() {
                   },
                 ]}
               />
+              <div className="flex gap-4">
+                <div
+                  className="w-[50%] relative h-[204px] bg-cover bg-center bg-no-repeat"
+                  style={{
+                    backgroundImage: `url('${selected.image}')`,
+                  }}
+                >
+                  <div className="flex items-center justify-start gap-2 absolute top-[86%] left-[5%]">
+                    <div className="flex items-start gap-[.3rem] justify-end">
+                      {Array(5)
+                        .fill("_")
+                        .map((ele, idx) =>
+                          idx + 1 <= selected.rating ? (
+                            <FaStar color="#F79009" />
+                          ) : (
+                            <FaStar color="#fff" />
+                          )
+                        )}
+                    </div>
+                    <p className="text-[15px] text-white">{selected.rating}</p>
+                  </div>
+                </div>
+                <div>
+                  {" "}
+                  <p className="text-[20px] text-gray-900 font-normal">
+                    {selected.name}
+                  </p>
+                  <p className="text-[16px] text-gray-900 font-normal">
+                    {selected.address}
+                  </p>
+                </div>
+              </div>
             </div>
-            <div className="flex items-center justify-start gap-4 absolute top-[140%] w-full ">
+            <div className="flex items-center justify-start gap-4 absolute top-[75vh] w-full ">
               <Button
                 title="Cancel"
                 variant="outline"
@@ -236,7 +274,7 @@ export default function RetreatID() {
               </div>
               <p className="mt-6">Hotel Information</p>
               <div>
-                {data?.data?.hotel.map((ele) => (
+                {data?.data?.hotel.map((ele:any) => (
                   <div className="w-[24%] h-[420px] border border-gray-200 p-2 flex flex-col justify-center items-start">
                     <div
                       className="w-[99.5%] mx-auto h-[264px] bg-cover bg-center bg-no-repeat"
@@ -255,7 +293,14 @@ export default function RetreatID() {
                       <div className="w-full py-2 flex justify-start gap-[.7rem] items-start">
                         <Button
                           title="SELECT"
-                          onClick={() => null}
+                          onClick={() =>
+                            setSelected({
+                              name: ele.name,
+                              image: ele.image,
+                              address: ele.address,
+                              rating: ele.rating,
+                            })
+                          }
                           variant="outline"
                         />
                       </div>
@@ -267,7 +312,7 @@ export default function RetreatID() {
           )}
           {active === 2 && (
             <div className="flex flex-col pt-6 justify-center items-center">
-              {data?.data.faq.map((ele) => (
+              {data?.data.faq.map((ele: any) => (
                 <div>
                   <h3 className="text-gray-900 text-[29px] font-normal">
                     {ele.question}

@@ -6,12 +6,13 @@ import { CgMathMinus, CgMathPlus } from "react-icons/cg";
 import { PageLayout } from "@/shared/components/layout/page-layout";
 import { useGetOneProduct } from "@/api/queries";
 import { useParams } from "react-router-dom";
+import { useCart } from "@/context/card.context";
 
 export default function StoreIdPage() {
   const [count, setCount] = useState<number>(0);
   const params = useParams();
-  const { data, refetch } = useGetOneProduct(params.id as string);
-  console.log(data, "data");
+  const { data, refetch } = useGetOneProduct(params.id as any);
+  const { addProduct, removeProduct, getProductCount } = useCart();
 
   useEffect(() => {
     if (params.id) {
@@ -89,20 +90,46 @@ export default function StoreIdPage() {
             <div className="w-full pt-6 px-10 py-2 flex justify-between items-center">
               <CgMathMinus
                 className="cursor-pointer"
-                onClick={() => count !== 0 && setCount((prev) => prev - 1)}
+                onClick={() =>
+                  removeProduct({
+                    name: data?.data?.name,
+                    price: data?.data?.price,
+                    image: data?.data?.images[0],
+                    productId: data?.data?.id,
+                  })
+                }
                 size={20}
                 color="#000"
               />
-              <p className="font-maison text-gray-900 text-[20px]">{count}</p>
+              <p className="font-maison text-gray-900 text-[20px]">
+                {getProductCount(data?.data?.id)}
+              </p>
               <CgMathPlus
                 className="cursor-pointer"
-                onClick={() => setCount((prev) => prev + 1)}
+                onClick={() =>
+                  addProduct({
+                    name: data?.data?.name,
+                    price: data?.data?.price,
+                    image: data?.data?.images[0],
+                    productId: data?.data?.id,
+                  })
+                }
                 size={20}
                 color="#000"
               />
             </div>
-            <Button className="w-full mt-6 uppercase">
-            ADD TO CART
+            <Button
+              onClick={() =>
+                addProduct({
+                  name: data?.data?.name,
+                  price: data?.data?.price,
+                  image: data?.data?.images[0],
+                  productId: data?.data?.id,
+                })
+              }
+              className="w-full mt-6 uppercase"
+            >
+              ADD TO CART
             </Button>
           </div>
         </div>
@@ -110,13 +137,13 @@ export default function StoreIdPage() {
           Related products
         </p>
         <div className="flex w-full flex-wrap justify-start items-center gap-4">
-          {Array(4)
+          {/* {Array(4)
             .fill("_")
             .map((element, idx) => (
               <div className="w-[24%]" key={element + idx}>
                 <ProductCard items={["Energy healing", "Out of stock"]} />
               </div>
-            ))}
+            ))} */}
         </div>
       </div>
     </PageLayout>

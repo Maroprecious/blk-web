@@ -9,6 +9,8 @@ import { useNavigate } from "react-router-dom";
 import { useGetUser } from "@/api/queries";
 import { useAtom } from "jotai";
 import { userAtom } from "@/store/store";
+import api from "@/utils/api";
+
 
 export default function LoginPage() {
   const { mutate, isPending } = useLogin();
@@ -38,7 +40,7 @@ export default function LoginPage() {
                     if (user?.data?.isProfileFilled) {
                       return navigate("/customize-profile");
                     }
-                    setUser(res?.data);
+                    setUser(res?.data?.data);
                     toast.success("User logged in successfully");
                     navigate("/home-tab");
                   }
@@ -58,6 +60,8 @@ export default function LoginPage() {
       },
     }
   );
+
+  
 
   return (
     <AuthLayout>

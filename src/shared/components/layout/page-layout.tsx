@@ -9,14 +9,15 @@ import logout from "@assets/icons/logout.svg";
 import { CartSideBar } from "../dropdown/cart-sidebar";
 import { useAtom } from "jotai";
 import { userAtom } from "@/store/store";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 type props = {
   children: ReactNode;
 };
 export const PageLayout = ({ children }: props) => {
-  const [users, setUsers] = useAtom(userAtom);
-  const navigate = useNavigate()
+  const [users] = useAtom(userAtom);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const userOptions = [
     {
@@ -34,13 +35,20 @@ export const PageLayout = ({ children }: props) => {
   const [showModal, setShowModal] = useState<boolean>(false);
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [openCart, setOpenCart] = useState(false);
-  const handleActive = (id: number) => {
+
+
+  const handleActive = (id: number, link: string) => {
     setActive(id);
+    navigate(link)
   };
+
+
   const handleNotifications = () => {
     setOpen(!open);
     setOpenUser(false);
   };
+
+
   const handleUserDropdown = () => {
     setOpenUser(!openUser);
     setOpen(false);
@@ -61,36 +69,57 @@ export const PageLayout = ({ children }: props) => {
        left-0 top-0 h-[88px] border-b border-b-[1px] border-[#EAECF0]"
       >
         <div className="w-[23%]">
-          <div className="w-[134px] h-[44px] px-4" onClick={() => navigate('/home-tab')}>
+          <div
+            className="w-[134px] h-[44px] px-4"
+            onClick={() => navigate("/home-tab")}
+          >
             <img src={logo} style={{ width: "100%", height: "100%" }} />
           </div>
         </div>
         <div className="flex justify-between items-center w-[57%]">
           {[
-            "Home",
-            "Retreats",
-            "Herbalpaedia",
-            "Store",
-            "Orders",
-            "Gallery",
+            {
+              title: "Home",
+              link: "/home-tab",
+            },
+            {
+              title: "Retreats",
+              link: "/retreats",
+            },
+            {
+              title: "Herbalpaedia",
+              link: "/herbalpaedia",
+            },
+            {
+              title: "Store",
+              link: "/store",
+            },
+            {
+              title: "Orders",
+              link: "#",
+            },
+            {
+              title: "Gallery",
+              link: "#",
+            },
           ].map((ele, id) => (
             <div
               key={id}
-              onClick={() => handleActive(id)}
+              onClick={() => handleActive(id, ele.link)}
               className={
-                active === id
+                location?.pathname.includes(ele.link)
                   ? "bg-[#FAF6F3] flex items-center px-8 h-[88px] text-center border-b border-b-[2px] border-[#946C3C]"
                   : "px-8"
               }
             >
               <p
                 className={
-                  active === id
+                  location?.pathname.includes(ele.link)
                     ? "cursor-pointer text-[#946C3C] font-maison text-[15px] font-extralight"
                     : "cursor-pointer text-[#667085] font-maison text-[15px] font-extralight"
                 }
               >
-                {ele}
+                {ele.title}
               </p>
             </div>
           ))}

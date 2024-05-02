@@ -1,8 +1,6 @@
 import { createStore, atom } from "jotai";
+import { atomWithStorage } from 'jotai/utils'
 import { UserData } from "@/utils/types";
-
-
-export const userAtom = atom<UserData>({} as UserData)
 
 export const userAtom_ = (key: 'user') => {
     const getInitialValue = () => {
@@ -20,7 +18,9 @@ export const userAtom_ = (key: 'user') => {
                 typeof update === 'function' ? update(get(baseAtom)) : update
             set(baseAtom, nextValue)
             localStorage.setItem(key, JSON.stringify(nextValue))
-        },
+        }
     )
     return derivedAtom
 }
+
+export const userAtom = userAtom_('user');

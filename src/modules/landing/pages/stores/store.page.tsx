@@ -4,7 +4,6 @@ import { CiSearch } from "react-icons/ci";
 import { PageLayout } from "@/shared/components/layout/page-layout";
 import { useGetAllProducts } from "@/api/queries";
 import { useNavigate } from "react-router-dom";
-import RetreatCard from "@/shared/components/cards/retreats/retreat-card";
 
 export default function StorePage() {
   const { data } = useGetAllProducts();
@@ -30,15 +29,20 @@ export default function StorePage() {
                 name: string;
                 price: string;
                 id: number;
+                images: string[];
               },
               idx: number
             ) => (
               <div
                 className="w-[24%]"
                 key={idx}
-                onClick={() => navigate(`/store/${element.id}`)}
               >
-                <ProductCard name={element.name} price={element.price} />
+                <ProductCard
+                  productId={element.id.toString()}
+                  images={element.images}
+                  name={element.name}
+                  price={element.price}
+                />
               </div>
             )
           )}

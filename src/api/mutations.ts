@@ -10,6 +10,7 @@ import {
 } from "@/utils/types";
 import api from "@/utils/api";
 
+
 export function useSignUp() {
   return useMutation({
     mutationFn: (data: AuthPayload) =>

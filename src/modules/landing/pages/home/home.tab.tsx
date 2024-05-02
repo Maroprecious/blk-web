@@ -52,14 +52,14 @@ export default function HomeTab() {
               Featured products
             </h2>
             <div className="flex justify-start items-center gap-4">
-            {featured?.data?.data?.slice(0, 2)
+            {/* {featured?.data?.data?.slice(0, 2)
             .map(
               (elem: { name: string; price: string}) => (
                 <div className="flex justify-start items-center gap-4">
                   <ProductCard name={elem.name} price={elem.price} />
                 </div>
               )
-            )}
+            )} */}
              
             </div>
           </div>

@@ -58,10 +58,28 @@ export function useGetOneProduct(id: number) {
     
     });
   }
+
+
   export function useGetOneRetreat(id: number) {
     return useQuery({
       queryKey: ["get-one-retreat"],
       queryFn: () => api.get(`/retreats/${id}`).then((resp) => resp.data),
       enabled: false,
+    });
+  }
+
+  export function useCountry() {
+    return useQuery({
+      queryKey: ["country"],
+      queryFn: () => api.get(`/countries`).then((resp) => resp.data),
+    });
+  }
+
+  export function useStates(code: string) {
+    return useQuery({
+      queryKey: ["states"],
+      queryFn: () => api.get(`/countries/states/${code}`).then((resp) => resp.data),
+      enabled: false,
+      
     });
   }

@@ -23,4 +23,4 @@ export const userAtom_ = (key: 'user') => {
     return derivedAtom
 }
 
-export const userAtom = userAtom_('user');
+export const userAtom = userAtom_('user')

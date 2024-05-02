@@ -3,12 +3,14 @@ import CartCard from "../cards/retreats/cart-card";
 import { IoArrowForward } from "react-icons/io5";
 import { useCart } from "@/context/card.context";
 import { formatter } from "@/lib/utils";
+import { useNavigate } from "react-router-dom";
 
 type props = {
   setOpenCart: Dispatch<SetStateAction<boolean>>;
 };
 export const CartSideBar = ({ setOpenCart }: props) => {
   const { products } = useCart();
+  const navigate = useNavigate();
 
   return (
     <div className="fixed z-[100] w-full h-[100vh] bg-[rgba(0,0,0,0.4)] my-auto flex">
@@ -33,7 +35,7 @@ export const CartSideBar = ({ setOpenCart }: props) => {
         <p className="text-center text-gray-400 text-[12.4px] font-maison tracking-[.4px] font-light">
           Shipping and taxes calculated at checkout
         </p>
-        <div className="bg-[#946C3C] w-full h-[56px] p-6 flex justify-center items-center">
+        <div onClick={() => navigate("/checkout")} className="bg-[#946C3C] cursor-pointer w-full h-[56px] p-6 flex justify-center items-center">
           <p className="text-[#FFF] font-maison font-normal">
             CHECKOUT ${" "}
             {formatter.format(

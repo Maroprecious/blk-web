@@ -110,3 +110,24 @@ export interface AuthPayload {
     state: string,
     zip: string
   }
+
+  export interface CreateOrderDto {
+    products: {
+      productId: number;
+      quantity: number;
+    }[];
+    customer: {
+      email: string;
+      phone: string;
+      firstName: string;
+      lastName: string;
+    };
+    address: {
+      country: string;
+      state: string;
+      city: string;
+      zip: string;
+      line1: string;
+      apartment?: string;
+    };
+  }

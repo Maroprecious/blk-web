@@ -1,5 +1,5 @@
 import { useMutation } from "@tanstack/react-query";
-import { AuthPayload, addShippingPayload, createProfilePayload, updatePasswordPayload } from "@/utils/types";
+import { AuthPayload, CreateOrderDto, addShippingPayload, createProfilePayload, updatePasswordPayload } from "@/utils/types";
 import api from "@/utils/api";
 
 
@@ -21,4 +21,8 @@ export function useChangePassword() {
 }
 export function useAddShippingAdress() {
     return useMutation({ mutationFn: (data: addShippingPayload) => api.post('/users/me/addresses', data).then((resp) => resp.data) });
+}
+
+export function useOrders() {
+    return useMutation({ mutationFn: (data: CreateOrderDto) => api.post('/orders', data).then((resp) => resp.data) });
 }

@@ -37,7 +37,7 @@ export default function LoginPage() {
                 localStorage.setItem("refreshToken", user?.data?.refreshToken);
                 refetch().then((res) => {
                   if (isSuccess) {
-                    if (user?.data?.isProfileFilled) {
+                    if (!user?.data?.user?.isProfileFilled) {
                       return navigate("/customize-profile");
                     }
                     setUser(res?.data?.data);

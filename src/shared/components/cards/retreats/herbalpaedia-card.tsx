@@ -10,7 +10,7 @@ type props = {
 export default function HerbalpaediaCard({name,sciName, id}:props) {
   const navigate = useNavigate()
   return (
-    <div className="w-full h-[504px] h-fit border border-gray-200 p-2 flex flex-col justify-center items-start">
+    <div className="w-[300px] h-[504px] h-fit border border-gray-200 p-2 flex flex-col justify-center items-start">
       <div className="w-full h-[300px] bg-[url('@assets/images/herbs-bg.png')] bg-cover bg-center bg-no-repeat" />
       <div className="w-full p-2">
         <h3 className="font-maison text-gray-900 text-[24px] font-medium">

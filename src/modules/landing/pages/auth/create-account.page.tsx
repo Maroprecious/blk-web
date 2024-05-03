@@ -58,11 +58,12 @@ export default function CreateAccountPage() {
     <AuthLayout>
       <div className="w-full pt-20 lg:pb-[23em] flex justify-center items-center">
         <div className="w-[38%] max-w-[1440px]">
-          <h1 className="font-recoleta pb-6 font-medium text-[32px]">
+          <h1 className="font-arapey pb-6 font-light text-[32px]">
             Create an account
           </h1>
           <div>
             <Input
+            className="font-arapey text-[16px]"
               name="email"
               onChange={handleChange}
               onBlur={handleBlur}
@@ -73,6 +74,7 @@ export default function CreateAccountPage() {
             />
             <Input
               label="Password"
+              className="font-arapey text-[16px]"
               type="password"
               name="password"
               onChange={handleChange}
@@ -83,6 +85,7 @@ export default function CreateAccountPage() {
             />
             <Input
               label="Confirm password"
+              className="font-arapey text-[16px]"
               type="password"
               onChange={handleChange}
               onBlur={handleBlur}
@@ -96,14 +99,14 @@ export default function CreateAccountPage() {
             <Button
               isLoading={isPending || isLoading}
               onClick={() => handleSubmit()}
-              className="w-full h-[56px] text-[16px]"
+              className="w-full h-[56px] text-[16px] font-arapey font-normal"
             >
               SIGN UP
             </Button>
-            <Button className="w-full border border-primary bg-sage-300 h-[56px] text-[16px] hover:text-white text-primary my-6 uppercase">
+            <Button className="w-full font-arapey font-normal border border-primary bg-sage-300 h-[56px] text-[16px] hover:text-white text-primary my-6 uppercase">
               sign up with google
             </Button>
-            <h3 className="font-maison text-gray-900 text-[16px] uppercase text-center">
+            <h3 className=" font-arapey font-normal text-gray-900 text-[16px] text-center cursor-pointer" onClick={() => navigation('/login')}>
               Already have an account? Log in
             </h3>
           </div>

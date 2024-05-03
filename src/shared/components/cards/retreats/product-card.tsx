@@ -23,7 +23,7 @@ export default function ProductCard({
   const { addProduct, getProductCount, removeProduct } = useCart();
 
   return (
-    <div className="w-full h-[504px] border border-gray-200 p-2 flex flex-col justify-center items-start">
+    <div className="w-[300px] h-[504px] border border-gray-200 p-2 flex flex-col justify-center items-start">
       <div
         onClick={() => navigate(`/store/${productId}`)}
         style={{

@@ -80,7 +80,7 @@ export default function Input({
         <span
           className={cn(
             labelClassName,
-            "block mb-1 text-base text-gray-900 font-maison text-[14px] font-medium leading-6"
+            "block mb-1 text-base text-gray-900 font-arapey text-[14px] font-normal leading-6"
           )}
         >
           {label}
@@ -103,7 +103,7 @@ export default function Input({
             "min-w-0 py-0 w-full",
             "text-base font-light leading-none",
             "focus:outline-none focus:ring-0",
-            "placeholder-gray-500 disabled:placeholder-gray-200 disabled:opacity-40",
+            "placeholder-gray-500 disabled:placeholder-gray-200 font-arapey disabled:opacity-40",
             // "bg-transparent",
             inputLeftElement ? "pl-10" : "pl-4"
           )}

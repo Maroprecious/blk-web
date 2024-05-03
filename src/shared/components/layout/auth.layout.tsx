@@ -30,7 +30,7 @@ export const AuthLayout: FC<Prop> = ({ children }) => {
                 }`}
                 key={element}
               >
-                <p className="font-maison font-light text-sage-300 text-[12px]">
+                <p className="font-arapey font-light text-sage-300 text-[12px]">
                   {element}
                 </p>
               </div>
@@ -40,7 +40,7 @@ export const AuthLayout: FC<Prop> = ({ children }) => {
             <div className="flex justify-start items-center gap-4">
               {["INSTAGRAM", "TWITTER", "FACEBOOK"].map((element) => (
                 <div className="" key={element}>
-                  <p className="font-maison font-light text-sage-300 text-[12px]">
+                  <p className="font-arapey font-light text-sage-300 text-[12px]">
                     {element}
                   </p>
                 </div>

@@ -145,6 +145,20 @@
     url("./assets/fonts/Recoleta/Recoleta-Light.woff2") format("woff2");
   font-weight: 300;
 }
+@font-face {
+  font-family: "Arapey";
+  src: local("Arapey"),
+    url("./assets/fonts/Arapey/Arapey-Regular.woff") format("woff"),
+    url("./assets/fonts/Arapey/Arapey-Regular.woff2") format("woff2");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Arapey-italic";
+  src: local("Arapey"),
+    url("./assets/fonts/Arapey/Arapey-Italic.woff") format("woff"),
+    url("./assets/fonts/Arapey/Arapey-Italic.woff2") format("woff2");
+  font-weight: 400;
+}
 
 .font-maison {
   font-family: "Maison Neue", sans-serif;
@@ -152,6 +166,9 @@
 
 .font-recoleta {
   font-family: "Recoleta", sans-serif;
+}
+.font-arapey {
+  font-family: "Arapey", sans-serif;
 }
 
 .spinner {

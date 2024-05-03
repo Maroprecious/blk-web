@@ -18,7 +18,7 @@ export default function HomeTab() {
       <div className="w-full p-8 bg-white">
         <section className="w-full relative z-20  flex justify-between items-start">
           <div className="w-[23%] mt-[38px]">
-            <h2 className="font-medium pb-6 text-gray-900 text-[24px]">
+            <h2 className="font-arapey font-extralight pb-6 text-gray-900 text-[24px]">
               Ongoing retreat
             </h2>
             <div>
@@ -46,7 +46,7 @@ export default function HomeTab() {
                 </div>
               ))}
           </div>
-          <div className="w-1/2">
+          <div className="w-1/2 mt-6">
             <h2 className="font-maison text-gray-900 text-[24px]">
               Featured products
             </h2>

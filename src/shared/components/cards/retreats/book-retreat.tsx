@@ -138,7 +138,7 @@ export const BookRetreat = ({
                 error={errors.amount}
                 hasError={!!errors.amount && touched.amount}
               />
-              <p>{`Minimum deposit is $${minDeposit}`}</p>
+              <p className="mt-[-2rem]">{`Minimum deposit is $${minDeposit}`}</p>
             </div> 
         
           <div className="flex gap-4">

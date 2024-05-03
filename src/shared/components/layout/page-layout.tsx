@@ -96,7 +96,7 @@ export const PageLayout = ({ children }: props) => {
             },
             {
               title: "Orders",
-              link: "#",
+              link: "/orders",
             },
             {
               title: "Gallery",

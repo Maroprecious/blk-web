@@ -1,6 +1,7 @@
 import { useMutation } from "@tanstack/react-query";
-import { AuthPayload, CreateOrderDto, addShippingPayload, createProfilePayload, updatePasswordPayload } from "@/utils/types";
+import { AuthPayload, CreateOrderDto, addShippingPayload, bookRetreatPayload, createProfilePayload, makeEnquiryPayload, updatePasswordPayload } from "@/utils/types";
 import api from "@/utils/api";
+import axios from "axios";
 
 
 export function useSignUp() {
@@ -26,3 +27,16 @@ export function useAddShippingAdress() {
 export function useOrders() {
     return useMutation({ mutationFn: (data: CreateOrderDto) => api.post('/orders', data).then((resp) => resp.data) });
 }
+
+export function useMakeEnquiry() {
+  return useMutation({
+    mutationFn: (data: makeEnquiryPayload) =>
+      api.post("/retreats/inquiry", data).then((resp) => resp.data),
+  });
+}
+export function useBookRetreats(id: number) {
+    return useMutation({
+      mutationFn: (data: bookRetreatPayload) =>
+        api.post(`/retreats/${id}/book`, data).then((resp) => resp.data),
+    });
+  }

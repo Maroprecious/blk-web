@@ -30,8 +30,8 @@ export default function RetreatCard({
   return (
     <div className="w-auto h-[504px] border border-gray-200 p-2 flex flex-col justify-center items-start">
       <div
-        className="w-full p-2 flex flex-wrap gap-2 h-[300px] bg-[url('@assets/images/product-bg.png')] bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: image }}
+        className="w-full p-2 flex flex-wrap gap-2 h-[300px] bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${image})` }}
       >
         {items?.map((element) => {
           const { colorWithOpacity, colorWithoutOpacity } = randomColor(0.1);

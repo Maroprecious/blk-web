@@ -92,6 +92,7 @@ export default function RetreatPage() {
                     .map((element, idx: number) => (
                       <div className="w-[32%]" key={idx}>
                         <RetreatCard
+                        id={element.id}
                           items={["Scheduled"]}
                           name={element.name}
                           price={element.price}

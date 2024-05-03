@@ -5,8 +5,9 @@ import { Provider as JotaiProvider } from "jotai";
 import { Toaster } from "react-hot-toast";
 import { CartContextProvider } from "./context/card.context";
 
+const queryClient = new QueryClient();
+
 function App() {
-  const queryClient = new QueryClient();
 
   return (
     <QueryClientProvider client={queryClient}>

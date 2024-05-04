@@ -50,11 +50,7 @@ export function useAddShippingAdress() {
 export function useOrders() {
     return useMutation({ mutationFn: (data: CreateOrderDto) => api.post('/orders', data).then((resp) => resp.data) });
 }
-  return useMutation({
-    mutationFn: (data: addShippingPayload) =>
-      api.post("/users/me/addresses", data).then((resp) => resp.data),
-  });
-}
+
 export function useMakeEnquiry() {
   return useMutation({
     mutationFn: (data: makeEnquiryPayload) =>

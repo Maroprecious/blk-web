@@ -6,15 +6,11 @@ import { Button } from "@/shared/components/buttons/button";
 import { PageLayout } from "@/shared/components/layout/page-layout";
 import moment from "moment";
 import { useEffect, useState } from "react";
-import { FaRegClock, FaRegStar } from "react-icons/fa6";
+import { FaRegClock } from "react-icons/fa6";
 import { useParams } from "react-router-dom";
 import people from "../../../../assets/icons/people.svg";
-import { SidebarCard } from "@/shared/components/cards/sidebar-card";
-import Input from "@/components/ui/input";
-import { cn } from "@/lib/utils";
-import { Select } from "@/components/ui/select";
-import { FaStar } from "react-icons/fa";
 import { MakeEnquiryCard } from "@/shared/components/cards/retreats/make-enquiry";
+import { BookRetreat } from "@/shared/components/cards/retreats/book-retreat";
 
 export default function RetreatID() {
   const [active, setActive] = useState(0);
@@ -43,83 +39,7 @@ export default function RetreatID() {
         <MakeEnquiryCard params={params.id} onclick={() => setOpen(false)} />
       )}
       {show && (
-        <SidebarCard title=" Book Retreat" onClick={() => setShow(false)}>
-          <div className="flex relative flex-col justify-between">
-            <div className="pt-4">
-              <Input
-                name=""
-                className="bg-transparent"
-                label="Full name"
-                placeholder=""
-              />
-              <Input
-                name=""
-                className="bg-transparent"
-                label="Email address"
-                placeholder=""
-              />
-              <Select
-                name=""
-                label="Payment type"
-                className="bg-transparent"
-                options={[
-                  {
-                    label: "Partial payment",
-                    value: "partial",
-                  },
-                  {
-                    label: "Full payment",
-                    value: "full",
-                  },
-                ]}
-              />
-              <div className="flex gap-4">
-                <div
-                  className="w-[50%] relative h-[204px] bg-cover bg-center bg-no-repeat"
-                  style={{
-                    backgroundImage: `url('${selected.image}')`,
-                  }}
-                >
-                  <div className="flex items-center justify-start gap-2 absolute top-[86%] left-[5%]">
-                    <div className="flex items-start gap-[.3rem] justify-end">
-                      {Array(5)
-                        .fill("_")
-                        .map((ele, idx) =>
-                          idx + 1 <= selected.rating ? (
-                            <FaStar color="#F79009" />
-                          ) : (
-                            <FaStar color="#fff" />
-                          )
-                        )}
-                    </div>
-                    <p className="text-[15px] text-white">{selected.rating}</p>
-                  </div>
-                </div>
-                <div>
-                  {" "}
-                  <p className="text-[20px] text-gray-900 font-normal">
-                    {selected.name}
-                  </p>
-                  <p className="text-[16px] text-gray-900 font-normal">
-                    {selected.address}
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="flex items-center justify-start gap-4 absolute top-[75vh] w-full ">
-              <Button
-                title="Cancel"
-                variant="outline"
-                onClick={() => setShow(false)}
-              />
-              <Button
-                title="Book Retreat"
-                variant="solid"
-                onClick={() => null}
-              />
-            </div>
-          </div>
-        </SidebarCard>
+        <BookRetreat id={params.id} minDeposit={data?.data?.minDeposit} setShow={setShow} selected={selected} />
       )}
       <div className="w-full p-8 bg-white pt-10 min-h-[100vh] relative">
         <div className="flex justify-between items-center">

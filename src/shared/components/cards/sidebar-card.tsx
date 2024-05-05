@@ -11,8 +11,8 @@ export const SidebarCard = ({
   title: string
 }) => {
   return (
-    <div className="w-full z-[1000] bg-shadow h-[100vh] top-0 left-0 fixed">
-      <div className="w-[35%] px-6 py-10 shadow-sm bg-[#fff] z-[200] h-[100vh] absolute right-0 top-0">
+    <div className="w-full z-[1000] overflow-y-scroll bg-shadow h-[100vh] top-0 left-0 fixed">
+      <div className="w-[35%] px-6 py-10 shadow-sm bg-[#fff] z-[200] h-auto absolute right-0 top-0">
         <div className="flex justify-between items-center">
           <h2 className="text-[#946C3C] font-normal text-[30px]">
            {title}

@@ -71,7 +71,7 @@ export const MakeEnquiryCard = ({
   }, [user]);
   return (
     <SidebarCard title=" Make Enquiry" onClick={onclick}>
-      <div className="flex relative flex-col justify-between">
+      <div className="flex relative h-[100vh] flex-col justify-between">
         <div className="pt-4">
           <Input
             name="name"
@@ -108,7 +108,7 @@ export const MakeEnquiryCard = ({
             hasError={!!errors.message && touched.message}
           />
         </div>
-        <div className="flex items-center justify-start gap-4 absolute top-[140%] w-full ">
+        <div className="flex items-center justify-start gap-4 absolute top-[90%] w-full ">
           <Button title="Cancel" variant="outline" onClick={onclick} />
           <Button title="Make Enquiry" variant="solid" onClick={() => handleSubmit()} />
         </div>

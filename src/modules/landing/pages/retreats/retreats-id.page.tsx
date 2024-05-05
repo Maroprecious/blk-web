@@ -159,7 +159,7 @@ export default function RetreatID() {
               </div>
               <p className="mt-6">Hotel Information</p>
               <div>
-                {data?.data?.hotel.map((ele: any) => (
+                {[data?.data?.hotel].map((ele: any) => (
                   <div className="w-[24%] h-[420px] border border-gray-200 p-2 flex flex-col justify-center items-start">
                     <div
                       className="w-[99.5%] mx-auto h-[264px] bg-cover bg-center bg-no-repeat"

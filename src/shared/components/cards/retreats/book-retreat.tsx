@@ -85,7 +85,7 @@ export const BookRetreat = ({
   }, [user]);
   return (
     <SidebarCard title=" Book Retreat" onClick={() => setShow(false)}>
-      <div className="flex relative flex-col justify-between">
+      <div className="flex relative h-[100vh] flex-col justify-between">
         <div className="pt-4">
           <Input
             name="name"
@@ -143,7 +143,7 @@ export const BookRetreat = ({
         
           <div className="flex gap-4">
             <div
-              className="w-[50%] relative h-[204px] bg-cover bg-center bg-no-repeat"
+              className="w-[50%] relative h-[150px] bg-cover bg-center bg-no-repeat"
               style={{
                 backgroundImage: `url('${selected.image}')`,
               }}
@@ -174,7 +174,7 @@ export const BookRetreat = ({
             </div>
           </div>
         </div>
-        <div className="flex items-center justify-start gap-4 absolute top-[75vh] w-full ">
+        <div className="flex items-center justify-start gap-4 w-full ">
           <Button
             title="Cancel"
             variant="outline"

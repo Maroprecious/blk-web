@@ -46,7 +46,7 @@ export default function RetreatCard({
               />
               <p
                 style={{ color: colorWithoutOpacity }}
-                className="font-maison font-light text-[14px]"
+                className="font-arapey font-light text-[14px]"
               >
                 {element}
               </p>
@@ -55,24 +55,24 @@ export default function RetreatCard({
         })}
       </div>
       <div className="w-full p-2">
-        <h3 className="font-maison text-gray-900 text-[24px] font-medium">
+        <h3 className="font-arapey text-gray-900 text-[24px] font-medium">
           {/* Lavender <span className="italic">(Lavandula angustifolia)</span> */}
           {name}
         </h3>
-        <h1 className="font-recoleta text-primary font-bold text-[24px]">
+        <h1 className="font-arapey text-primary font-bold text-[24px]">
           $ {price} USD
         </h1>
         <div className="w-full py-2 flex justify-start gap-[.7rem] items-start">
           <div className="flex items-center p-2 gap-[.3rem] justify-items-start bg-cream-300">
             <FaRegClock size={20} color="#CF956F" />
-            <p className="text-clay-900 text-[15px]">
+            <p className="text-clay-900 font-arapey text-[15px]">
               {moment(start).format("Do")} - {moment(end).format("Do")},{" "}
               {moment(end).year()}
             </p>
           </div>
           <div className="flex items-center p-2 gap-[.3rem] justify-items-start bg-cream-300">
             <img src={people} />
-            <p className="text-clay-900 text-[15px]">
+            <p className="text-clay-900 font-arapey text-[15px]">
               {participants.length}{" "}
               {`${participants.length < 2 ? "person" : "people"}`}
             </p>

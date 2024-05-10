@@ -63,7 +63,7 @@ export default function LoginPage() {
   return (
     <AuthLayout>
       <div className="w-full pt-20 lg:pb-[23em] flex justify-center items-center">
-        <div className="w-[38%] max-w-[1440px]">
+        <div className="lg:w-[38%] lg:max-w-[1440px] w-[90%] mx-auto">
           <h1 className="font-arapey pb-6 font-normal text-[32px]">
             Log in to your account
           </h1>
@@ -87,7 +87,7 @@ export default function LoginPage() {
               error={errors.password}
               hasError={!!errors.password && touched.password}
             />
-            <p className="text-gray-900 font-arapey text-[16px] pb-6">
+            <p className="text-gray-900 font-arapey text-[16px] pb-6" onClick={() => navigate('/forgot-password')}>
               <a>Forgot Password?</a>
             </p>
             <Button
@@ -100,7 +100,7 @@ export default function LoginPage() {
             <Button className="w-full border border-primary bg-sage-300 h-[56px] text-[16px] hover:text-white text-primary my-6 uppercase">
               login with google
             </Button>
-            <h3 className="font-arapey text-gray-900 text-[16px] uppercase text-center">
+            <h3 className="font-arapey text-gray-900 text-[16px] uppercase text-center" onClick={() => navigate('/create-account')}>
               Don’t have an account? Sign UP
             </h3>
           </div>

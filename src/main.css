@@ -159,6 +159,14 @@
     url("./assets/fonts/Arapey/Arapey-Italic.woff2") format("woff2");
   font-weight: 400;
 }
+@font-face {
+  font-family: "Amsterdam";
+  src: local("Amsterdam"),
+    url("./assets/fonts/Amsterdam/AmsterdamOne-eZ12l.woff") format("woff"),
+    url("./assets/fonts/Amsterdam//AmsterdamOne-eZ12l.woff2") format("woff2");
+  font-weight: 300;
+}
+
 
 .font-maison {
   font-family: "Maison Neue", sans-serif;
@@ -170,7 +178,9 @@
 .font-arapey {
   font-family: "Arapey", sans-serif;
 }
-
+.font-amsterdam {
+  font-family: "Amsterdam", sans-serif;
+}
 .spinner {
   animation-name: spinner_loader;
   animation-duration:1s;

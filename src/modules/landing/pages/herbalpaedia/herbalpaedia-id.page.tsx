@@ -83,14 +83,14 @@ export default function HerbalpaediaID() {
 
         <div className="w-full flex justify-between items-start">
           <div className="w-[80%]">
-            <h2 className="font-recoleta text-primary text-[24px] py-2">
+            <h2 className="font-amsterdam text-primary text-[24px] py-6">
              {data?.data?.name} ({data?.data?.sciName})
             </h2>
-            <p className="font-maison font-light text-[16px] text-gray-500">
+            <p className="font-arapey font-light text-[16px] text-gray-500">
            {data?.data?.about}
             </p>
           </div>
-          <div className="bg-cream-300 flex justify-center items-center gap-2 px-4 py-2 font-maison text-[16px] text-clay-900">
+          <div className="bg-cream-300 flex justify-center items-center gap-2 px-4 py-2 font-arapey text-[16px] text-clay-900">
             <div className="w-[5px] h-[5px] bg-clay-900 rounded-full" />
             <p>Spiritual use</p>
           </div>

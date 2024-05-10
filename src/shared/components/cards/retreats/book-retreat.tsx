@@ -138,10 +138,10 @@ export const BookRetreat = ({
                 error={errors.amount}
                 hasError={!!errors.amount && touched.amount}
               />
-              <p className="mt-[-2rem]">{`Minimum deposit is $${minDeposit}`}</p>
+              <p className="mt-[-1rem] text-[12px] font-arapey">{`Minimum deposit is $${minDeposit}`}</p>
             </div> 
         
-          <div className="flex gap-4">
+          <div className="flex gap-4 mt-4">
             <div
               className="w-[50%] relative h-[150px] bg-cover bg-center bg-no-repeat"
               style={{
@@ -160,15 +160,15 @@ export const BookRetreat = ({
                       )
                     )}
                 </div>
-                <p className="text-[15px] text-white">{selected.rating}</p>
+                <p className="text-[15px] font-arapey text-white">{selected.rating}</p>
               </div>
             </div>
             <div>
               {" "}
-              <p className="text-[20px] text-gray-900 font-normal">
+              <p className="text-[20px] font-arapey text-gray-900 font-normal">
                 {selected.name}
               </p>
-              <p className="text-[16px] text-gray-900 font-normal">
+              <p className="text-[16px] font-arapey text-gray-900 font-normal">
                 {selected.address}
               </p>
             </div>

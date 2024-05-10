@@ -80,7 +80,7 @@ function useController() {
               menuItemIndexHovered === index ? "opacity-100" : "opacity-0"
             }`}
           ></div>
-          <p className="text-[56px] font-medium text-white whitespace-nowrap font-maison">
+          <p className="text-[56px] font-medium text-white whitespace-nowrap font-arapey">
             {title}
           </p>
           <img

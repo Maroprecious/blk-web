@@ -30,8 +30,8 @@ export default function RetreatPage() {
               <p
                 className={
                   active === id
-                    ? "text-[#946C3C] font-light text-[16px]"
-                    : "text-gray-500 font-light text-[16px]"
+                    ? "text-[#946C3C] font-arapey font-light text-[16px]"
+                    : "text-gray-500 font-arapey font-light text-[16px]"
                 }
               >
                 {elem}

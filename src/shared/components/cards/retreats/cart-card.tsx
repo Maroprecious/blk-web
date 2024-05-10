@@ -15,7 +15,7 @@ export default function CartCard(props: product) {
         className="w-[147px] h-[138px]  bg-cover bg-center bg-no-repeat"
       ></div>
       <div className="w-[65%] flex flex-col justify-center items-center mt-8">
-        <h3 className="font-maison text-[#000000] text-[19px] font-extralight">
+        <h3 className="font-arapey text-[#000000] text-[19px] font-extralight">
           {props.name.split("(")[0]}
           <span className="italic">
             {props.name.split("(").length > 1
@@ -23,15 +23,15 @@ export default function CartCard(props: product) {
               : ""}
           </span>
         </h3>
-        <div className="flex justify-between items-start w-full mt-4">
-          <div className="w-[35%] flex justify-between items-center">
+        <div className="flex justify-start items-start w-full mt-4">
+          <div className="w-[40%] flex justify-between items-center">
             <CgMathMinus
               className="cursor-pointer"
               onClick={() => removeProduct(props)}
               size={16}
               color="#000"
             />
-            <p className="font-maison text-gray-900 text-[16px]">
+            <p className="font-arapey text-gray-900 text-[16px]">
               {props.count}
             </p>
             <CgMathPlus
@@ -41,8 +41,8 @@ export default function CartCard(props: product) {
               color="#000"
             />
           </div>
-          <h1 className="font-recoleta text-primary text-right font-medium text-[20px]">
-            $ {props.price} USD
+          <h1 className="font-arapey w-[60%] text-primary text-right font-medium text-[18px]">
+            ${props.price} USD
           </h1>
         </div>
       </div>

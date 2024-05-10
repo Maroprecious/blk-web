@@ -57,7 +57,7 @@ export default function CreateAccountPage() {
   return (
     <AuthLayout>
       <div className="w-full pt-20 lg:pb-[23em] flex justify-center items-center">
-        <div className="w-[38%] max-w-[1440px]">
+        <div className="lg:w-[38%] lg:max-w-[1440px] w-[90%] mx-auto">
           <h1 className="font-arapey pb-6 font-light text-[32px]">
             Create an account
           </h1>

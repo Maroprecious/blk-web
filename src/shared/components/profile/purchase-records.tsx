@@ -1,39 +1,42 @@
+import { useGetAllOrders } from "@/api/queries";
 import { randomColor } from "@/lib/utils";
 import { HiDotsVertical } from "react-icons/hi";
+import { Empty, EmptyRetreat } from "../cards/retreats/empty-state";
 
-export const PurchaseRecords = ({width = '85%'}: {width: string}) => {
+export const PurchaseRecords = ({ width = "85%" }: { width: string }) => {
+  const { data } = useGetAllOrders();
+  console.log(data, "data ");
   return (
-    <div className="pt-8" style={{width: width}}>
-      <table
-        style={{
-          width: "95%",
-          margin: "auto",
-          textAlign: "justify",
-        }}
-      >
-        <thead
-          className="bg-[#F9FAFB] h-[56px] border-b border-b-gray-200"
-          style={{ padding: "10px" }}
+    <div className="pt-8" style={{ width: width }}>
+      {data?.length ? (
+        <table
+          style={{
+            width: "95%",
+            margin: "auto",
+            textAlign: "justify",
+          }}
         >
-          <th className="font-normal text-[15px] text-gray-500">
-            Product name
-          </th>
-          <th className="font-normal text-[15px] text-gray-500">
-            Order number
-          </th>
-          <th className="font-normal text-[15px] text-gray-500">
-            Date of purchase
-          </th>
-          <th className="font-normal text-[15px] text-gray-500">Price</th>
-          <th className="font-normal text-[15px] text-gray-500">Category</th>
-          <th className="font-normal text-[15px] text-gray-500">Status</th>
-          <th className="font-normal text-[15px] text-gray-500">Action</th>
-        </thead>
-        <tbody style={{ paddingTop: "3rem" }}>
-          {Array(6)
-            .fill("_")
-            .map((ele) => (
-              <tr className="border-b border-b-gray-200 pt-8 h-[90px] my-auto">
+          <thead
+            className="bg-[#F9FAFB] font-arapey h-[56px] border-b border-b-gray-200"
+            style={{ padding: "10px" }}
+          >
+            <th className="font-normal text-[15px] text-gray-500">
+              Product name
+            </th>
+            <th className="font-normal text-[15px] text-gray-500">
+              Order number
+            </th>
+            <th className="font-normal text-[15px] text-gray-500">
+              Date of purchase
+            </th>
+            <th className="font-normal text-[15px] text-gray-500">Price</th>
+            <th className="font-normal text-[15px] text-gray-500">Category</th>
+            <th className="font-normal text-[15px] text-gray-500">Status</th>
+            <th className="font-normal text-[15px] text-gray-500">Action</th>
+          </thead>
+          <tbody style={{ paddingTop: "3rem" }}>
+            {data?.map((ele) => (
+              <tr className="border-b font-arapey border-b-gray-200 pt-8 h-[90px] my-auto">
                 {" "}
                 <td className="flex mr-[-4rem] gap-4 items-center mt-[.7rem]">
                   <div
@@ -65,7 +68,7 @@ export const PurchaseRecords = ({width = '85%'}: {width: string}) => {
                           />
                           <p
                             style={{ color: colorWithoutOpacity }}
-                            className="font-maison font-light text-[14px]"
+                            className="font-arapey font-light text-[14px]"
                           >
                             Accepted
                           </p>
@@ -78,8 +81,13 @@ export const PurchaseRecords = ({width = '85%'}: {width: string}) => {
                 </td>
               </tr>
             ))}
-        </tbody>
-      </table>
+          </tbody>
+        </table>
+      ) : (
+        <div>
+          <Empty text="Orders" message="When you make an order you see it here" />
+        </div>
+      )}
     </div>
   );
 };

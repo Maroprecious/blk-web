@@ -10,6 +10,8 @@ import { CartSideBar } from "../dropdown/cart-sidebar";
 import { useAtom } from "jotai";
 import { userAtom } from "@/store/store";
 import { useNavigate, useLocation } from "react-router-dom";
+import { useMediaQuery } from "@/hooks/usemediaquery";
+import { HiOutlineMenuAlt4 } from "react-icons/hi";
 
 type props = {
   children: ReactNode;
@@ -36,18 +38,15 @@ export const PageLayout = ({ children }: props) => {
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [openCart, setOpenCart] = useState(false);
 
-
   const handleActive = (id: number, link: string) => {
     setActive(id);
-    navigate(link)
+    navigate(link);
   };
-
 
   const handleNotifications = () => {
     setOpen(!open);
     setOpenUser(false);
   };
-
 
   const handleUserDropdown = () => {
     setOpenUser(!openUser);
@@ -61,106 +60,131 @@ export const PageLayout = ({ children }: props) => {
       setOpenUser(false);
     }
   };
-
+  const matches = useMediaQuery("(min-width: 820px)");
   return (
     <div>
-      <div
-        className="fixed w-full z-[100] px-8 gap-[4%] flex justify-between items-center bg-[#FFF]
-       left-0 top-0 h-[88px] border-b border-b-[1px] border-[#EAECF0]"
-      >
-        <div className="w-[23%]">
-          <div
-            className="w-[134px] h-[44px] px-4"
-            onClick={() => navigate("/home-tab")}
-          >
-            <img src={logo} style={{ width: "100%", height: "100%" }} />
-          </div>
-        </div>
-        <div className="flex justify-between items-center w-[57%]">
-          {[
-            {
-              title: "Home",
-              link: "/home-tab",
-            },
-            {
-              title: "Retreats",
-              link: "/retreats",
-            },
-            {
-              title: "Herbalpaedia",
-              link: "/herbalpaedia",
-            },
-            {
-              title: "Store",
-              link: "/store",
-            },
-            {
-              title: "Orders",
-              link: "/orders",
-            },
-            {
-              title: "Gallery",
-              link: "#",
-            },
-          ].map((ele, id) => (
+      {matches ? (
+        <div
+          className="fixed w-full z-[100] lg:px-8 px-4 gap-[4%] flex justify-between items-center bg-[#FFF]
+   left-0 top-0 h-[88px] border-b border-b-[1px] border-[#EAECF0]"
+        >
+          <div className="w-[23%]">
             <div
-              key={id}
-              onClick={() => handleActive(id, ele.link)}
-              className={
-                location?.pathname.includes(ele.link)
-                  ? "bg-[#FAF6F3] flex items-center px-8 h-[88px] text-center border-b border-b-[2px] border-[#946C3C]"
-                  : "px-8"
-              }
+              className="w-[134px] h-[44px] px-4"
+              onClick={() => navigate("/home-tab")}
             >
-              <p
+              <img src={logo} style={{ width: "100%", height: "100%" }} />
+            </div>
+          </div>
+          <div className="flex justify-between items-center w-[57%]">
+            {[
+              {
+                title: "Home",
+                link: "/home-tab",
+              },
+              {
+                title: "Retreats",
+                link: "/retreats",
+              },
+              {
+                title: "Herbalpaedia",
+                link: "/herbalpaedia",
+              },
+              {
+                title: "Store",
+                link: "/store",
+              },
+              {
+                title: "Orders",
+                link: "/orders",
+              },
+              {
+                title: "Gallery",
+                link: "#",
+              },
+            ].map((ele, id) => (
+              <div
+                key={id}
+                onClick={() => handleActive(id, ele.link)}
                 className={
                   location?.pathname.includes(ele.link)
-                    ? "cursor-pointer text-[#946C3C] font-maison text-[15px] font-extralight"
-                    : "cursor-pointer text-[#667085] font-maison text-[15px] font-extralight"
+                    ? "bg-[#FAF6F3] flex items-center px-8 h-[88px] text-center border-b border-b-[2px] border-[#946C3C]"
+                    : "px-8"
                 }
               >
-                {ele.title}
-              </p>
-            </div>
-          ))}
-        </div>
-        <div className="flex w-[20%] justify-end items-center gap-[1rem]">
-          <div className="cursor-pointer" onClick={() => handleNotifications()}>
-            <img src={bell} style={{ width: "22px", height: "22px" }} />
-          </div>
-          <div className="cursor-pointer" onClick={() => setOpenCart(true)}>
-            <img src={cart} style={{ width: "22px", height: "22px" }} />
-          </div>
-          <div
-            className="bg-[#CF956F] w-[40px] h-[40px] rounded-[50%] flex items-center justify-center"
-            onClick={() => handleUserDropdown()}
-          >
-            <h2 className="font-maison text-[#fff] font-extrabold text-[17px]">
-              {users.data?.profile?.firstName?.charAt(0)}{" "}
-              {users.data?.profile?.lastName?.charAt(0)}{" "}
-            </h2>
-          </div>
-        </div>
-        {open && <Notifications />}
-        {openUser && (
-          <div className="absolute shadow-lg py-2 top-[80px] right-[2%] z-[100] bg-[#FFF] w-[151px] border border-[1px] border-[gray-200]">
-            {userOptions.map((ele) => (
-              <div
-                className="flex py-2 px-4 gap-2"
-                onClick={() => handleShowModal(ele.title)}
-              >
-                <img
-                  src={ele.image}
-                  style={{ width: "22px", height: "22px" }}
-                />
-                <p className="text-gray-900 text-[14px] font-normal">
+                <p
+                  className={
+                    location?.pathname.includes(ele.link)
+                      ? "cursor-pointer text-[#946C3C] font-arapey text-[15px] font-extralight"
+                      : "cursor-pointer text-[#667085] font-arapey text-[15px] font-extralight"
+                  }
+                >
                   {ele.title}
                 </p>
               </div>
             ))}
           </div>
-        )}
-      </div>
+          <div className="flex w-[20%] justify-end items-center gap-[1rem]">
+            <div
+              className="cursor-pointer"
+              onClick={() => handleNotifications()}
+            >
+              <img src={bell} style={{ width: "22px", height: "22px" }} />
+            </div>
+            <div className="cursor-pointer" onClick={() => setOpenCart(true)}>
+              <img src={cart} style={{ width: "22px", height: "22px" }} />
+            </div>
+            <div
+              className="bg-[#CF956F] w-[40px] h-[40px] rounded-[50%] flex items-center justify-center"
+              onClick={() => handleUserDropdown()}
+            >
+              <h2 className="font-maison text-[#fff] font-extrabold text-[17px]">
+                {users.data?.profile?.firstName?.charAt(0)}{" "}
+                {users.data?.profile?.lastName?.charAt(0)}{" "}
+              </h2>
+            </div>
+          </div>
+          {open && <Notifications />}
+          {openUser && (
+            <div className="absolute shadow-lg py-2 top-[80px] right-[2%] z-[100] bg-[#FFF] w-[151px] border border-[1px] border-[gray-200]">
+              {userOptions.map((ele) => (
+                <div
+                  className="flex py-2 px-4 gap-2"
+                  onClick={() => handleShowModal(ele.title)}
+                >
+                  <img
+                    src={ele.image}
+                    style={{ width: "22px", height: "22px" }}
+                  />
+                  <p className="text-gray-900 text-[14px] font-normal">
+                    {ele.title}
+                  </p>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      ) : (
+        <div
+          className="fixed w-full z-[100] lg:px-8 px-4 gap-[4%] flex justify-between items-center bg-[#FFF]
+   left-0 top-0 h-[88px] border-b border-b-[1px] border-[#EAECF0]"
+        >
+          <HiOutlineMenuAlt4 size={32} />
+          <p>Home </p>
+          <div className="flex w-[20%] justify-end items-center gap-[1rem]">
+            <div
+              className="cursor-pointer"
+              onClick={() => handleNotifications()}
+            >
+              <img src={bell} style={{ width: "22px", height: "22px" }} />
+            </div>
+            <div className="cursor-pointer" onClick={() => setOpenCart(true)}>
+              <img src={cart} style={{ width: "22px", height: "22px" }} />
+            </div>
+          </div>
+          {open && <Notifications />}
+        </div>
+      )}
       {showModal && selectedOption && (
         <LogoutModal setShowModal={setShowModal} />
       )}

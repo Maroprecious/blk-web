@@ -29,7 +29,7 @@ export default function CheckoutPage() {
   const [tab, setTab] = useState<number | null>(0);
   const [user] = useAtom<UserData>(userAtom);
   const { data } = useCountry();
-  const { mutate, isPending, isSuccess } = useOrders();
+  const { mutate, isPending } = useOrders();
   const stripePromise = loadStripe(stripe_key);
   const [stripeOptions, setStripeOptions] = useState({
     clientSecret: "",
@@ -111,12 +111,12 @@ export default function CheckoutPage() {
               id === 0 ? (
                 <div className="flex items-center gap-[.5rem]" key={id}>
                   <p
-                    className="text-[15px] font-light text-[#000000] cursor-pointer"
+                    className="font-arapey text-[15px] font-light text-[#000000] cursor-pointer"
                     // onClick={() => handleActiveTab(id)}
                   >
                     {ele}
                   </p>
-                  <div className="font-bold text-[19px]">
+                  <div className="font-bold font-arapey text-[19px]">
                     <LiaAngleRightSolid />
                   </div>
                 </div>
@@ -279,17 +279,17 @@ export default function CheckoutPage() {
           </div>
           <div className=" border-t border-t-gray-400 w-[85%]">
             <div className="flex justify-between items-center pt-4">
-              <p className="font-maison font-light text-[15px]">Subtotal</p>
-              <p className="font-maison font-medium text-[15px]">$ 0.00</p>
+              <p className="font-arapey font-light text-[15px]">Subtotal</p>
+              <p className="font-arapey font-medium text-[15px]">$ 0.00</p>
             </div>
             <div className="flex justify-between items-center pt-4">
-              <p className="font-maison font-light text-[15px]">Shipping fee</p>
-              <p className="font-maison font-medium text-[15px]">$ 0.00</p>
+              <p className="font-arapey font-light text-[15px]">Shipping fee</p>
+              <p className="font-arapey font-medium text-[15px]">$ 0.00</p>
             </div>
             <div className=" border-b border-b-gray-400 pb-4" />
             <div className="flex justify-between items-center pt-4">
-              <p className="text-[24px] font-normal text-primary">Total</p>
-              <p className="text-primary font-medium text-[24px]">
+              <p className="text-[24px] font-normal font-arapey text-primary">Total</p>
+              <p className="text-primary font-medium font-arapey text-[24px]">
                 {formatter.format(
                   products.length
                     ? products

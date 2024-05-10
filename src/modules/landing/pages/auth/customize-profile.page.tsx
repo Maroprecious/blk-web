@@ -83,7 +83,7 @@ export default function CustomizeProfilePage() {
   return (
     <AuthLayout>
       <div className="w-full pt-20 lg:pb-[23em] flex justify-center items-center">
-        <div className="w-[38%] max-w-[1440px]">
+        <div className="lg:w-[38%] w-[90%] mx-auto lg:max-w-[1440px]">
           <h1 className="font-recoleta pb-6 font-medium text-[32px]">
             Customise your profile
           </h1>

@@ -83,3 +83,10 @@ export function useGetOneProduct(id: number) {
       
     });
   }
+  export function useGetAllOrders() {
+    return useQuery({
+      queryKey: ["get-orders"],
+      queryFn: () => api.get('/users/me/orders').then((resp) => resp.data),
+    
+    });
+  }

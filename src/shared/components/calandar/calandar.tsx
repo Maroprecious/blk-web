@@ -65,7 +65,7 @@ export default function Calandar({
   return (
     <div>
       <div className="w-full pb-6 flex justify-between items-center">
-        <h3 className="font-maison font-medium text-gray-900 text-[24px]">
+        <h3 className="font-arapey font-medium text-gray-900 text-[24px]">
           Retreat calendar
         </h3>
         <div className="border border-gray-200 flex justify-center items-center gap-2 py-2 px-4">
@@ -74,18 +74,18 @@ export default function Calandar({
             className="cursor-pointer"
             fill="#667085"
           />
-          <p className="text-gray-500 font-maison font-medium">{date}</p>
+          <p className="text-gray-500 font-arapey font-medium">{date}</p>
           <IoChevronForward
             onClick={handleNext}
             className="cursor-pointer"
             fill="#667085"
           />
         </div>
-        <div className="flex gap-2">
-          <button className="py-2 px-4 bg-[#FAF6F3] text-[#CF956F] font-maison font-medium">
+        <div className="flex gap-2 lg:block hidden">
+          <button className="py-2 px-4 bg-[#FAF6F3] text-[#CF956F] font-arapey font-medium">
             Weekly
           </button>
-          <button className="py-2 px-4 bg-gray-50 text-gray-500 font-maison font-medium">
+          <button className="py-2 px-4 bg-gray-50 text-gray-500 font-arapey font-medium">
             Monthly
           </button>
         </div>

@@ -43,7 +43,7 @@ export const AccordionTrigger = forwardRef(
     <Accordion.Header className="flex">
       <Accordion.Trigger
         className={classNames(
-          "text-gray-900 text-[16px] cursor-pointer capitalize font-maison group flex h-[45px] flex-1 cursor-default items-center justify-between bg-transparent leading-none border-b border-b-gray-200",
+          "text-gray-900 text-[16px] cursor-pointer capitalize font-arapey group flex h-[45px] flex-1 cursor-default items-center justify-between bg-transparent leading-none border-b border-b-gray-200",
           className
         )}
         {...props}
@@ -67,7 +67,7 @@ export const AccordionContent = forwardRef(
   ) => (
     <Accordion.Content
       className={classNames(
-        "text-gray-500 bg-transparent data-[state=open]:animate-slideDown data-[state=closed]:animate-slideUp overflow-hidden text-[13px]",
+        "text-gray-500 font-arapey bg-transparent data-[state=open]:animate-slideDown data-[state=closed]:animate-slideUp overflow-hidden text-[13px]",
         className
       )}
       {...props}

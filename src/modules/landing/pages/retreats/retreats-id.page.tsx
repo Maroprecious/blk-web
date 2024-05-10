@@ -79,8 +79,8 @@ console.log(data?.data?.hotel, 'data?.data?.hotel')
               <p
                 className={
                   active === id
-                    ? "text-[#946C3C] font-light text-[16px]"
-                    : "text-gray-500 font-light text-[16px]"
+                    ? "text-[#946C3C] font-arapey font-light text-[16px]"
+                    : "text-gray-500 font-arapey font-light text-[16px]"
                 }
               >
                 {elem}
@@ -133,15 +133,15 @@ console.log(data?.data?.hotel, 'data?.data?.hotel')
                 )}
               </div>
               <div className="flex justify-between items-center">
-                <p className="text-[22px] text-gray-900">{data?.data?.name}</p>
-                <h1 className="font-recoleta text-primary font-bold text-[24px]">
+                <p className="text-[22px] font-amsterdam py-6 text-gray-900">{data?.data?.name}</p>
+                <h1 className="font-arapey text-primary font-bold text-[24px]">
                   $ {data?.data?.price} USD
                 </h1>
               </div>
               <div className="flex w-[40%] gap-4 mt-4">
                 <div className="flex items-center p-2 gap-[.3rem] justify-items-start bg-cream-300">
                   <FaRegClock size={20} color="#CF956F" />
-                  <p className="text-clay-900 text-[15px]">
+                  <p className="text-clay-900 font-arapey text-[15px]">
                     {moment(data?.data?.startDate).format("Do")} -{" "}
                     {moment(data?.data?.endDate).format("Do")},{" "}
                     {moment(data?.data?.endDate).year()}
@@ -149,7 +149,7 @@ console.log(data?.data?.hotel, 'data?.data?.hotel')
                 </div>
                 <div className="flex items-center p-2 gap-[.3rem] justify-items-start bg-cream-300">
                   <img src={people} />
-                  <p className="text-clay-900 text-[15px]">
+                  <p className="text-clay-900 font-arapey text-[15px]">
                     {data?.data.participants.length}{" "}
                     {`${
                       data?.data.participants.length < 2 ? "person" : "people"
@@ -157,7 +157,7 @@ console.log(data?.data?.hotel, 'data?.data?.hotel')
                   </p>
                 </div>
               </div>
-              <p className="mt-6">Hotel Information</p>
+              <p className="mt-6 mb-4 font-arapey">Hotel Information</p>
               <div>
                 {data?.data?.hotel.map((ele: any) => (
                   <div className="w-[24%] h-[420px] border border-gray-200 p-2 flex flex-col justify-center items-start">
@@ -168,11 +168,11 @@ console.log(data?.data?.hotel, 'data?.data?.hotel')
                       }}
                     />
                     <div className="w-full p-2">
-                      <h3 className="font-maison text-gray-900 text-[24px] font-medium">
+                      <h3 className="font-arapey text-gray-900 text-[24px] font-medium">
                         {/* Lavender <span className="italic">(Lavandula angustifolia)</span> */}
                         {ele?.name}
                       </h3>
-                      <p className="text-gray-900 text-[15px] pt-2">
+                      <p className="text-gray-900 font-arapey text-[15px] pt-2">
                         {ele?.address}
                       </p>
                       <div className="w-full py-2 flex justify-start gap-[.7rem] items-start">
@@ -199,10 +199,10 @@ console.log(data?.data?.hotel, 'data?.data?.hotel')
             <div className="flex flex-col pt-6 justify-center items-center">
               {data?.data.faq.map((ele: any) => (
                 <div>
-                  <h3 className="text-gray-900 text-[29px] font-normal">
+                  <h3 className="text-gray-900 text-[29px] font-arapey font-normal">
                     {ele.question}
                   </h3>
-                  <p className="text-gray-500 text-[16px] fon-normal">
+                  <p className="text-gray-500 text-[16px] font-arapey fon-normal">
                     {ele.answer}
                   </p>
                 </div>

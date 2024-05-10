@@ -146,3 +146,6 @@ export interface CreateOrderDto {
     apartment?: string;
   };
 }
+export interface logOutPayload {
+  refreshToken: string;
+}

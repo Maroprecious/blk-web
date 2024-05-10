@@ -73,16 +73,16 @@ export default function StoreIdPage() {
                 Out of stock
               </p>
             </div> */}
-            <h2 className="font-maison text-black w-[70%] text-[25px] font-regular">
+            <h2 className="font-arapey text-black w-[80%] text-[25px] font-regular">
               {data?.data?.name}
             </h2>
-            <h1 className="font-recoleta font-bold text-primary text-[40px]">
+            <h1 className="font-arapey font-bold text-primary text-[40px]">
               ${data?.data?.price} USD
             </h1>
 
             <div className="flex pb-4 justify-between items-center gap-2">
               <div className="w-[7px] h-[7px] rounded-full bg-primary" />
-              <p className="font-maison w-[95%] text-gray-900 text-[14px]">
+              <p className="font-arapey w-[95%] text-gray-900 text-[14px]">
                 {data?.data?.desc}
               </p>
             </div>
@@ -133,9 +133,9 @@ export default function StoreIdPage() {
             </Button>
           </div>
         </div>
-        <p className="font-maison text-gray-900 text-[20px] font-regular py-4">
+        {/* <p className="font-maison text-gray-900 text-[20px] font-regular py-4">
           Related products
-        </p>
+        </p> */}
         <div className="flex w-full flex-wrap justify-start items-center gap-4">
           {/* {Array(4)
             .fill("_")

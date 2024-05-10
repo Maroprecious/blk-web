@@ -1,7 +1,7 @@
 import { useMutation } from "@tanstack/react-query";
-import { AuthPayload, CreateOrderDto, addShippingPayload, bookRetreatPayload, createProfilePayload, makeEnquiryPayload, updatePasswordPayload } from "@/utils/types";
+import { AuthPayload, CreateOrderDto, addShippingPayload, bookRetreatPayload, createProfilePayload, logOutPayload, makeEnquiryPayload, updatePasswordPayload } from "@/utils/types";
 import api from "@/utils/api";
-import axios from "axios";
+// import axios from "axios";
 
 
 export function useSignUp() {
@@ -40,3 +40,6 @@ export function useBookRetreats(id: number) {
         api.post(`/retreats/${id}/book`, data).then((resp) => resp.data),
     });
   }
+  export function useLogout() {
+    return useMutation({ mutationFn: (data: logOutPayload) => api.post('/auth/signout', data).then((resp) => resp.data) });
+}

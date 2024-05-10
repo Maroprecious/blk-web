@@ -14,12 +14,12 @@ export const CartSideBar = ({ setOpenCart }: props) => {
 
   return (
     <div className="fixed z-[100] w-full h-[100vh] bg-[rgba(0,0,0,0.4)] my-auto flex">
-      <div className="w-[28%] overflow-scroll pb-20 h-full bg-[#FFF] absolute right-0">
+      <div className="lg:w-[30%] w-full overflow-scroll pb-20 h-full bg-[#FFF] absolute right-0">
         <div className="flex w-[60%] pt-8 px-4 justify-between items-center relative">
           <div className="text-[20px]" onClick={() => setOpenCart(false)}>
             <IoArrowForward />
           </div>
-          <h5 className="font-recoleta text-[24px] text-[#946C3C] font-medium">
+          <h5 className="font-amsterdam pb-6 text-[24px] text-[#946C3C] font-medium">
             My Cart
           </h5>
         </div>
@@ -31,12 +31,12 @@ export const CartSideBar = ({ setOpenCart }: props) => {
           ))}
         </div>
       </div>
-      <div className="absolute right-0 bottom-0 w-[28%] flex flex-col gap-[3px]">
-        <p className="text-center text-gray-400 text-[12.4px] font-maison tracking-[.4px] font-light">
+      <div className="absolute lg:right-0 bottom-4 lg:w-[28%] right-[5%] w-[90%] mx-auto flex flex-col gap-[3px]">
+        <p className="text-center text-gray-400 text-[12.4px] font-arapey tracking-[.4px] font-light">
           Shipping and taxes calculated at checkout
         </p>
         <div onClick={() => navigate("/checkout")} className="bg-[#946C3C] cursor-pointer w-full h-[56px] p-6 flex justify-center items-center">
-          <p className="text-[#FFF] font-maison font-normal">
+          <p className="text-[#FFF] font-arapey font-normal">
             CHECKOUT ${" "}
             {formatter.format(
               products.length

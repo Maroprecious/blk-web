@@ -44,7 +44,7 @@ export default function ProductCard({
               />
               <p
                 style={{ color: colorWithoutOpacity }}
-                className="font-maison font-light text-[14px]"
+                className="font-arapey font-light text-[14px]"
               >
                 {element}
               </p>
@@ -53,11 +53,11 @@ export default function ProductCard({
         })}
       </div>
       <div className="w-full p-2">
-        <h3 className="font-maison text-gray-900 text-[24px] font-medium">
+        <h3 className="font-arapey text-gray-900 text-[24px] font-medium">
           {/* Lavender <span className="italic">(Lavandula angustifolia)</span> */}
           {name}
         </h3>
-        <h1 className="font-recoleta text-primary font-bold text-[24px]">
+        <h1 className="font-arapey text-primary font-bold text-[24px]">
           $ {price} USD
         </h1>
         <div className="w-full px-10 py-2 flex justify-between items-center">

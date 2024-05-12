@@ -36,6 +36,9 @@ const SingleRetreatPage = lazy(
 const RetreatCalendar = lazy(
   () => import("./pages/retreatCalendar/retreatCalendar.page")
 );
+const Successful = lazy(
+  () => import("../../shared/components/modals/successful.tsx")
+);
 const Herbalpedia = lazy(() => import("./pages/herbalpedia/herbalpedia.page"));
 const HerbalProduct = lazy(
   () => import("./pages/herbalpedia/herbalProduct.page")
@@ -50,6 +53,7 @@ const ProductDetails = lazy(
 );
 const StoreItem = lazy(() => import("./pages/store/storeItem.page"));
 const Login = lazy(() => import("./pages/login/login.page"));
+const CartCheckout = lazy(() => import("./pages/checkout/Checkout.tsx"));
 const Signup = lazy(() => import("./pages/signup/signup.page"));
 const ForgotPassword = lazy(
   () => import("./pages/forgotPassword/forgotPassword.page")
@@ -111,8 +115,8 @@ export const landingPaths = [
   "/store/:id",
   "/checkout",
   "/my-profile",
-  "single-retreat",
   "retreat-calendar",
+  "retreat-calendar/:retreatId",
   "herbalpedia",
   "herbal-product",
   "gallery",
@@ -120,6 +124,8 @@ export const landingPaths = [
   "store",
   "store/:productId",
   "herbalpedia/:herbId",
+  "orderCheckout",
+  "orderSuccess",
   "login",
   "signup",
   "forgot-password",
@@ -170,7 +176,7 @@ export const landingRoutes: RouteType[] = [
     ),
   },
   {
-    path: "single-retreat",
+    path: "retreat-calendar/:retreatId",
     element: (
       <SuspenseWrapper>
         <SingleRetreatPage />
@@ -471,6 +477,22 @@ export const landingRoutes: RouteType[] = [
     element: (
       <Suspense fallback={<BRProgress />}>
         <Checkout />
+      </Suspense>
+    ),
+  },
+  {
+    path: "orderCheckout",
+    element: (
+      <Suspense fallback={<BRProgress />}>
+        <CartCheckout />
+      </Suspense>
+    ),
+  },
+  {
+    path: "orderSuccess",
+    element: (
+      <Suspense fallback={<BRProgress />}>
+        <Successful />
       </Suspense>
     ),
   },

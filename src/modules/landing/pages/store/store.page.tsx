@@ -6,7 +6,7 @@ import Footer from "@/components/landing/Footer";
 import useFetch from "@/hooks/useFetch";
 import { URL } from "@/api/axios";
 import { useCart } from "@/context/cart";
-// import { Skeleton } from "@/components/ui/skeleton";
+import { ToastContainer, toast } from "react-toastify";
 
 const Store = () => {
   const [quantity, setQuantity] = useState(0);
@@ -18,13 +18,24 @@ const Store = () => {
       setQuantity((prevQuantity) => prevQuantity - 1);
     }
   };
+
   const { data, loading } = useFetch(`${URL}/products`, "GET");
   const HerbsProducts = data?.data.data;
-  const { addItemToCart, cart } = useCart();
-  const handleAddToCart = () => {
-    addItemToCart(HerbsProducts);
+
+  const { addItemToCart } = useCart();
+  const handleAddToCart = async (itemId: any, name: any) => {
+    try {
+      const response = await fetch(`${URL}/products/${itemId}`);
+      if (!response.ok) {
+        throw new Error("Failed to fetch item details");
+      }
+      const itemDetails = await response.json();
+      addItemToCart(itemDetails.data);
+      toast.success(`${name} has been added to the cart`);
+    } catch (error) {
+      console.error("Error fetching item details:", error);
+    }
   };
-  console.log(cart);
 
   return (
     <div>
@@ -112,11 +123,18 @@ const Store = () => {
                   </p>
                 </div>
                 <button
-                  onClick={handleAddToCart}
+                  onClick={() => {
+                    handleAddToCart(product.id, product.name);
+                  }}
                   className="w-full bg-[#946C3C] uppercase h-10 text-white"
                 >
                   Add to cart
                 </button>
+                <ToastContainer
+                  position="top-center"
+                  autoClose={3000}
+                  hideProgressBar={true}
+                />
               </div>
             );
           })

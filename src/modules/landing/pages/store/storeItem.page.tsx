@@ -1,28 +1,19 @@
 import { Link, useParams, useLocation } from "react-router-dom";
 import { products } from "../../resouces";
-import NoResultsFound from "../herbalpedia/NoResultsFound.page";
 import BRHeader from "@/shared/components/header/header";
 import useFetch from "@/hooks/useFetch";
 import { URL } from "@/api/axios";
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetTitle,
-  SheetTrigger,
-  SheetClose,
-} from "@/components/ui/sheet";
-// import { CgMathMinus, CgMathPlus, CgClose } from "react-icons/cg";
-import { IoArrowForward } from "react-icons/io5";
-import Cart from "@/components/landing/cart";
+import DrawerModal from "@/components/landing/drawerModal";
 import "./store.css";
 import Footer from "@/components/landing/Footer";
 import { useState } from "react";
+import { useCart } from "@/context/cart";
 const StoreItem = () => {
   const location = useLocation();
   const { quantity, sciFi } = location.state;
   const { productId } = useParams<{ productId: string }>();
   const { data, loading } = useFetch(`${URL}/products/${productId}`, "GET");
+
   const HerbsProduct = data?.data;
   const [qty, setQuantity] = useState(quantity);
   const increaseQuantity = () => {
@@ -33,21 +24,20 @@ const StoreItem = () => {
       setQuantity((prevQuantity: any) => prevQuantity - 1);
     }
   };
-  if (!HerbsProduct) {
-    return (
-      <div>
-        <NoResultsFound />
-      </div>
-    );
-  }
+  const { addItemToCart } = useCart();
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
+  const toggleDrawer = () => {
+    setIsDrawerOpen(!isDrawerOpen);
+  };
   return (
     <div>
       <div>
-        <BRHeader quantity={qty} />
+        <BRHeader />
         {loading ? (
           <div
             role="status"
-            className="flex justify-between w-full h-28 items-center translate-x-1/2"
+            className="flex justify-between w-full h-48 mt-48 items-center translate-x-1/2"
           >
             <svg
               aria-hidden="true"
@@ -134,23 +124,15 @@ const StoreItem = () => {
                   +
                 </p>
               </div>
-              <Sheet>
-                <SheetTrigger className="w-full bg-[#946C3C] h-14 text-white uppercase mt-6">
-                  <button className="uppercase">Buy herbs</button>
-                </SheetTrigger>
-                <SheetContent className=" bg-white   overflow-y-auto">
-                  <SheetTitle className="font-amsterdam flex gap-20 mb-5 text-2xl font-medium">
-                    <SheetClose>
-                      <IoArrowForward />
-                    </SheetClose>
-                    <h3 className="text-center text-[#946C3C]">My Cart</h3>
-                  </SheetTitle>
-
-                  <SheetDescription>
-                    <Cart quantity={qty} />
-                  </SheetDescription>
-                </SheetContent>
-              </Sheet>
+              <button
+                onClick={() => {
+                  addItemToCart(HerbsProduct);
+                  toggleDrawer();
+                }}
+                className="uppercase w-full bg-[#946C3C] h-14 text-white  mt-6"
+              >
+                Buy herbs
+              </button>
             </div>
           </section>
         )}
@@ -206,6 +188,7 @@ const StoreItem = () => {
         </section>
         <Footer />
       </div>
+      <DrawerModal isOpen={isDrawerOpen} onClose={toggleDrawer} />
     </div>
   );
 };

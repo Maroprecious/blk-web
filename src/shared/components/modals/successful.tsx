@@ -27,3 +27,4 @@ export const Successful = () => {
     </div>
   );
 };
+export default Successful;

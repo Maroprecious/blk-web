@@ -1,6 +1,6 @@
 import Products from "@/components/landing/products/Products";
-import Footer from "@/components/landing/Footer";
 import BRHeader from "@/shared/components/header/header";
+import Footer from "@/components/landing/Footer";
 import { useState, ChangeEvent } from "react";
 import { CiSearch } from "react-icons/ci";
 import { products } from "@/modules/landing/resouces";
@@ -19,7 +19,9 @@ const HerbalProduct = () => {
   return (
     <div>
       <BRHeader />
+
       <section className="px-4 lg:pl-[120px] mt-[96px] xl:mt-[150px]">
+        jkrjkrfkl
         <form className=" w-full  lg:max-w-[470px]  mx-auto">
           <div className={`relative`}>
             <CiSearch

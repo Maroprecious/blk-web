@@ -13,29 +13,37 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
+
+// type Category = {
+//   id: number;
+//   name: string;
+// };
 export type Payment = {
   name: string;
   id: number;
-  image: string;
+  images: string[];
   category: string;
   sales: number;
-  visibility: boolean;
-  Price: string;
-  stock: number;
+  isVisible: boolean;
+  price: number;
+  quantity: number;
+  purchaseCount: number;
 };
-// const  columnHelper = createColumnHelper()
+
 export const columns: ColumnDef<Payment>[] = [
   {
-    accessorKey: "prdName",
+    accessorKey: "name",
     header: "Product name",
     cell: ({ row }) => {
       return (
         <div className="flex gap-4 items-center">
-          <img
-            src={row.original.image}
-            className="w-[82px] h-[67px] object-cover rounded-[8px]"
-          />
-          <p>{row.original.name}</p>
+          {row?.original?.images?.length > 0 && (
+            <img
+              src={row?.original?.images[0]}
+              className="w-[82px] h-[67px] object-cover rounded-[8px]"
+            />
+          )}
+          <p>{row?.original?.name}</p>
         </div>
       );
     },
@@ -43,24 +51,39 @@ export const columns: ColumnDef<Payment>[] = [
   {
     accessorKey: "category",
     header: "Product category",
+    // cell: ({ row }) => {
+    //   return <p>{row?.original?.category.id} </p>;
+    // },
   },
   {
-    accessorKey: "Price",
+    accessorKey: "price",
     header: "Price",
-  },
-  {
-    accessorKey: "stock",
-    header: "In stock",
     cell: ({ row }) => {
-      return <p>{row.original.stock} in stock</p>;
+      return (
+        <p>
+          {new Intl.NumberFormat("en-US", {
+            style: "currency",
+            currency: "USD",
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 0,
+          }).format(row?.original?.price)}{" "}
+        </p>
+      );
     },
   },
   {
-    accessorKey: "sales",
+    accessorKey: "quantity",
+    header: "In stock",
+    cell: ({ row }) => {
+      return <p>{row?.original?.quantity} in stock</p>;
+    },
+  },
+  {
+    accessorKey: "purchaseCount",
     header: "No of sales",
   },
   {
-    accessorKey: "visibility",
+    accessorKey: "isVisible",
     header: "Visibility",
     cell: () => (
       <div>
@@ -69,7 +92,7 @@ export const columns: ColumnDef<Payment>[] = [
     ),
   },
   {
-    accessorKey: "action",
+    // accessorKey: "quantity",
     header: "Action",
     cell: () => (
       <div className="flex gap-4">

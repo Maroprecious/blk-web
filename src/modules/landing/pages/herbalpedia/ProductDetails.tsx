@@ -7,10 +7,10 @@ import {
 import { Link, useParams } from "react-router-dom";
 import { Skeleton } from "@/components/ui/skeleton";
 // import NoResultsFound from "@/modules/landing/pages/herbalpedia/NoResultsFound.page";
-import BRHeader from "@/shared/components/header/header";
 import Footer from "../../../../components/landing/Footer";
 import useFetch from "@/hooks/useFetch";
 import { URL } from "@/api/axios";
+import BRHeader from "@/shared/components/header/header";
 // import { Skeleton } from "@/components/ui/skeleton";
 import { GoPlus } from "react-icons/go";
 
@@ -20,6 +20,7 @@ const ProductDetails = () => {
   const { data, loading } = useFetch(`${URL}/herbalpedia/${herbId}`, "GET");
   console.log(loading, data?.data);
   const HerbsProduct = data?.data;
+  console.log(HerbsProduct);
 
   return (
     <div>
@@ -114,7 +115,7 @@ const ProductDetails = () => {
                     <div className="w-full relative h-[40%] bg-transparent bg-cover bg-center bg-no-repeat">
                       <div
                         className={`${
-                          HerbsProduct.length > 5
+                          HerbsProduct?.length > 5
                             ? "rgba(0,0,0,0.5)"
                             : "hidden bg-slate-400"
                         }w-full h-full flex flex-col justify-center items-center gap-2 relative`}
@@ -203,9 +204,11 @@ const ProductDetails = () => {
               </AccordionItem>
             </Accordion> */}
             </div>
-            <button className="h-10 w-[219px] uppercase bg-[#946C3C] text-white justify-self-end mt-6 ">
-              buy now $120
-            </button>
+            <Link to={`/store`} className="justify-self-end">
+              <button className="h-10 w-[219px] uppercase bg-[#946C3C] text-white mt-6 ">
+                buy now
+              </button>
+            </Link>
           </section>
         </div>
       )}

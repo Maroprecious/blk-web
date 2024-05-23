@@ -10,21 +10,16 @@ import { useState } from "react";
 import { useCart } from "@/context/cart";
 const StoreItem = () => {
   const location = useLocation();
-  const { quantity, sciFi } = location.state;
+  const { sciFi } = location.state;
   const { productId } = useParams<{ productId: string }>();
   const { data, loading } = useFetch(`${URL}/products/${productId}`, "GET");
 
   const HerbsProduct = data?.data;
-  const [qty, setQuantity] = useState(quantity);
-  const increaseQuantity = () => {
-    setQuantity((prevQuantity: any) => prevQuantity + 1);
+  const { cart, addItemToCart, increaseQuantity, decreaseQuantity } = useCart();
+
+  const checkIfProductInCart = (productId: number): boolean => {
+    return cart.some((product) => product.id === productId);
   };
-  const decreaseQuantity = () => {
-    if (qty > 0) {
-      setQuantity((prevQuantity: any) => prevQuantity - 1);
-    }
-  };
-  const { addItemToCart } = useCart();
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   const toggleDrawer = () => {
@@ -103,7 +98,13 @@ const StoreItem = () => {
                 {HerbsProduct?.name} {sciFi}
               </h3>
               <h4 className="font-recoleta text-[#946C3C] font-medium text-2xl lg:text-5xl">
-                ${HerbsProduct?.price} USD
+                {new Intl.NumberFormat("en-US", {
+                  style: "currency",
+                  currency: "USD",
+                  minimumFractionDigits: 0,
+                  maximumFractionDigits: 0,
+                }).format(HerbsProduct?.price)}{" "}
+                USD
               </h4>
               <ul className="list-disc text-[20px] mt-5 tablet:mt-10">
                 <li className="ml-5">{HerbsProduct?.desc}</li>
@@ -112,14 +113,18 @@ const StoreItem = () => {
                 {" "}
                 <p
                   className="text-2xl cursor-pointer"
-                  onClick={() => decreaseQuantity()}
+                  onClick={() => decreaseQuantity(HerbsProduct?.id)}
                 >
                   -
                 </p>
-                <p className="text-2xl cursor-pointer">{qty}</p>
+                <p className="text-2xl cursor-pointer">
+                  {checkIfProductInCart(HerbsProduct?.id)
+                    ? cart.map((item) => item.quantity)
+                    : "0"}
+                </p>
                 <p
                   className="text-2xl cursor-pointer"
-                  onClick={() => increaseQuantity()}
+                  onClick={() => increaseQuantity(HerbsProduct?.id)}
                 >
                   +
                 </p>
@@ -155,7 +160,7 @@ const StoreItem = () => {
                       <span className="italic">{product.scientificName}</span>
                     </p>
                     <p className="text-2xl xl:mt-4 whitespace-nowrap text-[#CF956F] font-recoleta font-medium">
-                      $ {product.Price} USD
+                      {product.price}
                     </p>
                   </div>
                   <div className="flex justify-center items-center gap-6 mb-6">

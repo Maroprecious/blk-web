@@ -86,7 +86,7 @@ export default function Calandar() {
                 className="cursor-pointer"
                 fill="#667085"
               />
-              <p className="text-gray-500 font-maison font-medium">{date}</p>
+              <p className="text-gray-500 font-medium">{date}</p>
               <IoChevronForward
                 onClick={handleNext}
                 className="cursor-pointer"
@@ -94,10 +94,10 @@ export default function Calandar() {
               />
             </div>
             <div className="flex gap-2">
-              <button className="py-2 px-4 bg-[#E6E5DE] text-[#667085] font-maison font-medium">
+              <button className="py-2 px-4 bg-[#E6E5DE] text-[#667085]  font-medium">
                 Weekly
               </button>
-              <button className="py-2 px-4 bg-gray-50 text-gray-500 font-maison font-medium">
+              <button className="py-2 px-4 bg-gray-50 text-gray-500 font-medium">
                 Monthly
               </button>
             </div>
@@ -120,9 +120,9 @@ function renderEventContent(eventInfo: any) {
   return (
     <div
       style={{ outline: "none !important" }}
-      className="h-[44px] mt-6 ring-0 scale-y-2 outline-none bg-white text-gray-700 border-0 font-maison text-[12px] rounded-[4px] flex justify-start items-center pl-2 border-l border-l-[3px] border-l-[#959C7E]"
+      className="h-[44px] mt-6 ring-0 scale-y-2 outline-none bg-white text-gray-700 border-0 font-arapey text-[12px] rounded-[4px] flex justify-start items-center pl-2 border-l border-l-[3px] border-l-[#959C7E]"
     >
-      <b>{eventInfo.timeText}</b>
+      {/* <b>{eventInfo.timeText}</b> */}
       <i>{eventInfo.event.title}</i>
     </div>
   );

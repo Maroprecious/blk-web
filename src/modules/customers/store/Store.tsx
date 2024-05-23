@@ -52,7 +52,7 @@ const Store = () => {
                   size={20}
                   color="#000"
                 />
-                <p className="font-maison text-gray-900 text-[20px]">{count}</p>
+                <p className=" text-gray-900 text-[20px]">{count}</p>
                 <CgMathPlus
                   className="cursor-pointer"
                   onClick={() => setCount((prev) => prev + 1)}

@@ -7,7 +7,22 @@ import {
 import BreadCrumb from "@/components/ui/bread-crumb";
 import { GoPlus } from "react-icons/go";
 import Layout from "@/shared/admin/layout/Layout";
+// import { PageLayout } from "@/shared/components/layout/page-layout";
+import { useGetOneHerbalpaedia } from "@/api/queries";
+import { useParams } from "react-router-dom";
+import { useEffect } from "react";
+
 export default function HerbalpaediaID() {
+  const params = useParams();
+  const { refetch, data } = useGetOneHerbalpaedia(params?.id as any);
+
+  useEffect(() => {
+    if (params.id) {
+      refetch();
+    }
+  }, [params]);
+
+  // console.log(data.data, "dataa");
   return (
     <Layout>
       <div className="w-full p-8 bg-white pt-10 relative min-h-[100vh]">
@@ -18,32 +33,50 @@ export default function HerbalpaediaID() {
               link: "/herbalpaedia",
             },
             {
-              label: "Grains of paradise (Aframomum melegueta)",
-              link: "/herbalpaedia/1234",
+              label: `${data?.data?.name} (${data?.data?.sciName})`,
+              link: `/herbalpaedia/${data?.data?.id}`,
             },
           ]}
         />
+
         <div className="w-full lg:h-[60vh] gap-6 flex justify-between items-start">
           <div className="w-[60%] h-full">
-            <div className="w-full h-full bg-[url('@assets/images/product-bg.png')] bg-cover bg-center bg-no-repeat" />
+            <div
+              className="w-full h-full bg-cover bg-center bg-no-repeat"
+              style={{ backgroundImage: `url('${data?.data?.images[0]}')` }}
+            />
           </div>
           <div className="w-[38%] h-full flex justify-between items-start gap-6">
             <div className="grow h-full flex flex-col gap-6">
-              <div className=" h-1/2 w-full bg-[url('@assets/images/product-bg.png')] bg-cover bg-center bg-no-repeat" />
-              <div className=" h-1/2 w-full bg-[url('@assets/images/product-bg.png')] bg-cover bg-center bg-no-repeat" />
+              <div
+                className=" h-1/2 w-full bg-cover bg-center bg-no-repeat"
+                style={{ backgroundImage: `url('${data?.data?.images[1]}')` }}
+              />
+              <div
+                className=" h-1/2 w-full bg-[url('@assets/images/product-bg.png')] bg-cover bg-center bg-no-repeat"
+                style={{ backgroundImage: `url('${data?.data?.images[2]}')` }}
+              />
             </div>
             <div className="w-1/3 h-full flex flex-col gap-6">
-              <div className="w-full h-[60%] bg-[url('@assets/images/product-bg.png')] bg-cover bg-center bg-no-repeat" />
-              <div className="w-full h-[40%] bg-[url('@assets/images/product-bg.png')] bg-cover bg-center bg-no-repeat">
-                <div
-                  style={{ backgroundColor: "rgba(0,0,0,0.5)" }}
-                  className="w-full h-full flex flex-col justify-center items-center gap-2"
-                >
-                  <GoPlus size={17} color="#fff" />
-                  <p className="font-maison text-white text-[17px]">
-                    35 more photos
-                  </p>
-                </div>
+              <div
+                className="w-full h-[60%] bg-cover bg-center bg-no-repeat"
+                style={{ backgroundImage: `url('${data?.data?.images[3]}')` }}
+              />
+              <div
+                className="w-full h-[40%] bg-cover bg-center bg-no-repeat"
+                style={{ backgroundImage: `url('${data?.data?.images[4]}')` }}
+              >
+                {data?.data?.images >= 5 && (
+                  <div
+                    style={{ backgroundColor: "rgba(0,0,0,0.5)" }}
+                    className="w-full h-full flex flex-col justify-center items-center gap-2"
+                  >
+                    <GoPlus size={17} color="#fff" />
+                    <p className="font-maison text-white text-[17px]">
+                      {data?.data?.images.length} more photos
+                    </p>
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -51,17 +84,14 @@ export default function HerbalpaediaID() {
 
         <div className="w-full flex justify-between items-start">
           <div className="w-[80%]">
-            <h2 className="font-recoleta text-primary text-[24px] py-2">
-              Grains of paradise (Aframomum melegueta)
+            <h2 className="font-amsterdam text-primary text-[24px] py-6">
+              {data?.data?.name} ({data?.data?.sciName})
             </h2>
-            <p className="font-maison font-light text-[16px] text-gray-500">
-              Our retreats are open to individuals aged 28-60 living in the
-              United States. Whether you're a seasoned wellness enthusiast or
-              new to holistic living, our retreats cater to a wide range of
-              backgrounds and experiences.
+            <p className="font-arapey font-light text-[16px] text-gray-500">
+              {data?.data?.about}
             </p>
           </div>
-          <div className="bg-cream-300 flex justify-center items-center gap-2 px-4 py-2 font-maison text-[16px] text-clay-900">
+          <div className="bg-cream-300 flex justify-center items-center gap-2 px-4 py-2 font-arapey text-[16px] text-clay-900">
             <div className="w-[5px] h-[5px] bg-clay-900 rounded-full" />
             <p>Spiritual use</p>
           </div>
@@ -71,18 +101,15 @@ export default function HerbalpaediaID() {
             {[
               {
                 title: "Medicinal use",
-                value:
-                  "Our retreats are open to individuals aged 28-60 living in the United States. Whether you're a seasoned wellness enthusiast or new to holistic living, our retreats cater to a wide range of backgrounds and experiences.",
+                value: data?.data?.medUse,
               },
               {
                 title: "Spiritual use",
-                value:
-                  "Our retreats are open to individuals aged 28-60 living in the United States. Whether you're a seasoned wellness enthusiast or new to holistic living, our retreats cater to a wide range of backgrounds and experiences.",
+                value: data?.data?.spiritUse,
               },
               {
                 title: "Contradictions",
-                value:
-                  "Our retreats are open to individuals aged 28-60 living in the United States. Whether you're a seasoned wellness enthusiast or new to holistic living, our retreats cater to a wide range of backgrounds and experiences.",
+                value: data?.data?.sideEffects,
               },
               {
                 title: "Interactions",

@@ -7,8 +7,13 @@ import { URL } from "@/api/axios";
 import ContactUs from "@/components/landing/ContactUs";
 import Footer from "@/components/landing/Footer";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import Faqs from "@/components/landing/Faqs";
-// import Itenary from "@/components/landing/Itenary";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import emptyState from "@assets/images/customerPanel/EmptyStateIllustrations.svg";
 import { useParams } from "react-router-dom";
 
 const SingleRetreatPage = () => {
@@ -16,6 +21,11 @@ const SingleRetreatPage = () => {
   const { data, loading } = useFetch(`${URL}/retreats/${retreatId}`, "GET");
   const retreat = data?.data;
   console.log(loading, retreat);
+  const startDate: Date = new Date(retreat?.startDate);
+  const endDate: Date = new Date(retreat?.endDate);
+
+  const timeDifference = endDate.getTime() - startDate.getTime(); // Difference in milliseconds
+  const daysDifference = timeDifference / (1000 * 60 * 60 * 24); // Convert milliseconds to days
 
   return (
     <div className="bg-[#FAF6F3]">
@@ -84,7 +94,13 @@ const SingleRetreatPage = () => {
               </div>
             ) : (
               <>
-                <h2 className="font-arapey text-2xl mb-10">{retreat?.name} </h2>
+                <div className="flex items-center mb-10 gap-4">
+                  <h2 className="font-arapey text-2xl ">{retreat?.name} </h2>
+                  <div className="w-1 h-1 bg-black rounded-full"></div>
+                  <h2 className="font-arapey text-2xl ">
+                    {daysDifference} days
+                  </h2>
+                </div>
                 <div className="flex lg:gap-[76px]  items-center mb-20">
                   <div className="relative w-[527px] h-[304px] inset-0 z-50 bg-black bg-opacity-50">
                     <img
@@ -110,7 +126,38 @@ const SingleRetreatPage = () => {
             )}
           </TabsContent>
           <TabsContent value="faqs">
-            <Faqs />
+            {retreat?.faq?.length === 0 ? (
+              <div className="h-[476px] w-[326px] mt-4 border border-[#EAECF0] flex justify-center items-center">
+                <div className="h-[267px] w-[250px]  flex flex-col items-center justify-center">
+                  <img src={emptyState} alt="Empty state illustration " />
+                  <h3 className="text-2xl font-amsterdam text-center">
+                    No FAQs
+                  </h3>
+                </div>
+              </div>
+            ) : (
+              <div className="flex flex-col lg:flex-row gap-6">
+                <h3 className="lg:text-6xl lg:w-[486px] leading-10 font-amsterdam text-[#CF956F]">
+                  Frequently Asked Questions
+                </h3>
+                <div className="w-full lg:w-[736px] max-w-[736px]">
+                  {retreat?.faq?.map((faq: any, index: any) => {
+                    return (
+                      <Accordion type="single" collapsible key={index}>
+                        <AccordionItem value="item-1">
+                          <AccordionTrigger className="lg:text-3xl">
+                            {faq.question}
+                          </AccordionTrigger>
+                          <AccordionContent className="text-[#667085]">
+                            {faq.answer}
+                          </AccordionContent>
+                        </AccordionItem>
+                      </Accordion>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
           </TabsContent>
         </Tabs>
       </section>

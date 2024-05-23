@@ -14,7 +14,7 @@ export default function BreadCrumb({ items }: BreadCrumbProps) {
         <div key={idx} className="flex justify-start items-center">
           <Link
             to={element.link}
-            className={`font-maison text-[16px] font-light ${
+            className={`font-arapey text-[16px] font-light ${
               idx + 1 === items.length ? "text-primary" : "text-gray-400"
             }`}
           >

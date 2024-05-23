@@ -13,6 +13,7 @@ const Cart: React.FC = () => {
     removeFromCart,
     calculateTotalPrice,
   } = useCart();
+
   const cartTotal = calculateTotalPrice();
   return (
     <div className=" relative">
@@ -26,7 +27,7 @@ const Cart: React.FC = () => {
                   <img src={cartItem.images[0]} alt="" className="h-full" />
                 </div>
                 <div className="w-[65%] flex flex-col justify-center items-center mt-8">
-                  <h3 className="font-maison text-[#000000] text-[19px] font-extralight">
+                  <h3 className=" text-[#000000] text-[19px] font-extralight">
                     {cartItem.name}
                   </h3>
                   <div className="flex justify-between items-start w-full mt-4">
@@ -37,7 +38,7 @@ const Cart: React.FC = () => {
                         size={16}
                         color="#000"
                       />
-                      <p className="font-maison text-gray-900 text-[16px]">
+                      <p className=" text-gray-900 text-[16px]">
                         {cartItem.quantity}
                       </p>
                       <CgMathPlus
@@ -48,7 +49,13 @@ const Cart: React.FC = () => {
                       />
                     </div>
                     <h1 className="font-recoleta text-primary text-right font-medium text-[20px]">
-                      $ {cartItem.price} USD
+                      {new Intl.NumberFormat("en-US", {
+                        style: "currency",
+                        currency: "USD",
+                        minimumFractionDigits: 0,
+                        maximumFractionDigits: 0,
+                      }).format(cartItem?.price)}{" "}
+                      USD
                     </h1>
                   </div>
                 </div>
@@ -64,16 +71,14 @@ const Cart: React.FC = () => {
         })}
       </div>
       <div className="fixed  bottom-0 right-0  w-full flex flex-col gap-[3px] ">
-        <p className="text-center text-gray-400 text-[12.4px] font-maison tracking-[.4px] font-light">
+        <p className="text-center text-gray-400 text-[12.4px] tracking-[.4px] font-light">
           Shipping and taxes calculated at checkout
         </p>
         <div
           onClick={() => navigate("/orderCheckout")}
           className="bg-[#946C3C]  w-full  h-[56px] p-6 flex justify-center items-center"
         >
-          <p className="text-[#FFF] font-maison font-normal">
-            CHECKOUT $ {cartTotal} USD
-          </p>
+          <p className="text-[#FFF] font-normal">CHECKOUT $ {cartTotal} USD</p>
         </div>
       </div>
     </div>

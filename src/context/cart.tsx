@@ -59,7 +59,6 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   // Function to add item to cart
   const addItemToCart = (itemDetails: any) => {
     const existingItem = cart.find((item) => item.id === itemDetails.id);
-
     if (existingItem) {
       setCart(
         cart.map((item) => {
@@ -88,19 +87,19 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
         item.id === id ? { ...item, quantity: item.quantity + 1 } : item
       )
     );
-    console.log("okay");
   };
 
   const decreaseQuantity = (id: number) => {
     setCart(
       cart.map((item) =>
-        item.id === id ? { ...item, quantity: item.quantity - 1 } : item
+        item.id === id && item.quantity > 0
+          ? { ...item, quantity: item.quantity - 1 }
+          : item
       )
     );
   };
   const removeFromCart = (id: number) => {
     setCart(cart.filter((item) => item.id !== id));
-    console.log(cart, "you");
   };
   // Function to clear cart
   const clearCart = () => {
@@ -109,6 +108,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   const calculateTotalPrice = () => {
     return cart.reduce((total, item) => total + item.price * item.quantity, 0);
   };
+
   const contextValue: CartContextType = {
     cart,
     addItemToCart,

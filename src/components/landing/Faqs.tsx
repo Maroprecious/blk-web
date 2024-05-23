@@ -51,10 +51,10 @@ const Faqs = () => {
   return (
     <section className="mt-10">
       <div className="flex flex-col lg:flex-row gap-6">
-        <h3 className="lg:text-6xl font-amsterdam text-[#CF956F]">
+        <h3 className=" max-w-[236px] font-amsterdam text-[#CF956F]">
           Frequently Asked Questions
         </h3>
-        <div className="w-full max-w-[736px]">
+        <div className="w-full lg:w-[736px] max-w-[736px]">
           {faqs.map((faq, index) => {
             return (
               <Accordion type="single" collapsible key={index}>

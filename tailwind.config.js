@@ -29,6 +29,7 @@ export default {
     },
     extend: {
       colors: {
+        shadow: 'rgba(208, 213, 221, 0.5)',
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -100,6 +101,12 @@ export default {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+      },
+      boxShadow: {
+        sm: '0px 3px 6px #00000029',
+        none: 'none',
+        sh: 'rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px',
+        th: 'rgba(149, 157, 165, 0.2) 0px 8px 24px'
       },
     },
   },

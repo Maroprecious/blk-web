@@ -3,6 +3,8 @@ import { RouteType } from "@/router/router.types";
 import { BRProgress } from "@/shared/components/page-progress/page-progress";
 import { Suspense, lazy } from "react";
 import ScrollToTop from "@/lib/utils";
+import RetreatPage from "./pages/retreats/retreats.page.tsx";
+import Order from "./pages/orders/order.page.tsx";
 
 const HomePage = lazy(() => import("./pages/home/home.page"));
 const CreateAccountPage = lazy(
@@ -98,6 +100,13 @@ const CustomerHerbalpedia = lazy(
 const CustomerGallery = lazy(() => import("../customers/gallery/Gallery.tsx"));
 const Customertore = lazy(() => import("../customers/store/Store.tsx"));
 const CustomerOrders = lazy(() => import("../customers/orders/Orders.tsx"));
+// const Checkout = lazy(() => import("./pages/stores/checkout.tsx"))
+// const Profile = lazy(() => import("./pages/auth/my-profile.tsx"))
+const Retreats = lazy(() => import("./pages/retreats/retreats.page.tsx"));
+const RetreatPageId = lazy(
+  () => import("./pages/retreats/retreats-id.page.tsx")
+);
+const OrderPage = lazy(() => import("./pages/orders/order.page.tsx"));
 
 export const landingPaths = [
   "",
@@ -149,6 +158,9 @@ export const landingPaths = [
   "customers/store",
   "customers/gallery",
   "customers/orders",
+  "/retreats",
+  "/retreats/:id",
+  "/orders",
 ] as const;
 
 const SuspenseWrapper = ({ children }: { children: React.ReactNode }) => (
@@ -513,10 +525,26 @@ export const landingRoutes: RouteType[] = [
     ),
   },
   {
+    path: "/retreats",
+    element: (
+      <Suspense fallback={<BRProgress />}>
+        <RetreatPage />
+      </Suspense>
+    ),
+  },
+  {
     path: "customers/herbalpedia",
     element: (
       <Suspense fallback={<BRProgress />}>
         <CustomerHerbalpedia />
+      </Suspense>
+    ),
+  },
+  {
+    path: "/retreats/:id",
+    element: (
+      <Suspense fallback={<BRProgress />}>
+        <RetreatPageId />
       </Suspense>
     ),
   },
@@ -541,6 +569,14 @@ export const landingRoutes: RouteType[] = [
     element: (
       <Suspense fallback={<BRProgress />}>
         <CustomerOrders />
+      </Suspense>
+    ),
+  },
+  {
+    path: "/orders",
+    element: (
+      <Suspense fallback={<BRProgress />}>
+        <Order />
       </Suspense>
     ),
   },

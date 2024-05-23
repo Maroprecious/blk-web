@@ -146,7 +146,7 @@ export default function BRMenu() {
   const renderMenuImage = () => {
     const showMenuImage =
       location.pathname.match(/^\/gallery$/) ||
-      location.pathname.startsWith("/herbalpedia") ||
+      location.pathname.match(/^\/herbalpedia$/) ||
       location.pathname.startsWith("/retreat-calendar");
 
     if (showMenuImage) {

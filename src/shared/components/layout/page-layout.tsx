@@ -12,6 +12,8 @@ import { userAtom } from "@/store/store";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useMediaQuery } from "@/hooks/usemediaquery";
 import { HiOutlineMenuAlt4 } from "react-icons/hi";
+import BRMenu from "../menu/menu";
+import { MobileMenu } from "../menu/mobile-menu";
 
 type props = {
   children: ReactNode;
@@ -31,15 +33,42 @@ export const PageLayout = ({ children }: props) => {
       title: "Log out",
     },
   ];
-  const [active, setActive] = useState<number | null>(0);
+  const navLinks = [
+    {
+      title: "Home",
+      link: "/home-tab",
+    },
+    {
+      title: "Retreats",
+      link: "/retreats",
+    },
+    {
+      title: "Herbalpaedia",
+      link: "/herbalpaedia",
+    },
+    {
+      title: "Store",
+      link: "/store",
+    },
+    {
+      title: "Orders",
+      link: "/orders",
+    },
+    {
+      title: "Gallery",
+      link: "#",
+    },
+  ];
+  const [active, setActive] = useState<string | null>("Home");
+  const [openMenu, setOpenMenu] = useState(false);
   const [open, setOpen] = useState<boolean>(false);
   const [openUser, setOpenUser] = useState<boolean>(false);
   const [showModal, setShowModal] = useState<boolean>(false);
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [openCart, setOpenCart] = useState(false);
 
-  const handleActive = (id: number, link: string) => {
-    setActive(id);
+  const handleActive = (name: string, link: string) => {
+    setActive(name);
     navigate(link);
   };
 
@@ -66,7 +95,7 @@ export const PageLayout = ({ children }: props) => {
       {matches ? (
         <div
           className="fixed w-full z-[100] lg:px-8 px-4 gap-[4%] flex justify-between items-center bg-[#FFF]
-   left-0 top-0 h-[88px] border-b border-b-[1px] border-[#EAECF0]"
+                    left-0 top-0 h-[88px] border-b border-b-[1px] border-[#EAECF0]"
         >
           <div className="w-[23%]">
             <div
@@ -77,35 +106,10 @@ export const PageLayout = ({ children }: props) => {
             </div>
           </div>
           <div className="flex justify-between items-center w-[57%]">
-            {[
-              {
-                title: "Home",
-                link: "/home-tab",
-              },
-              {
-                title: "Retreats",
-                link: "/retreats",
-              },
-              {
-                title: "Herbalpaedia",
-                link: "/herbalpaedia",
-              },
-              {
-                title: "Store",
-                link: "/store",
-              },
-              {
-                title: "Orders",
-                link: "/orders",
-              },
-              {
-                title: "Gallery",
-                link: "#",
-              },
-            ].map((ele, id) => (
+            {navLinks.map((ele, id) => (
               <div
                 key={id}
-                onClick={() => handleActive(id, ele.link)}
+                onClick={() => handleActive(ele.title, ele.link)}
                 className={
                   location?.pathname.includes(ele.link)
                     ? "bg-[#FAF6F3] flex items-center px-8 h-[88px] text-center border-b border-b-[2px] border-[#946C3C]"
@@ -167,10 +171,17 @@ export const PageLayout = ({ children }: props) => {
       ) : (
         <div
           className="fixed w-full z-[100] lg:px-8 px-4 gap-[4%] flex justify-between items-center bg-[#FFF]
-   left-0 top-0 h-[88px] border-b border-b-[1px] border-[#EAECF0]"
+             left-0 top-0 h-[88px] border-b border-b-[1px] border-[#EAECF0]"
         >
-          <HiOutlineMenuAlt4 size={32} />
-          <p>Home </p>
+          <div onClick={() => setOpenMenu(true)}>
+            <HiOutlineMenuAlt4 size={32} />
+          </div>
+          <p>
+            {navLinks
+              .filter((ele) => location.pathname.includes(ele.link))
+              .map((ele) => ele.title)}{" "}
+          </p>
+          {openMenu && <MobileMenu />}
           <div className="flex w-[20%] justify-end items-center gap-[1rem]">
             <div
               className="cursor-pointer"

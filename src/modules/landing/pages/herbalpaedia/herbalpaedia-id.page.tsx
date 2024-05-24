@@ -21,7 +21,7 @@ export default function HerbalpaediaID() {
     }
   }, [params]);
 
-  // console.log(data.data, "dataa");
+  console.log(data?.data?.images[0], "dataa");
   return (
     <PageLayout>
       <div className="w-full p-8 bg-white pt-10 relative min-h-[100vh]">
@@ -41,14 +41,14 @@ export default function HerbalpaediaID() {
         <div className="w-full lg:h-[60vh] gap-6 flex justify-between items-start">
           <div className="w-[60%] h-full">
             <div
-              className="w-full h-full bg-cover bg-center bg-no-repeat"
+              className=" bg-cover bg-center bg-no-repeat w-full h-[499px]"
               style={{ backgroundImage: `url('${data?.data?.images[0]}')` }}
             />
           </div>
           <div className="w-[38%] h-full flex justify-between items-start gap-6">
             <div className="grow h-full flex flex-col gap-6">
               <div
-                className=" h-1/2 w-full bg-cover bg-center bg-no-repeat"
+                className=" h-[237px] w-full bg-cover bg-center bg-no-repeat"
                 style={{ backgroundImage: `url('${data?.data?.images[1]}')` }}
               />
               <div
@@ -81,7 +81,7 @@ export default function HerbalpaediaID() {
           </div>
         </div>
 
-        <div className="w-full flex justify-between items-start">
+        <div className="w-full flex justify-between items-start mt-24">
           <div className="w-[80%]">
             <h2 className="font-amsterdam text-primary text-[24px] py-6">
              {data?.data?.name} ({data?.data?.sciName})
@@ -116,7 +116,7 @@ export default function HerbalpaediaID() {
               {
                 title: "Interactions",
                 value:
-                  "Our retreats are open to individuals aged 28-60 living in the United States. Whether you're a seasoned wellness enthusiast or new to holistic living, our retreats cater to a wide range of backgrounds and experiences.",
+              ""
               },
             ].map((element, idx) => (
               <AccordionItem key={element.title} value={`item-${idx + 1}`}>

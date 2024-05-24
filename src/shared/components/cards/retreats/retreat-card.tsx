@@ -28,9 +28,9 @@ export default function RetreatCard({
 }: Props) {
   const navigate = useNavigate();
   return (
-    <div className="w-auto h-[504px] border border-gray-200 p-2 flex flex-col justify-center items-start">
+    <div className="w-auto lg:h-[504px] h-[404px] border border-gray-200 p-2 flex flex-col justify-center items-start">
       <div
-        className="w-full p-2 flex flex-wrap gap-2 h-[300px] bg-cover bg-center bg-no-repeat"
+        className="w-full p-2 flex flex-wrap gap-2 lg:h-[300px] h-[200px] bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${image})` }}
       >
         {items?.map((element) => {
@@ -55,7 +55,7 @@ export default function RetreatCard({
         })}
       </div>
       <div className="w-full p-2">
-        <h3 className="font-arapey text-gray-900 text-[24px] font-medium">
+        <h3 className="font-arapey text-gray-900 lg:text-[24px] text-[20px] font-medium">
           {/* Lavender <span className="italic">(Lavandula angustifolia)</span> */}
           {name}
         </h3>
@@ -70,7 +70,7 @@ export default function RetreatCard({
               {moment(end).year()}
             </p>
           </div>
-          <div className="flex items-center p-2 gap-[.3rem] justify-items-start bg-cream-300">
+          <div className="lg:flex hidden items-center p-2 gap-[.3rem] justify-items-start bg-cream-300">
             <img src={people} />
             <p className="text-clay-900 font-arapey text-[15px]">
               {participants.length}{" "}

@@ -2,22 +2,25 @@ import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 
 type props = {
-  name: string,
-  sciName: string,
-  id: number
-
-}
-export default function HerbalpaediaCard({name,sciName, id}:props) {
-  const navigate = useNavigate()
+  name: string;
+  sciName: string;
+  id: number;
+  image: string;
+};
+export default function HerbalpaediaCard({ name, sciName, id, image }: props) {
+  const navigate = useNavigate();
   return (
-    <div className="w-[300px] h-[504px] border border-gray-200 p-2 flex flex-col justify-center items-start">
-      <div className="w-full h-[300px] bg-[url('@assets/images/herbs-bg.png')] bg-cover bg-center bg-no-repeat" />
+    <div className="lg:w-[300px] w-auto lg:h-[504px] h-[404px] border border-gray-200 p-2 flex flex-col justify-center items-start">
+      <div
+        className="w-full lg:h-[300px] h-[220px] bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${image})` }}
+      />
       <div className="w-full p-2">
-        <h3 className="font-arapey text-gray-900 text-[24px] font-medium">
+        <h3 className="font-arapey text-gray-900 lg:text-[24px] text-[20px] font-medium">
           {name}
           <span className="font-arapey"> ({sciName})</span>
         </h3>
-        <div className="w-full py-2 flex flex-wrap justify-start items-center gap-2">
+        <div className="w-full py-2 hidden lg:flex lg:flex-wrap lg:justify-start lg:items-center gap-2">
           {["Spiritual use", "Medicinal use", "Side effects"].map((element) => (
             <div
               key={element}
@@ -30,7 +33,12 @@ export default function HerbalpaediaCard({name,sciName, id}:props) {
             </div>
           ))}
         </div>
-        <Button className="w-full mt-4"onClick={() => navigate(`/herbalpaedia/${id}`)}>READ</Button>
+        <Button
+          className="w-full mt-4"
+          onClick={() => navigate(`/herbalpaedia/${id}`)}
+        >
+          READ
+        </Button>
       </div>
     </div>
   );

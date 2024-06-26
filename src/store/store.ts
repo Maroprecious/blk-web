@@ -24,3 +24,23 @@ export const userAtom_ = (key: 'user') => {
 }
 
 export const userAtom = userAtom_('user')
+
+
+export const retreatAtom = atom({
+    name: "",
+    description: "",
+    country: "",
+    city: "",
+    hotel: "",
+    price: "",
+    minDeposit: "",
+    startDate: "",
+    endDate: "",
+    images: "fff",
+    faq: [
+        {}
+    ],
+    itenaries: [{}],
+    status: ""
+
+})

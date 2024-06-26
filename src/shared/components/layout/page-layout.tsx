@@ -44,6 +44,8 @@ export const PageLayout = ({ children }: props) => {
   };
 
   const handleNotifications = () => {
+    console.log(active);
+
     setOpen(!open);
     setOpenUser(false);
   };

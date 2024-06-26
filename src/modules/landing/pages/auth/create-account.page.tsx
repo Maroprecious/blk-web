@@ -37,7 +37,7 @@ export default function CreateAccountPage() {
                 localStorage.setItem("accessToken", user?.data?.accessToken);
                 localStorage.setItem("refreshToken", user?.data?.refreshToken);
                 toast.success("User created successfully");
-                navigation('/customize-profile')
+                navigation("/customize-profile");
               },
               onError: (data: any) => {
                 toast.error(
@@ -57,13 +57,13 @@ export default function CreateAccountPage() {
   return (
     <AuthLayout>
       <div className="w-full pt-20 lg:pb-[23em] flex justify-center items-center">
-        <div className="lg:w-[38%] lg:max-w-[1440px] w-[90%] mx-auto">
+        <div className="lg:w-[38%] pt-20 lg:max-w-[1440px] w-[90%] mx-auto">
           <h1 className="font-arapey pb-6 font-light text-[32px]">
             Create an account
           </h1>
           <div>
             <Input
-            className="font-arapey text-[16px]"
+              className="font-arapey text-[16px]"
               name="email"
               onChange={handleChange}
               onBlur={handleBlur}
@@ -106,7 +106,10 @@ export default function CreateAccountPage() {
             <Button className="w-full font-arapey font-normal border border-primary bg-sage-300 h-[56px] text-[16px] hover:text-white text-primary my-6 uppercase">
               sign up with google
             </Button>
-            <h3 className=" font-arapey font-normal text-gray-900 text-[16px] text-center cursor-pointer" onClick={() => navigation('/login')}>
+            <h3
+              className=" font-arapey font-normal text-gray-900 text-[16px] text-center cursor-pointer"
+              onClick={() => navigation("/login")}
+            >
               Already have an account? Log in
             </h3>
           </div>

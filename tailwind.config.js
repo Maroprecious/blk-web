@@ -11,6 +11,15 @@ export default {
   ],
   prefix: "",
   theme: {
+    screens: {
+      'sm': '640px',
+      'md': '768px',
+      'tablet': '900px',
+      'lg': '1024px',
+      'xl': '1280px',
+      'screen': '1441px',
+      '2xl': '1536px',
+    },
     container: {
       center: true,
       padding: "2rem",
@@ -88,6 +97,7 @@ export default {
           to: { height: "0" },
         },
       },
+
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",

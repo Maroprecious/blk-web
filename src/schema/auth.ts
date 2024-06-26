@@ -55,6 +55,20 @@ export const CheckoutValidationSchema = Yup.object().shape({
   zip: Yup.string().required(),
   apartment: Yup.string().required(),
   phone: Yup.string().required(),
+  // email: Yup.string().email().required(),
+  // firstName: Yup.string().required(),
+  // lastName: Yup.string().required(),
+});
+export const CheckoutValidationSchemaw = Yup.object().shape({
+  email: Yup.string().email().required("Email is required"),
+  firstName: Yup.string().required("First name is required"),
+  lastName: Yup.string().required("Last name is required"),
+  address: Yup.string().required(),
+  country: Yup.string().required(),
+  state: Yup.string().required(),
+  zip: Yup.string().required(),
+  apartment: Yup.string().required(),
+  phone: Yup.string().required(),
 });
 export const addShippingValidationSchema = Yup.object().shape({
   firstName: Yup.string().required("First name is required"),
@@ -67,5 +81,11 @@ export const addShippingValidationSchema = Yup.object().shape({
   state: Yup.string().required("state is required"),
   zip: Yup.string().required("zip code is required"),
 });
-
-
+export const addProductsSchema = Yup.object().shape({
+  name: Yup.string().required("A product name is required"),
+  price: Yup.string().required("Price is required"),
+  quantity: Yup.string().email().required("Quantity is required"),
+  // images: Yup.array()
+  //   .of(Yup.string().url("Invalid URL"))
+  //   .required("At least one image is required"),
+});

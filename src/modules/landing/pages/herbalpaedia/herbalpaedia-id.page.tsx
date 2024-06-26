@@ -6,7 +6,8 @@ import {
 } from "@/components/ui/accordion";
 import BreadCrumb from "@/components/ui/bread-crumb";
 import { GoPlus } from "react-icons/go";
-import { PageLayout } from "@/shared/components/layout/page-layout";
+import Layout from "@/shared/admin/layout/Layout";
+// import { PageLayout } from "@/shared/components/layout/page-layout";
 import { useGetOneHerbalpaedia } from "@/api/queries";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
@@ -23,7 +24,7 @@ export default function HerbalpaediaID() {
 
   // console.log(data.data, "dataa");
   return (
-    <PageLayout>
+    <Layout>
       <div className="w-full p-8 bg-white pt-10 relative min-h-[100vh]">
         <BreadCrumb
           items={[
@@ -84,10 +85,10 @@ export default function HerbalpaediaID() {
         <div className="w-full flex justify-between items-start">
           <div className="w-[80%]">
             <h2 className="font-amsterdam text-primary text-[24px] py-6">
-             {data?.data?.name} ({data?.data?.sciName})
+              {data?.data?.name} ({data?.data?.sciName})
             </h2>
             <p className="font-arapey font-light text-[16px] text-gray-500">
-           {data?.data?.about}
+              {data?.data?.about}
             </p>
           </div>
           <div className="bg-cream-300 flex justify-center items-center gap-2 px-4 py-2 font-arapey text-[16px] text-clay-900">
@@ -100,18 +101,15 @@ export default function HerbalpaediaID() {
             {[
               {
                 title: "Medicinal use",
-                value:
-                 data?.data?.medUse,
+                value: data?.data?.medUse,
               },
               {
                 title: "Spiritual use",
-                value:
-                 data?.data?.spiritUse,
+                value: data?.data?.spiritUse,
               },
               {
                 title: "Contradictions",
-                value:
-                  data?.data?.sideEffects
+                value: data?.data?.sideEffects,
               },
               {
                 title: "Interactions",
@@ -130,6 +128,6 @@ export default function HerbalpaediaID() {
           buy now $150
         </button>
       </div>
-    </PageLayout>
+    </Layout>
   );
 }

@@ -33,10 +33,7 @@ export default function StorePage() {
               },
               idx: number
             ) => (
-              <div
-                className="w-[24%]"
-                key={idx}
-              >
+              <div className="w-[24%]" key={idx}>
                 <ProductCard
                   productId={element.id.toString()}
                   images={element.images}

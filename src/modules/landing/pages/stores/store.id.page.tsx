@@ -1,7 +1,6 @@
 import BreadCrumb from "@/components/ui/bread-crumb";
 import { Button } from "@/components/ui/button";
-import ProductCard from "@/shared/components/cards/retreats/product-card";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { CgMathMinus, CgMathPlus } from "react-icons/cg";
 import { PageLayout } from "@/shared/components/layout/page-layout";
 import { useGetOneProduct } from "@/api/queries";
@@ -9,7 +8,6 @@ import { useParams } from "react-router-dom";
 import { useCart } from "@/context/card.context";
 
 export default function StoreIdPage() {
-  const [count, setCount] = useState<number>(0);
   const params = useParams();
   const { data, refetch } = useGetOneProduct(params.id as any);
   const { addProduct, removeProduct, getProductCount } = useCart();

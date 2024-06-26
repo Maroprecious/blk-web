@@ -99,6 +99,13 @@ export interface CreateOrderDto {
     apartment?: string;
   };
 }
+
+export interface addPayload {
+  amount: number;
+  currency: string;
+  paymentMethodTypes: ["card"];
+  description: string;
+}
 export interface addShippingPayload {
   firstName: string;
   lastName: string;
@@ -121,7 +128,7 @@ export interface bookRetreatPayload {
   email: string;
   name: string;
   amount: number;
-  paymentType: "partial" | "full"; 
+  paymentType: "partial" | "full";
   retreatId: number;
   hotelName: string;
 }
@@ -148,4 +155,25 @@ export interface CreateOrderDto {
 }
 export interface logOutPayload {
   refreshToken: string;
+}
+export interface addProductPayload {
+  name: string;
+  desc: string;
+  price: number;
+  quantity: number;
+  categoryId: number;
+  images: string[];
+}
+export interface createRetreatPayload {
+  name: string;
+  description: string;
+  price: number;
+  quantity: number;
+  categoryId: number;
+  images: string[];
+  country: string,
+  city: string;
+  faq: [{}],
+  itenaries: [{}],
+  status: string
 }

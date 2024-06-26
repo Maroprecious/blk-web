@@ -27,3 +27,16 @@ export const bookRetreatValidationSchema = Yup.object().shape({
   amount:  Yup.string().required("Amount is required"),
 
 });
+
+export const createRetreatValidationSchema = Yup.object().shape({
+  name: Yup.string().required("Name is required"),
+  description: Yup.string().email().required("Description is required"),
+  country: Yup.string().required("Country is required"),
+  city:  Yup.string().required("City is required"),
+  hotel:  Yup.string().required("Hotel is required"),
+  price: Yup.number().required("Price is required"),
+  minDeposit: Yup.number().required("Minimum deposit is required"),
+  slots: Yup.number().required("Slots is required"),
+  startDate: Yup.string().required("Start date is required"),
+  endDate: Yup.string().required("End date is required"),
+});

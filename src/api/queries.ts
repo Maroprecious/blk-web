@@ -38,55 +38,58 @@ export function useGetAllProducts() {
 }
 
 export function useGetOneProduct(id: number) {
-    return useQuery({
-      queryKey: ["get-one-product"],
-      queryFn: () => api.get(`/products/${id}`).then((resp) => resp.data),
-      enabled: false,
-    });
-  }
-  export function useGetShippingAddress() {
-    return useQuery({
-      queryKey: ["get-addresses"],
-      queryFn: () => api.get('/users/me/addresses').then((resp) => resp.data),
-   
-    });
-  }
-  export function useGetAllRetreats() {
-    return useQuery({
-      queryKey: ["get-retreats"],
-      queryFn: () => api.get('/retreats').then((resp) => resp.data),
-    
-    });
-  }
+  return useQuery({
+    queryKey: ["get-one-product"],
+    queryFn: () => api.get(`/products/${id}`).then((resp) => resp.data),
+    enabled: false,
+  });
+}
+export function useGetShippingAddress() {
+  return useQuery({
+    queryKey: ["get-addresses"],
+    queryFn: () => api.get("/users/me/addresses").then((resp) => resp.data),
+  });
+}
+export function useGetAllRetreats() {
+  return useQuery({
+    queryKey: ["get-retreats"],
+    queryFn: () => api.get("/retreats").then((resp) => resp.data),
+  });
+}
 
+export function useGetOneRetreat(id: number) {
+  return useQuery({
+    queryKey: ["get-one-retreat"],
+    queryFn: () => api.get(`/retreats/${id}`).then((resp) => resp.data),
+    enabled: false,
+  });
+}
 
-  export function useGetOneRetreat(id: number) {
-    return useQuery({
-      queryKey: ["get-one-retreat"],
-      queryFn: () => api.get(`/retreats/${id}`).then((resp) => resp.data),
-      enabled: false,
-    });
-  }
+export function useCountry() {
+  return useQuery({
+    queryKey: ["country"],
+    queryFn: () => api.get(`/countries`).then((resp) => resp.data),
+  });
+}
 
-  export function useCountry() {
-    return useQuery({
-      queryKey: ["country"],
-      queryFn: () => api.get(`/countries`).then((resp) => resp.data),
-    });
-  }
+export function useStates(code: string) {
+  return useQuery({
+    queryKey: ["states"],
+    queryFn: () =>
+      api.get(`/countries/states/${code}`).then((resp) => resp.data),
+    enabled: false,
+  });
+}
+export function useGetAllOrders() {
+  return useQuery({
+    queryKey: ["get-orders"],
+    queryFn: () => api.get("/users/me/orders").then((resp) => resp.data),
+  });
+}
+export function useGetAllCountries() {
+  return useQuery({
+    queryKey: ["get-countries"],
+    queryFn: () => api.get("/countries").then((resp) => resp.data),
+  });
+}
 
-  export function useStates(code: string) {
-    return useQuery({
-      queryKey: ["states"],
-      queryFn: () => api.get(`/countries/states/${code}`).then((resp) => resp.data),
-      enabled: false,
-      
-    });
-  }
-  export function useGetAllOrders() {
-    return useQuery({
-      queryKey: ["get-orders"],
-      queryFn: () => api.get('/users/me/orders').then((resp) => resp.data),
-    
-    });
-  }
